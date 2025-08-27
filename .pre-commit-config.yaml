@@ -1,0 +1,30 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^(All_Case_Parties_EML/|Combined_Attachments/|Additional_Documents/|All_Case_Parties_HTML\+ATTACH/)
+      - id: end-of-file-fixer
+        exclude: ^(All_Case_Parties_EML/|Combined_Attachments/|Additional_Documents/|All_Case_Parties_HTML\+ATTACH/)
+      - id: check-merge-conflict
+      - id: detect-private-key
+
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black
+        files: ^tools/verify/|^scripts/|.*\.py$
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        files: ^tools/verify/|^scripts/|.*\.py$
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.5.6
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+        files: ^tools/verify/|^scripts/|.*\.py$
+

@@ -11,6 +11,12 @@ Evidence management for legal and AI workflows.
 
 ---
 
+## 🤝 Contributing
+
+See `AGENTS.md` for contributor guidelines, coding style, and CI gates.
+
+---
+
 ## 📦 Quick Start
 
 - **For AI:** Use `.txt` OCR files for analysis.
