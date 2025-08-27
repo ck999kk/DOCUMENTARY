@@ -1,0 +1,67 @@
+# VCAT Evidence Repository .gitignore
+# Legal evidence protection and system files
+
+# macOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary processing files
+*.tmp
+*.temp
+*~
+.*.swp
+.*.swo
+
+# System and editor files
+*~
+.#*
+\#*#
+.emacs.d/
+.vscode/
+.idea/
+
+# OCR processing temporary files
+ocr_temp/
+processing_logs/
+*.processing
+
+# Personal information protection
+# (Note: All evidence files are intentionally included for legal purposes)
+# Only exclude temporary processing artifacts
+
+# Log files from processing
+*.log
+!ocr_processing_*.log  # Keep OCR logs for legal documentation
+
+# Backup files
+*.bak
+*.backup
+
+# Compressed archives of evidence (originals should remain separate)
+*.zip
+*.tar.gz
+*.rar
+
+# Document conversion temp files
+*.tmp.pdf
+*.tmp.txt
+*.converting
+
+# Email client temp files
+*.emlx.temp
+*.mbox.processing
+
+# Hash verification temp files
+*.sha256.temp
+*.md5.temp
+
+# Legal documentation drafts (keep only final versions)
+*draft*
+*DRAFT*
+*_draft.md
+*_temp.md

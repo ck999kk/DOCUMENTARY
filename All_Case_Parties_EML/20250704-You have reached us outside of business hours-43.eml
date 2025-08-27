@@ -1,0 +1,481 @@
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Delivered-To: ck.chawakorn@gmail.com
+Received: by 2002:a05:622a:5796:b0:4a7:5669:d95 with SMTP id eh22csp5169563qtb;
+        Fri, 4 Jul 2025 05:32:39 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEYzJOF83XYF7QjrMqV+nwSvponmoTxyng+bL0DMSBOIn3QuIUPif0eO5ICz/0hw0QXkjIa
+X-Received: by 2002:a17:902:f682:b0:234:9670:cc73 with SMTP id d9443c01a7336-23c85d8f503mr40185595ad.5.1751632358924;
+        Fri, 04 Jul 2025 05:32:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1751632358; cv=none;
+        d=google.com; s=arc-20240605;
+        b=dIkYh+XbKQY9sYGkRTgkCLOoTO24Lgz7LfzrnCQ5yrxTY2jZMhi0Yb+PaL4b+neIQv
+         oMlhKt9OLr1HEHZyN3SAai2h+gjK7+L+dt1fkd/IeK2/WUZtIVGOKXfKj4CBzvDb5GiM
+         GfbjYbH4otO942LpGLQtS4yC5IH7KNmpCaQUxOF0rTrAEDuA5p13H1UfuvyzQ3HQ69On
+         0bOkwU6zRsvHU9w7dj+u5fyNnyShBhVnvhwKjMZ8QgGTL9NdZyohFUp4SW3m2WKoYGOU
+         F+2VPqhZEho6eur7b2LPZ5u5A9eNT5gVMD/OXr0sB9/sL/BzLd0qjyhkP2kfs0LJaHrT
+         ypKg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:reply-to:subject:message-id:mime-version:from:date
+         :content-transfer-encoding:dkim-signature:dkim-signature;
+        bh=tW9c8AIvVAk0M6oznV6J0MZOSCqEEItj1UMDHM/lZkc=;
+        fh=CVsJ6L+cWKh+WDBbt4SFoq0vQoJoSpgd9O36hQk3r7k=;
+        b=Z8/z1EdW9OqKybLRRKF5cyxmEUbihqeVcNHuK5vWsI2NtDdyuSVVi3ZjXIpSfrVKXD
+         5RadSoT95ZCzBcjk17PPeRmyLVEAcTS7L48ITA9+DTjTFcHv6UeJNGjAUzW7NtZR1Ru2
+         khvYiCs27PPxmPsg5CTdzsu/VwZSBctb5j2oDdkSgNeaLcc858DeFnZY7DQXV1OLy2SU
+         RPWWUh1a/UpJFQhRmTBct8efpJfqvLSoehwoGfIFK5rz/ROyJOUtYIup3R+3ac0D6jam
+         MT54ATxyP7W86wF7qaX9yiMKdRG/tG4d/W4rjAKQI97YdIDdHKFmLuk1IupOtod3OD8z
+         v7Bw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@email.propertyme.com header.s=s1 header.b="i/zFYPS0";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=MCI5KKI1;
+       spf=pass (google.com: domain of bounces+19284957-a33c-ck.chawakorn=gmail.com@em2626.email.propertyme.com designates 149.72.248.183 as permitted sender) smtp.mailfrom="bounces+19284957-a33c-ck.chawakorn=gmail.com@em2626.email.propertyme.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=email.propertyme.com
+Return-Path: <bounces+19284957-a33c-ck.chawakorn=gmail.com@em2626.email.propertyme.com>
+Received: from o1.sg.email.propertyme.com (o1.sg.email.propertyme.com. [149.72.248.183])
+        by mx.google.com with ESMTPS id d9443c01a7336-23c8457ad4csi28249835ad.570.2025.07.04.05.32.38
+        for <ck.chawakorn@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 04 Jul 2025 05:32:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+19284957-a33c-ck.chawakorn=gmail.com@em2626.email.propertyme.com designates 149.72.248.183 as permitted sender) client-ip=149.72.248.183;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@email.propertyme.com header.s=s1 header.b="i/zFYPS0";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=MCI5KKI1;
+       spf=pass (google.com: domain of bounces+19284957-a33c-ck.chawakorn=gmail.com@em2626.email.propertyme.com designates 149.72.248.183 as permitted sender) smtp.mailfrom="bounces+19284957-a33c-ck.chawakorn=gmail.com@em2626.email.propertyme.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=email.propertyme.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=email.propertyme.com;
+	h=content-transfer-encoding:content-type:from:mime-version:subject:
+	reply-to:to:cc:content-type:feedback-id:from:subject:to;
+	s=s1; bh=tW9c8AIvVAk0M6oznV6J0MZOSCqEEItj1UMDHM/lZkc=;
+	b=i/zFYPS0t6T2Vs/wtxO1x23tZ+F9C/0ASlPg0541uMIXPZwOVqN2WVdmVQzsK3BsFoCp
+	qOERIHeMrnbIQ2WKXmbwJtQs4BNG9IVHw1lwkgR0Kp612vCbPno0pNFhLcxRwF4bPHQxqD
+	3tQm0GGZi5c835e3WiVW+5sun9snz4d1isag7g1au18OGAdFJWuYBxZLaZx0vYyrrqXqeQ
+	K8b/BaDJkJ4sDK1WeoMpJcQGO0tT0RaQnFIt0p5GBqvERYMzsxjDMygwMqzHlGd0p+6RUO
+	ofAQR/ao2yQqkrv3yv0/LjF28SXdLzkxv2920Qx+Y8r0KbN/LcSA4gzTMnWMngZw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-transfer-encoding:content-type:from:mime-version:subject:
+	reply-to:to:cc:content-type:feedback-id:from:subject:to;
+	s=smtpapi; bh=tW9c8AIvVAk0M6oznV6J0MZOSCqEEItj1UMDHM/lZkc=;
+	b=MCI5KKI1sWpz9n1OUmv5h1AlGFtDb6lX4Z04nWrOcBHOWY0gICu7FIAFPhegqDhdkCfo
+	emjqqrTlKhopJBed6tVfOO0c3IH3p/2rfmN1NAGuTxh/1S7wtXgW1+G+HpiZDTlkII9lEp
+	EhqK69avB2qaeGFMLXZQlsvIEuQB7v/g0=
+Received: by recvd-d89877956-s5nqw with SMTP id recvd-d89877956-s5nqw-1-6867C9E5-CA
+	2025-07-04 12:32:37.697167725 +0000 UTC m=+2577768.274687157
+Received: from MTkyODQ5NTc (unknown)
+	by geopod-ismtpd-17 (SG) with HTTP
+	id HB_2sHe0TJm17bsMBrHGWQ
+	Fri, 04 Jul 2025 12:32:37.642 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Date: Fri, 04 Jul 2025 12:32:37 +0000 (UTC)
+From: "Areal Property Hawthorn (MPM)" <MPM@email.propertyme.com>
+Mime-Version: 1.0
+Message-ID: <HB_2sHe0TJm17bsMBrHGWQ@geopod-ismtpd-17>
+Subject: You have reached us outside of business hours
+Reply-To: "Areal Property Hawthorn (MPM)" <MPM@email.propertyme.com>
+X-PME-Message-ID: b31002b1-0bb5-4f5b-9091-811878c145d5
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EPYWoAfdz=2FUoXTTMO+OObSAHnjTQBNXphomCY2nB2Rpu=2F=2FOAGMqFc5lvVi?=
+ =?us-ascii?Q?wrWTaNdjAPcqEcnTjezx7XcmPAXKxkU7o4Y4od+?=
+ =?us-ascii?Q?tiIK=2FPnwvR48wTZoxHC3NnZu+YEa99O82iS31Nc?=
+ =?us-ascii?Q?cSPCIJHKA9HmnIC3xqJ7j6Ui0dpGCK8azw4=2FqUm?=
+ =?us-ascii?Q?=2F90QGulftQkCw79lRYmQ6eBZ043=2FIiIGnryIfi1?=
+ =?us-ascii?Q?wpvEyZ2bu2aWPX2apFPN5d42AEarTMFUnV5OycN?=
+ =?us-ascii?Q?nZsrG+j6+e2Zlp7=2FXTQGEQWrEA=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprCJ0D=2FzM03152aEp?=
+ =?us-ascii?Q?B6xxwbUZ=2FxNEpdnGNLg8y+50Ft1LB3QvJERLTDA?=
+ =?us-ascii?Q?jb4EkYPytnsK6bhlehcr+e=2FkdgtimK0e?=
+To: Chawakorn Kamnuansil <ck.chawakorn@gmail.com>
+X-Entity-ID: u001.deu+on/E3Lv+61CrnlixOA==
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml" style=3D"margin: 0;padding: 0;box-sizing: border-box"><head=
+ style=3D"margin: 0;padding: 0;box-sizing: border-box">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width" style=3D"margi=
+n: 0;padding: 0;box-sizing: border-box" />
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+" style=3D"margin: 0;padding: 0;box-sizing: border-box" />
+    <title style=3D"margin: 0;padding: 0;box-sizing: border-box">Email</tit=
+le>
+</head>
+
+<body class=3D"" style=3D"margin: 0;padding: 0;box-sizing: border-box;-webk=
+it-font-smoothing: antialiased;-webkit-text-size-adjust: none;width: 100%;h=
+eight: 100%;line-height: 1.6;margin-top: 0;margin-left: 0;margin-right: 0">
+    <div id=3D"email-content" style=3D"margin: 0;padding: 0;box-sizing: bor=
+der-box;-webkit-font-smoothing: antialiased;-webkit-text-size-adjust: none;=
+width: 100%;height: 100%;line-height: 1.6;margin-top: 0;margin-left: 0;marg=
+in-right: 0;background: #f6f6f6">
+        <table class=3D"body-wrap" style=3D"padding: 0;box-sizing: border-b=
+ox;background: white;margin: 0 auto;border-spacing: 0;background-color: #f6=
+f6f6;width: 100%;min-width: 50%">
+            <tbody style=3D"margin: 0;padding: 0;box-sizing: border-box"><t=
+r style=3D"margin: 0;padding: 0;box-sizing: border-box">
+                <td class=3D"container" style=3D"padding: 0;box-sizing: bor=
+der-box;vertical-align: top;display: block;max-width: 800px;min-width: 400p=
+x;margin: 0 auto;clear: both;background: #fff">
+                    <div class=3D"content" style=3D"padding: 0;box-sizing: =
+border-box;max-width: 800px;min-width: 400px;margin: 0 auto;display: block"=
+>
+                        <table class=3D"header" width=3D"100%" style=3D"mar=
+gin: 0;box-sizing: border-box;width: 100%;clear: both;padding: 0 20px;backg=
+round: white;border-width: 0;border-spacing: 0">
+                            <tbody style=3D"margin: 0;padding: 0;box-sizing=
+: border-box"><tr style=3D"margin: 0;padding: 0;box-sizing: border-box">
+	<td class=3D"header-footer-block" align=3D"left" style=3D"padding: 0;box-s=
+izing: border-box;clear: both;max-height: 50mm;margin: 0;vertical-align: mi=
+ddle;font-family: Verdana, Geneva, sans-serif;font-size: 15px">
+				<img style=3D"margin: 0;padding: 0;box-sizing: border-box;max-height: 1=
+06px;height: 106px;max-width: 100%;vertical-align: middle" src=3D"https://a=
+pp.propertyme.com/api/storage/images/public/b24c00fd-ab5d-ff7f-8906-1dabef1=
+916a8" alt=3D"agent image" />
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_LEFT_TEXT}}-->
+	</td>
+	<td class=3D"header-footer-block" align=3D"center" style=3D"padding: 0;box=
+-sizing: border-box;clear: both;max-height: 50mm;margin: 0;vertical-align: =
+middle;font-family: Verdana, Geneva, sans-serif;font-size: 15px">
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_CENTER_IMAGE}}-->
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_CENTER_TEXT}}-->
+	</td>
+	<td class=3D"header-footer-block" align=3D"right" style=3D"padding: 0;box-=
+sizing: border-box;clear: both;max-height: 50mm;margin: 0;vertical-align: m=
+iddle;font-family: Verdana, Geneva, sans-serif;font-size: 15px">
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_RIGHT_TEXT}}-->
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_RIGHT_IMAGE}}-->
+	</td>
+</tr>
+                        </tbody></table>
+
+
+                        <table class=3D"main" width=3D"100%" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"box-sizing: border-box;background: #;border-=
+width: 0;border-spacing: 0;padding: 0.7em 0;margin: 0">
+                            <tbody style=3D"margin: 0;padding: 0;box-sizing=
+: border-box"><tr style=3D"margin: 0;padding: 0;box-sizing: border-box">
+                                <td class=3D"content-wrap" style=3D"margin:=
+ 0;box-sizing: border-box;vertical-align: top;font-family: Verdana, Geneva,=
+ sans-serif;font-size: 15px;padding: 0 20px">
+                                    <table width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0" style=3D"margin: 0;padding: 0;box-sizing: border-box;fon=
+t-size: inherit;font-family: inherit">
+                                        <tbody style=3D"margin: 0;padding: =
+0;box-sizing: border-box"><tr style=3D"margin: 0;padding: 0;box-sizing: bor=
+der-box">
+                                            <td class=3D"content-block fr-v=
+iew" style=3D"margin: 0;box-sizing: border-box;vertical-align: top;font-fam=
+ily: Verdana, Geneva, sans-serif;font-size: 15px;padding: 12px 0 20px">
+                                                <!-- Please do not change t=
+he comment, it's used for merge -->
+                                                <div style=3D"margin: 0;pad=
+ding: 0;box-sizing: border-box"><div dir=3D"ltr" style=3D"margin: 0;padding=
+: 0;box-sizing: border-box;display: inline"><div dir=3D"ltr" style=3D"margi=
+n: 0;padding: 0;box-sizing: border-box;display: inline"><div style=3D"margi=
+n: 0;padding: 0;box-sizing: border-box"><div dir=3D"ltr" style=3D"margin: 0=
+;padding: 0;box-sizing: border-box;display: inline"><div dir=3D"ltr" style=
+=3D"margin: 0;padding: 0;box-sizing: border-box;display: inline"><div style=
+=3D"margin: 0;padding: 0;box-sizing: border-box"><div dir=3D"ltr" style=3D"=
+margin: 0;padding: 0;box-sizing: border-box;display: inline"><div dir=3D"lt=
+r" style=3D"margin: 0;padding: 0;box-sizing: border-box;display: inline"><d=
+iv dir=3D"ltr" style=3D"margin: 0;padding: 0;box-sizing: border-box;display=
+: inline"><div style=3D"margin: 0;padding: 0;box-sizing: border-box"><div d=
+ir=3D"ltr" style=3D"margin: 0;padding: 0;box-sizing: border-box;display: in=
+line"><div dir=3D"ltr" style=3D"margin: 0;padding: 0;box-sizing: border-box=
+;display: inline"><div dir=3D"ltr" style=3D"margin: 0;padding: 0;box-sizing=
+: border-box;display: inline"><div dir=3D"ltr" style=3D"margin: 0;padding: =
+0;box-sizing: border-box;display: inline"><div style=3D"margin: 0;padding: =
+0;box-sizing: border-box"><span style=3D"margin: 0;padding: 0;box-sizing: b=
+order-box;font-size: 14px;font-family: Verdana, Geneva, sans-serif">Thank y=
+ou for your email. Our office hours are Monday to Friday between 9.00 am an=
+d 5:30 pm. We appreciate you reaching out to us and will respond to your in=
+quiry as soon as possible.</span></div></div><div dir=3D"ltr" style=3D"marg=
+in: 0;padding: 0;box-sizing: border-box;display: inline"><div style=3D"marg=
+in: 0;padding: 0;box-sizing: border-box"><span style=3D"margin: 0;padding: =
+0;box-sizing: border-box;font-size: 14px"><span style=3D"margin: 0;padding:=
+ 0;box-sizing: border-box;font-family: Verdana,Geneva,sans-serif"><br style=
+=3D"margin: 0;padding: 0;box-sizing: border-box" /></span></span></div><div=
+ style=3D"margin: 0;padding: 0;box-sizing: border-box"><span style=3D"margi=
+n: 0;padding: 0;box-sizing: border-box;font-size: 14px"><span style=3D"marg=
+in: 0;padding: 0;box-sizing: border-box;font-family: Verdana,Geneva,sans-se=
+rif"><strong style=3D"margin: 0;padding: 0;box-sizing: border-box;font-size=
+: inherit;font-weight: 700">Urgent Maintenance Requests:&#160;</strong>Duri=
+ng after-hours, only urgent maintenance issues will be attended to. For def=
+initions of urgent repairs, please refer to the attached CAV Booklet (<a ar=
+ia-label=3D"Link Consumer Affairs Victoria Urgent Repairs Link" href=3D"htt=
+ps://link.email.propertyme.com/ls/click?upn=3Du001.uPeXt1-2FWMMlLMhZtXudDrE=
+-2Bg-2F4IMzovRpELstvCOsSK6wVyc2RlDDKtERitnBpFDkWoyX-2BdfVuZLVxbKnB7pIQ-3D-3=
+DEoXO_ToOUkN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1qerBvoBvFoFL9NU=
+Y5CF6drvdNNMgNjrUEcE5x18ZzuduVZ1-2BrTLQ-2Fc3pDhmfjtOOWmyaynAlVk5IPF7eJdi3pw=
+mhVmsWXz4xd1-2Bd7i6uw20bJBCOVqKRxPt1KkRBAiftYWcMCTtX-2Fl-2FKD3cr5mTsgvxP8LC=
+KrdYFSAR0c1wDxKTEu3t8BK8fOP9EBlQxqQtF31oTXTMYvKEhNbGAZ19DAJoRVCjXu8YMduvGwt=
+nT60Za5bmwFP5VyoS3Fak-3D" rel=3D"noreferrer noopener" target=3D"_blank" tit=
+le=3D"https://www.consumer.vic.gov.au/urgentrepairs" style=3D"margin: 0;pad=
+ding: 0;box-sizing: border-box;color: #348eda;text-decoration: underline">C=
+onsumer Affairs Victoria Urgent Repairs Link</a>). For urgent maintenance d=
+uring after-hours, please call us at 03 8686 8388. You can also review the =
+after-hours trades list <a href=3D"https://link.email.propertyme.com/ls/cli=
+ck?upn=3Du001.uPeXt1-2FWMMlLMhZtXudDrGOk5WG-2FHoAskInQjuFdnOkMT7Icp3OEfpqEe=
+wYs8h0S-2FMKeleDLfUIcNSLn67XxpeHRpcSUxjCYhcYYLOKcCEbzXMl2rWYaV-2FkjO2uxnhub=
+597d_ToOUkN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1qerBvoBvFoFL9NUY=
+5CF6drvdNNMgNjrUEcE5x18ZzuduVZ1-2BrTLQ-2Fc3pDhmfjtOOWmyaynAlVk5IPF7eJdi3pwm=
+hVmsWXz4xd1-2Bd7i6uw20bJBCOVqKRxPt1KkTmYBQ1-2Fp8wnCmztDV4X0QuOfgX51x8kM9xvX=
+CeW3Mh7VMNLMmtq1tF623MQ6VVLmwxXAgOVn0R7uqUkC8u0lWVFh1XRA0HblkbQTha402UJn8wR=
+H7uadVbGNsqEB8svqg-3D" style=3D"margin: 0;padding: 0;box-sizing: border-box=
+;color: #348eda;text-decoration: underline">click here</a></span></span></d=
+iv><div style=3D"margin: 0;padding: 0;box-sizing: border-box"><span style=
+=3D"margin: 0;padding: 0;box-sizing: border-box;font-size: 14px"><span styl=
+e=3D"margin: 0;padding: 0;box-sizing: border-box;font-family: Verdana,Genev=
+a,sans-serif"><br style=3D"margin: 0;padding: 0;box-sizing: border-box" /><=
+/span></span></div><div style=3D"margin: 0;padding: 0;box-sizing: border-bo=
+x"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-size: 14=
+px"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-family:=
+ Verdana,Geneva,sans-serif">Please be assured that our selected tradespeopl=
+e used for urgent maintenance will directly send us the invoice for payment=
+, simplifying the process for our renters.</span></span></div><div style=3D=
+"margin: 0;padding: 0;box-sizing: border-box"><span style=3D"margin: 0;padd=
+ing: 0;box-sizing: border-box;font-size: 14px"><span style=3D"margin: 0;pad=
+ding: 0;box-sizing: border-box;font-family: Verdana,Geneva,sans-serif">&#16=
+0;</span></span></div><div style=3D"margin: 0;padding: 0;box-sizing: border=
+-box"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-size:=
+ 14px"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-fami=
+ly: Verdana,Geneva,sans-serif"><strong style=3D"margin: 0;padding: 0;box-si=
+zing: border-box;font-size: inherit;font-weight: 700">Non-Urgent Maintenanc=
+e Requests:&#160;</strong>All non-urgent maintenance requests should be sub=
+mitted via your Property Me Tenant portal or emailed to <a href=3D"mailto:m=
+pm@email.propertyme.com" target=3D"_blank" title=3D"mailto:mpm@email.proper=
+tyme.com" style=3D"margin: 0;padding: 0;box-sizing: border-box;color: #348e=
+da;text-decoration: underline">mpm@email.propertyme.com</a>. Non-urgent mai=
+ntenance will be addressed when the office reopens. We appreciate your unde=
+rstanding and cooperation in this matter.</span></span></div></div><div sty=
+le=3D"margin: 0;padding: 0;box-sizing: border-box"><span style=3D"margin: 0=
+;padding: 0;box-sizing: border-box;font-size: 14px"><span style=3D"margin: =
+0;padding: 0;box-sizing: border-box;font-family: Verdana,Geneva,sans-serif"=
+>&#160;</span></span></div><div style=3D"margin: 0;padding: 0;box-sizing: b=
+order-box"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-=
+size: 14px"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;font=
+-family: Verdana,Geneva,sans-serif">When submitting a maintenance request, =
+please include:</span></span></div><ol style=3D"margin: 0;padding: 0;box-si=
+zing: border-box;margin-bottom: 10px;font-weight: normal"><li style=3D"marg=
+in: 0;padding: 0;box-sizing: border-box;margin-left: 5px;list-style-positio=
+n: inside;font-size: 14px;font-family: Verdana, Geneva, sans-serif"><strong=
+ style=3D"margin: 0;padding: 0;box-sizing: border-box;font-size: inherit;fo=
+nt-weight: 700">Photos:</strong> Provide photos from a distance and one clo=
+se-up.</li><li style=3D"margin: 0;padding: 0;box-sizing: border-box;margin-=
+left: 5px;list-style-position: inside;font-size: 14px;font-family: Verdana,=
+ Geneva, sans-serif"><strong style=3D"margin: 0;padding: 0;box-sizing: bord=
+er-box;font-size: inherit;font-weight: 700">Appliance Details:</strong> Inc=
+lude the make, model number, and year.</li><li style=3D"margin: 0;padding: =
+0;box-sizing: border-box;margin-left: 5px;list-style-position: inside;font-=
+size: 14px;font-family: Verdana, Geneva, sans-serif"><strong style=3D"margi=
+n: 0;padding: 0;box-sizing: border-box;font-size: inherit;font-weight: 700"=
+>Event History:</strong> Briefly describe the events leading up to the issu=
+e.</li><li style=3D"margin: 0;padding: 0;box-sizing: border-box;margin-left=
+: 5px;list-style-position: inside;font-size: 14px;font-family: Verdana, Gen=
+eva, sans-serif"><strong style=3D"margin: 0;padding: 0;box-sizing: border-b=
+ox;font-size: inherit;font-weight: 700">Potential Risks:</strong> Note any =
+potential damage or injury related to the issue.</li><li style=3D"margin: 0=
+;padding: 0;box-sizing: border-box;margin-left: 5px;list-style-position: in=
+side;font-size: 14px;font-family: Verdana, Geneva, sans-serif"><strong styl=
+e=3D"margin: 0;padding: 0;box-sizing: border-box;font-size: inherit;font-we=
+ight: 700">Separate Requests:</strong> Lodge a separate request for each is=
+sue.</li></ol><div style=3D"margin: 0;padding: 0;box-sizing: border-box"><s=
+pan style=3D"margin: 0;padding: 0;box-sizing: border-box;font-size: 14px"><=
+span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-family: Verd=
+ana,Geneva,sans-serif">Providing this detailed information enables us to pr=
+ocess your request more efficiently. Upon receiving the relevant details, w=
+e will seek approval from the Rental Provider.</span></span></div><div styl=
+e=3D"margin: 0;padding: 0;box-sizing: border-box"><span style=3D"margin: 0;=
+padding: 0;box-sizing: border-box;font-size: 14px"><span style=3D"margin: 0=
+;padding: 0;box-sizing: border-box;font-family: Verdana,Geneva,sans-serif">=
+&#160;</span></span></div><div style=3D"margin: 0;padding: 0;box-sizing: bo=
+rder-box"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-s=
+ize: 14px"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-=
+family: Verdana,Geneva,sans-serif"><strong style=3D"margin: 0;padding: 0;bo=
+x-sizing: border-box;font-size: inherit;font-weight: 700">Maintenance Liabi=
+lity Notice:&#160;</strong>Please be aware that if a trade report indicates=
+ that the issue was caused by incorrect usage or no fault is found, repair =
+and call-out costs will be the renter's responsibility.</span></span></div>=
+<div style=3D"margin: 0;padding: 0;box-sizing: border-box"><span style=3D"m=
+argin: 0;padding: 0;box-sizing: border-box;font-size: 14px"><span style=3D"=
+margin: 0;padding: 0;box-sizing: border-box;font-family: Verdana,Geneva,san=
+s-serif">&#160;</span></span></div><div style=3D"margin: 0;padding: 0;box-s=
+izing: border-box"><span style=3D"margin: 0;padding: 0;box-sizing: border-b=
+ox;font-size: 14px"><span style=3D"margin: 0;padding: 0;box-sizing: border-=
+box;font-family: Verdana,Geneva,sans-serif">For general inquiries, you can =
+reach us at <a href=3D"mailto:mpm@email.propertyme.com" target=3D"_blank" t=
+itle=3D"mailto:mpm@email.propertyme.com" style=3D"margin: 0;padding: 0;box-=
+sizing: border-box;color: #348eda;text-decoration: underline">mpm@email.pro=
+pertyme.com</a>.</span></span></div><div style=3D"margin: 0;padding: 0;box-=
+sizing: border-box"><span style=3D"margin: 0;padding: 0;box-sizing: border-=
+box;font-size: 14px"><span style=3D"margin: 0;padding: 0;box-sizing: border=
+-box;font-family: Verdana,Geneva,sans-serif">&#160;</span></span></div><div=
+ style=3D"margin: 0;padding: 0;box-sizing: border-box"><span style=3D"margi=
+n: 0;padding: 0;box-sizing: border-box;font-size: 14px"><span style=3D"marg=
+in: 0;padding: 0;box-sizing: border-box;font-family: Verdana,Geneva,sans-se=
+rif">Thank you again for your email. We appreciate your patience and look f=
+orward to assisting you soon.</span></span></div><div style=3D"margin: 0;pa=
+dding: 0;box-sizing: border-box"><span style=3D"margin: 0;padding: 0;box-si=
+zing: border-box;font-size: 14px"><span style=3D"margin: 0;padding: 0;box-s=
+izing: border-box;font-family: Verdana,Geneva,sans-serif">&#160;</span></sp=
+an></div><div style=3D"margin: 0;padding: 0;box-sizing: border-box"><span s=
+tyle=3D"margin: 0;padding: 0;box-sizing: border-box;font-size: 14px"><span =
+style=3D"margin: 0;padding: 0;box-sizing: border-box;font-family: Verdana,G=
+eneva,sans-serif">Best regards,</span></span></div><div style=3D"margin: 0;=
+padding: 0;box-sizing: border-box;color: rgb(110, 110, 110);font-family: &q=
+uot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-ser=
+if;font-size: 13px;font-style: normal;font-variant-ligatures: normal;font-v=
+ariant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text=
+-align: start;text-indent: 0px;text-transform: none;widows: 2;word-spacing:=
+ 0px;-webkit-text-stroke-width: 0px;white-space: normal;text-decoration-thi=
+ckness: initial;text-decoration-style: initial;text-decoration-color: initi=
+al"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-size: 1=
+4px"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-family=
+: Verdana,Geneva,sans-serif"><span style=3D"margin: 0;padding: 0;box-sizing=
+: border-box;color: rgb(0, 0, 0)">Areal Property</span></span></span></div>=
+<div style=3D"margin: 0;padding: 0;box-sizing: border-box"><span style=3D"m=
+argin: 0;padding: 0;box-sizing: border-box;font-size: 14px"><span style=3D"=
+margin: 0;padding: 0;box-sizing: border-box;font-family: Verdana,Geneva,san=
+s-serif">E: <a href=3D"mailto:mpm@email.propertyme.com" target=3D"_blank" t=
+itle=3D"mailto:mpm@email.propertyme.com" style=3D"margin: 0;padding: 0;box-=
+sizing: border-box;color: #348eda;text-decoration: underline">mpm@email.pro=
+pertyme.com</a></span></span></div><div style=3D"margin: 0;padding: 0;box-s=
+izing: border-box"><span style=3D"margin: 0;padding: 0;box-sizing: border-b=
+ox;font-size: 14px"><span style=3D"margin: 0;padding: 0;box-sizing: border-=
+box;font-family: Verdana,Geneva,sans-serif">P: 03 8686 8388</span></span></=
+div></div></div></div></div></div></div></div></div></div></div></div></div=
+></div></div><div style=3D"margin: 0;padding: 0;box-sizing: border-box"><br=
+ style=3D"margin: 0;padding: 0;box-sizing: border-box" /></div>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+
+                        <table class=3D"footer" width=3D"100%" style=3D"mar=
+gin: 0;box-sizing: border-box;width: 100%;clear: both;padding: 0 20px;backg=
+round: white;border-width: 0;border-spacing: 0">
+                            <tbody style=3D"margin: 0;padding: 0;box-sizing=
+: border-box"><tr style=3D"margin: 0;padding: 0;box-sizing: border-box">
+	<td class=3D"header-footer-block" align=3D"left" style=3D"padding: 0;box-s=
+izing: border-box;clear: both;max-height: 50mm;margin: 0;vertical-align: mi=
+ddle;font-family: Verdana, Geneva, sans-serif;font-size: 15px">
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_LEFT_IMAGE}}-->
+				<div style=3D"margin: 0;padding: 0;box-sizing: border-box;vertical-alig=
+n: middle;display: inline-block;word-wrap: break-word;max-width: 90%"><div =
+style=3D"box-sizing: border-box;margin: 0px;padding: 0px;user-select: text;=
+-webkit-user-drag: none;-webkit-tap-highlight-color: transparent;overflow: =
+visible;cursor: text;clear: both;position: relative;direction: ltr;color: r=
+gb(0, 0, 0);font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Ar=
+ial, Verdana, sans-serif;font-size: 12px;font-style: normal;font-variant-li=
+gatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: =
+normal;orphans: 2;text-align: start;text-indent: 0px;text-transform: none;w=
+hite-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0=
+px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;=
+text-decoration-style: initial;text-decoration-color: initial"><table borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin: 0;padding: 0;b=
+ox-sizing: border-box;width: 393.75pt;border-collapse: collapse" width=3D"3=
+93.75pt"><tbody style=3D"margin: 0;padding: 0;box-sizing: border-box"><tr s=
+tyle=3D"margin: 0;padding: 0;box-sizing: border-box" /></tbody></table><div=
+ style=3D"color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: no=
+rmal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orph=
+ans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;=
+word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness:=
+ initial;text-decoration-style: initial;text-decoration-color: initial;box-=
+sizing: border-box;margin: 0px;padding: 0px;user-select: text;-webkit-user-=
+drag: none;-webkit-tap-highlight-color: transparent;overflow: visible;curso=
+r: text;clear: both;position: relative;direction: ltr;font-family: &quot;Se=
+goe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif;font-siz=
+e: 12px;text-align: start;background-color: rgb(255, 255, 255)"><p style=3D=
+"margin-bottom: 2px;padding: 0px;box-sizing: border-box;font-weight: normal=
+;margin: 0cm;font-size: 15px;font-family: Calibri, sans-serif"><strong styl=
+e=3D"font-size: inherit;margin: 0px;padding: 0px;box-sizing: border-box"><s=
+pan style=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-size: 14p=
+x;font-family: Arial, sans-serif;color: rgb(0, 176, 80);background: white">=
+If you have any feedback regarding my service, please feel free to contact =
+my manager.</span></strong></p><p style=3D"margin-bottom: 2px;padding: 0px;=
+box-sizing: border-box;font-weight: normal;margin: 0cm;font-size: 15px;font=
+-family: Calibri, sans-serif"><strong style=3D"font-size: inherit;margin: 0=
+px;padding: 0px;box-sizing: border-box"><span style=3D"margin: 0px;padding:=
+ 0px;box-sizing: border-box;color: black">Jamie Ong (Head of Property Manag=
+ement) <span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-size=
+: 13px;font-family: &quot;Arial&quot;,sans-serif"><a href=3D"mailto:jamie.o=
+ng@areal.com.au" style=3D"margin: 0;padding: 0;box-sizing: border-box;color=
+: #348eda;text-decoration: underline">jamie.ong@areal.com.au</a></span></sp=
+an></strong></p><div style=3D"margin: 0;padding: 0;box-sizing: border-box">=
+<br style=3D"margin: 0;padding: 0;box-sizing: border-box" /></div><div styl=
+e=3D"margin: 0;padding: 0;box-sizing: border-box"><span style=3D"margin: 0p=
+x;padding: 0px;box-sizing: border-box;color: black;font-size: 10px">DISCLAI=
+MER &amp; WARNING. This correspondence and the information contained in thi=
+s and associated e-mails are confidential and were only intended for the ex=
+clusive use of the addressee(s). If you have received this e-mail in error,=
+ any use, copying or inference with this information is unauthorized and pr=
+ohibited and please immediately delete it and any related attachments or em=
+ails from your system and its related sub system and notify the sender. You=
+ must never copy, disclose, make conclusions and other information in this =
+message that do not relate to the business of the Areal Property and shall =
+be understood as neither given nor approved or agreed by it. Although Areal=
+ Property has taken reasonable precautions to ensure no viruses are present=
+ in this e-mail, Areal Property cannot accept responsibility for any loss o=
+r damage arising from the use of this e-mail or attachments.</span></div></=
+div></div></div>
+	</td>
+	<td class=3D"header-footer-block" align=3D"center" style=3D"padding: 0;box=
+-sizing: border-box;clear: both;max-height: 50mm;margin: 0;vertical-align: =
+middle;font-family: Verdana, Geneva, sans-serif;font-size: 15px">
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_CENTER_IMAGE}}-->
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_CENTER_TEXT}}-->
+	</td>
+	<td class=3D"header-footer-block" align=3D"right" style=3D"padding: 0;box-=
+sizing: border-box;clear: both;max-height: 50mm;margin: 0;vertical-align: m=
+iddle;font-family: Verdana, Geneva, sans-serif;font-size: 15px">
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_RIGHT_TEXT}}-->
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_RIGHT_IMAGE}}-->
+	</td>
+</tr>
+                        </tbody></table>
+
+                       =20
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+
+
+        <table width=3D"100%" class=3D"unsubscribe" style=3D"margin: 0;padd=
+ing: 0;box-sizing: border-box">
+            <tbody style=3D"margin: 0;padding: 0;box-sizing: border-box"><t=
+r style=3D"margin: 0;padding: 0;box-sizing: border-box">
+                <td style=3D"margin: 0;padding: 0;box-sizing: border-box;ve=
+rtical-align: top;font-size: 10px;padding-top: 0.5em;text-align: center">
+                    Click to <a target=3D"_blank" href=3D"https://link.emai=
+l.propertyme.com/ls/click?upn=3Du001.uPeXt1-2FWMMlLMhZtXudDrJ59dNEL6qL8RqqI=
+07FrZZDDAYpFCgQakdKBmdGbGQjM2mfYr-2FiZ5hukdD5v1-2Fms4wiGDWYV7Dva4d2nb3wypKG=
+emlW7jDgVSG2XzaSW2KuhZW8Zi8Ed6c88ft30Gdgll7vENzAgb4-2FwTlA7Hx2beo29UUlR1qMI=
+Mwq2xXb3zcIPSbEB_ToOUkN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1qerB=
+voBvFoFL9NUY5CF6drvdNNMgNjrUEcE5x18ZzuduVZ1-2BrTLQ-2Fc3pDhmfjtOOWmyaynAlVk5=
+IPF7eJdi3pwmhVmsWXz4xd1-2Bd7i6uw20bJBCOVqKRxPt1KkSQc7tyHTK2PfWl6Y3L4eq4VVfC=
+X-2FMNbtGsjwjcGkUEspcHl-2FxJLoRHlq4j8P7Ho8VALx-2BYDwslmy9mjcdO-2F6vEVq8bAQo=
+n22SusxL4QqLMgu-2F9c4v0t-2BBjTsE1G8QrVDQ-3D" style=3D"margin: 0;padding: 0;=
+box-sizing: border-box;text-decoration: underline;color: #999;font-size: 10=
+px;padding-top: 0.5em;text-align: center">unsubscribe</a> from future email=
+ communication
+                </td>
+            </tr>
+        </tbody></table>
+
+    </div>
+
+
+<img src=3D"https://link.email.propertyme.com/wf/open?upn=3Du001.PpynGQtUGd=
+QRBxEs0HMXYufOos6DZA9kNY1IxDqmC8vx6LQ8zYisVSVbpzXlz9q2P7B-2B8-2BZ5JVMpkDK56=
+-2BRN-2BPG0eg2-2FRXTiL7EgBubztMsqwvmRKhrOFphYOm2KP9XYkjqwQBKJ7A2GPLuo7PxRAs=
+j08Q-2Bt-2FVe45jEFsC4GvDX1LWEEmS32cg5JfnV64AflSofpMldbcVyOM63gTlEe6U36G3W3I=
+bA8nk9P1g7Fta9K9-2BFB3o9v7t6zCTSIeQDAAsL-2BA3QmY7KFBeGjbRXeRFvED6H1dDMhAg-2=
+Fs0v4xnv0-2FxtHc7e-2B6RD2njlRt5UIN" alt=3D"" width=3D"1" height=3D"1" borde=
+r=3D"0" style=3D"height:1px !important;width:1px !important;border-width:0 =
+!important;margin-top:0 !important;margin-bottom:0 !important;margin-right:=
+0 !important;margin-left:0 !important;padding-top:0 !important;padding-bott=
+om:0 !important;padding-right:0 !important;padding-left:0 !important;"/></b=
+ody></html>

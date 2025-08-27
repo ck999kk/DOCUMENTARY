@@ -1,0 +1,24 @@
+11:47
+commbank.com.au
+AREAL CommBank app BPAY 358325 96701 Rent
+-$2,825.00
+Biller nickname
+Biller code
+From
+On
+Your description
+Customer
+reference
+Receipt number
+AREAL PROPERTY
+0000358325
+Business Trans Acct
+067-873 1457 2302
+Sun 22 Jun 2025, 09:26:45 PM
+(Syd/Melb Time)
+Rent
+96701
+N262258747365
+B
+PAY
+Print

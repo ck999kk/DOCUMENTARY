@@ -1,0 +1,717 @@
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Delivered-To: ck.chawakorn@gmail.com
+Received: by 2002:a05:622a:430e:b0:4ab:6c75:9b7d with SMTP id el14csp428052qtb;
+        Mon, 14 Jul 2025 00:34:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHjgAxhgiBU4DMzZZtjLzs19f0OFVVth07p/bgBIbYN3SJRpgzx0dIz+KAUyK/wH6IERBPl
+X-Received: by 2002:a05:6402:44d5:b0:60c:4a58:7f06 with SMTP id 4fb4d7f45d1cf-611e84a3f16mr9334432a12.19.1752478447773;
+        Mon, 14 Jul 2025 00:34:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1752478447; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Kq+2CjZ35Aw6QCtJgYrul4/JDzIwvPoHD4fdPX1qLLjrXnv4Wt02DV5+G1zweNWpYi
+         imVI/Fg26DDqZNSK3jejcQlSXhWP1MzprXulbaIlxsjpOgVnA2FVp2XWvnLtAjFreyXZ
+         z5XtNLyZsLwPuRJ3Y6tVCmibaGNWbPaunzUJjKTy2mChYuXtzfHBYrCSA5zkWmM68O9D
+         j7keZtxq5EIm5ZqIeNV6EncTtOhUwphMeE6LdZUNB4OGooQMxXqtJJUXMNIUF1smk1Pd
+         2qyPZ41WVWVh6OKeUhziMaFVx1V28XibZd46aHdL6FYGK0Ii5AfgGPYesuEHezdLrRni
+         qAyw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:subject:message-id:to:reply-to:from:date
+         :dkim-signature;
+        bh=mGwWsbEzHMnnK0Cz7EFPQorGol7BMPSg2zN4sGHo3XY=;
+        fh=XfSLrCKlthzR2eWrRJdSm2Tjaa+OdmAFoQVrQemKcjs=;
+        b=H9IoEHnf2Xrg9CludMTwxuzPB2P2iAn1Stcboan8uCpohIMPvmpRSoUv/fvfroh7Yh
+         N3oPHZ/JFVdkRo1wNGMpfI0KDgKD/3G6tLpj+ON9kFUfLP3dak/NlXXObpe2a29PTCnu
+         v2fvbQtk7yaXt6NE0hZIxr+FRqN3YfHkAxU3nOrkZh6vywzZ8c2doDrmeD5p38+hHwXA
+         7RWlKsi1iPjwBX72Gmb44L5fIvwg8648+8CD1YNA30y420oc3X2XGcSl6rqIL7TJECTU
+         mdxVkAhInvnyWvICqM3DBsLfWxWE5uqsP36HeJiTnbryAoqmkisMvyB5WPIBk3SdLTl5
+         X6sQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@vcat.vic.gov.au header.s=VCATDKIM0921 header.b=dwIgqDK2;
+       spf=pass (google.com: domain of prvs=52908ac45a=renting@courts.vic.gov.au designates 91.207.212.163 as permitted sender) smtp.mailfrom="prvs=52908ac45a=renting@courts.vic.gov.au";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=vcat.vic.gov.au
+Return-Path: <prvs=52908ac45a=renting@courts.vic.gov.au>
+Received: from mx08-001fc401.pphosted.com (mx08-001fc401.pphosted.com. [91.207.212.163])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-612330e915dsi1620181a12.70.2025.07.14.00.34.07
+        for <ck.chawakorn@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 14 Jul 2025 00:34:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of prvs=52908ac45a=renting@courts.vic.gov.au designates 91.207.212.163 as permitted sender) client-ip=91.207.212.163;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@vcat.vic.gov.au header.s=VCATDKIM0921 header.b=dwIgqDK2;
+       spf=pass (google.com: domain of prvs=52908ac45a=renting@courts.vic.gov.au designates 91.207.212.163 as permitted sender) smtp.mailfrom="prvs=52908ac45a=renting@courts.vic.gov.au";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=vcat.vic.gov.au
+Received: from pps.filterd (m0296791.ppops.net [127.0.0.1])
+	by mx07-001fc401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56E6iOZ0018695
+	for <ck.chawakorn@gmail.com>; Mon, 14 Jul 2025 17:34:07 +1000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vcat.vic.gov.au;
+	 h=content-type:date:from:message-id:mime-version:reply-to
+	:subject:to; s=VCATDKIM0921; bh=mGwWsbEzHMnnK0Cz7EFPQorGol7BMPSg
+	2zN4sGHo3XY=; b=dwIgqDK2hswLWXrDJhnv3lZuslU11BuWdRQETj3RMJP1hU6T
+	zCam8YdeLoBouPNLDVOz0LNGRg/lxC+Rx+PwYyqnuNDQAnTPteKt2fj7yZZoYfeH
+	Fixhe/wmqoXgNhdexVITqI0CMWX6m4QemPfg8nPxs4OMHtinS3rD1N2+Z22Djdhr
+	dU8zBAM3ofnaZN3XBii9WIugV7uQ+vnw2yK9fJQLoPnfoHbHyQd3ol12Ilkl2QNO
+	5VaIbQK5wCxH4zPL64kn/haQlXR0K8kZXNSQIZhZoJ4/XdYqVr9LsFtmuD7jaQbP
+	HopDxEIXDOQ/hgXzmBZElrXxXHdsEqD3Oiy5hA==
+Received: from p00370.private.vic.gov.au ([203.12.195.208])
+	by mx07-001fc401.pphosted.com (PPS) with ESMTP id 47u5e64qtc-1
+	for <ck.chawakorn@gmail.com>; Mon, 14 Jul 2025 17:34:05 +1000 (AEST)
+Received: from P03465.dojvic.justice.vic.gov.au ([165.142.5.117])
+          by P02514.internal.vic.gov.au (Lotus Domino Release 8.5.3FP6 HF2121)
+          with ESMTP id 2025071417340023-136455 ;
+          Mon, 14 Jul 2025 17:34:00 +1000 
+Date: Mon, 14 Jul 2025 17:34:00 +1000 (AEST)
+From: Residential Tenancies <renting@vcat.vic.gov.au>
+Reply-To: renting@vcat.vic.gov.au
+To: ck.chawakorn@gmail.com
+Message-ID: <2146321657.11649.1752478440219@P03465.dojvic.justice.vic.gov.au>
+Subject: VCAT has opened a case R202518214/00 about  243 Franklin St,
+ Unit1803, MELBOURNE, VIC, 3000
+MIME-Version: 1.0
+X-MIMETrack: Itemize by SMTP Server on P02514/Server/VICGOV1(Release 8.5.3FP6 HF2121|October
+ 08, 2015) at 14/07/2025 05:34:00 PM,
+	Serialize by Router on P00370/Server/VICGOV1(Release 9.0.1FP6|April  20, 2016) at
+ 14/07/2025 05:34:05 PM,
+	Serialize complete at 14/07/2025 05:34:05 PM
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_11648_1641172386.1752478440204"
+X-Authority-Analysis: v=2.4 cv=fe+ty1QF c=1 sm=1 tr=0 ts=6874b2ee cx=c_pps
+ a=o6Qp4L2a8KP1Ct2qR61t1g==:117 a=o6Qp4L2a8KP1Ct2qR61t1g==:17
+ a=Wb1JkmetP80A:10 a=3g80flMcAAAA:8 a=TQsyj_fYAAAA:8 a=8dQ8WfLxAAAA:8
+ a=jU4qhlNgAAAA:8 a=vnREMb7VAAAA:8 a=9SD2vm2IA8YDWaELSZsA:9
+ a=IUh8zLp0Pe3fzLlA:21 a=_W_S_7VecoQA:10 a=lqcHg5cX4UMA:10 a=CjuIK1q_8ugA:10
+ a=3urWGuTZa-U-TZ_dHwj2:22 a=ivxqE14EQoTC231JsB6A:22 a=4pUGiLOcQeALCYFIH_Ta:22
+X-Proofpoint-ORIG-GUID: AZOXddkQ8FDKCJNB-GMBYLwCFz-mB8tn
+X-Proofpoint-GUID: AZOXddkQ8FDKCJNB-GMBYLwCFz-mB8tn
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE0MDA0MyBTYWx0ZWRfXyvNOLkKP/eYD
+ 0udE2NmiFd1eH0D0xGR2BuOnf5QhAw86aU8jkT1q9rMJ2j5NNBtULeDSaMcy81svPuG03TmtSty
+ K05TR33BJQHgqCNaa+IotHRTUpNnzH8hZ7vCE5eoL/fZYaeQhllsfB5JxcfU/fZmwY9bXSWkjZJ
+ lGJLaUwztB17eVHhpYXFwP5bSHwaUeXXZhL418DLAiHzeQ7KTcjLBZdmPINAXVadXJASkvKoxnA
+ t2/tNr5nSKxitdZD8IYSk0W0zJGzp2wnycc99QZjdP4Tq234D4ouzWvTfgIDRYptjC9NnhPCfeH
+ jckLxtdXZ0ncJqjGMIm8p/xE0y/R+SamjgBjqXW1iLOYasGQ+v5ub16IQlRgxPVAXt9LmmrYV74
+ eJF6TtncuHY1SZpx41LoKZbFi3Tt639CB2720eHJZzGSQdN4du8EYmnpZ6Ig1EwzUSEUMppg
+X-Proofpoint-Virus-Version: vendor=nai engine=6800 definitions=11491
+ signatures=596817
+
+------=_Part_11648_1641172386.1752478440204
+Content-Transfer-Encoding: 7bit
+Content-Type: text/html; charset=us-ascii
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+<meta name="viewport" content="width=device-width" />
+
+<meta name="bal" content="width=device-width" />
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<style>
+
+@media only screen and (max-width: 747px) {
+    body {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+    .ddw_email_footer table {
+         width: 100%;
+         margin: 0;
+         height: auto;
+    }
+    .ddw_container_wrapper,
+    .ddw_email_footer > table {
+         width: 90%;
+         margin: 0 5%;
+         height: auto;
+    }
+    .ddw_border_container {
+         width: 100%;
+         margin: 0;
+    }
+    .ddw_container_wrapper table {
+        table-layout:fixed;
+        width:100%;
+    }
+    .ddw_container_wrapper tbody,
+    .ddw_container_wrapper tr,
+    .ddw_container_wrapper td {
+         display: block;
+         width: auto;
+         height:auto;
+         margin: 0;
+         -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+             -ms-box-sizing: border-box;
+              -o-box-sizing: border-box;
+                 box-sizing: border-box;
+    }
+    .ddw_component_header_footer img {
+         float: none;
+         height: auto;
+         max-width: 100%;
+         margin-left: auto;
+         margin-right: auto;
+    }
+    .ddw_component_paragraph img {
+         float: none !important;
+         margin-bottom: 20px;
+         height: auto;
+         max-width: 100%;
+         margin-left: auto;
+         margin-right: auto;
+    }
+    .ddw_component_only_image img {
+         float: none !important;
+         height: auto;
+         max-width: 100%;
+         margin-left: auto;
+         margin-right: auto;
+    }
+    .ddw_component_paragraph_block_image {
+        width: 100% !important;
+    }
+    .ddw_component_paragraph_block_image img {
+         height: auto;
+         max-width: 100%;
+         margin-left: auto;
+         margin-right: auto;
+    }
+    .ddw_component_paragraph_block_image_top img {
+         margin-bottom: 20px;
+         margin-top: 0;
+    }
+    .ddw_component_paragraph_block_image_bottom img {
+         margin-top: 20px;
+         margin-bottom: 0;
+    }
+    .ddw_component_paragraph_event_button {
+         padding-top: 20px;
+    }
+    .ddw_component_paragraph_event_display {
+        text-align: center !important;
+    }
+    .ddw_component_no_padding {
+        padding: 0 !important;
+    }
+    .ddw_component_button td {
+        text-align: center;
+    }
+    .ddw_component_button a {
+        max-width: 100%;
+    }}
+</style>
+
+</head>
+<body>
+<style>
+.ExternalClass,
+.ReadMsgBody {
+    display: block !important;
+}
+body { 
+    margin: 0;
+    padding: 0;
+}
+.em_message_main_wrapper,
+.em_message_main_wrapper table {
+    font-family: 'Open Sans', sans-serif;
+    font-size:14px;
+}
+.em_message_main_wrapper p {
+
+}
+.em_message_main_wrapper a {
+    text-decoration:underline;
+}
+.em_message_main_wrapper h1 {
+    margin-top:0;
+    margin-bottom:0;
+    font-size:32px;
+    font-weight:bold;
+}
+.em_message_main_wrapper h2 {
+    margin-top:0;
+    margin-bottom:0;
+    font-size:24px;
+    font-weight:bold;
+}
+.em_message_main_wrapper h3,
+.em_message_main_wrapper h4,
+.em_message_main_wrapper h5,
+.em_message_main_wrapper h6 {
+    margin-top:0;
+    margin-bottom:0;
+    font-size:18px;
+    font-weight:bold;
+}
+.em_message_main_wrapper .ddw_component_only_image {
+    line-height: normal;
+}
+
+</style>
+<div style="display: table;margin: 0px;padding: 0px;height:100%;width:100%;"><div class="em_message_background_wrapper" style=" background-color: #FFFFFF; min-height: 100%; margin: 0; padding: 0;display:table-row;text-align: center;width:
+100%;vertical-align: middle;"><table class="em_message_main_wrapper" cellpadding="0" cellspacing="0" valign="top" width="100%" align="center" bgcolor="#FFFFFF">
+<tr>
+<td align="center" valign="top">
+<table class="em_message_container_6161191 ddw_container_wrapper" cellPadding="0" cellSpacing="0" border="0" height="100%" width="748" bgColor="#FFFFFF">
+<tr>
+<td class="em_message_container_6161192 ddw_container_wrapper" vAlign="top">
+<a name="109296"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" bgcolor="#04346C" class="ddw_component_header_footer ddw_component_header_footer_image"><tr><td align="right" valign="top" style="padding:7px 7px 7px 7px;">
+
+<img style="display:block;" alt="VCAT" src="https://applications.vcat.vic.gov.au/tcm/images/Portal_logo.png" width="175" height="35" border="0"></td>
+</tr></table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161392 ddw_container_wrapper" vAlign="top">
+<a name="108375"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" bgcolor="#04346C" class="ddw_component_header_footer ddw_component_header_footer_text"><tr><td width="100%" align="" valign="top" style="font-family: 'Open Sans',
+sans-serif;font-size:14px; padding:20px 20px 20px 20px;">
+<h1 style="margin-top:0;margin-bottom:0;font-size:32px;font-weight:bold;"><span style="color:#EDF7FD;"><span style="font-family:'open sans', sans-serif;">VCAT Application Received</span></span></h1>
+</td>
+</tr></table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161194 ddw_container_wrapper" vAlign="top">
+<a name="47678"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 20px 20px;">
+<span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;">Dear Sir/Madam,</span></span></td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161195 ddw_container_wrapper" vAlign="top">
+<a name="111581"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:7px 20px 10px 20px;">
+<span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;">An application has been made to VCAT about the below property. VCAT is the legal authority that will make a decision about this
+application.</span></span></td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161196 ddw_container_wrapper" vAlign="top">
+<a name="77408"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 20px 20px;">
+<span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;"><b>Rented Premises: 243 Franklin St, Unit1803, MELBOURNE, VIC, 3000</b></span></span><br><br><span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;"><b>Applicant:
+Chawakorn Kamnuansil, Podjana Tienmon</b></span></span><br><span style="font-size:13px;"><span style="font-family:'open sans', sans-serif;">(person who lodged the application)</span></span><br><br><span style="font-size:14px;"><b><span style="font-family:'open sans',
+sans-serif;">Respondent: Areal Property Hawthorn</span></b></span><br><span style="font-size:13px;"><span style="font-family:'open sans', sans-serif;">(person the application is against)</span></span><br><br><span style="font-size:14px;"><span
+style="font-family:'open sans', sans-serif;"><b>challenging validity of notice to vacate  - residential, Section 91ZZS<br>
+the renter is applying to VCAT to challenge the validity of the notice to vacate given by the rental provider or their agent</b></span></span><br><span style="font-size:13px;"><span style="font-family:'open sans', sans-serif;">(reason for application, see the </span></span><span style="font-family:'open sans', sans-serif;"><a
+href="https://www.vcat.vic.gov.au/case-types/residential-tenancies/common-disputes-and-section-numbers?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email"  style="text-decoration:underline;"><span style="font-size:13px;">website</span></a></span><span style="font-size:13px;"><span style="font-family:'open sans',
+sans-serif;"> for what this means)</span></span><br><br><span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;"><b>The VCAT Reference for the application is: R202518214/00</b><br>
+You must use the VCAT reference number when communicating with VCAT in writing or over the phone.</span></span></td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161290 ddw_container_wrapper" vAlign="top">
+<a name="32299"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph ddw_component_has_title"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr><td align="left">
+<table cellpadding="0" cellspacing="0" bgcolor="#F4FBFF" width="100%" style=" width:100% !important;"><tr><td align="" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 20px 20px;">
+<h2 style="margin-top:0;margin-bottom:0;font-size:24px;font-weight:bold;"><span style="font-size:24px;"><span style="color:#04346C;"><span style="font-family:'open sans', sans-serif;"><b>What happens next</b></span></span></span></h2>
+</td>
+</tr></table></td>
+</tr><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4FBFF"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 20px 20px;">
+<span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;"><b>VCAT will assess the application and, if accepted, will:</b></span></span>
+
+<ul><li><span style="font-family:'open sans', sans-serif;">schedule a hearing to resolve the application</span></li>
+	<li><span style="font-family:'open sans', sans-serif;">notify you by email of the date, time and how to attend the hearing</span></li>
+	<li><span style="font-family:'open sans', sans-serif;">hold a hearing and make a decision (order) to resolve the application</span></li>
+	<li><span style="font-family:'open sans', sans-serif;">provide you a copy of any orders by email</span></li>
+</ul></td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161291 ddw_container_wrapper" vAlign="top">
+<a name="84445"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph ddw_component_has_title"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr><td align="left">
+<table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" width="100%" style=" width:100% !important;"><tr><td align="" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 0px 20px;">
+<h2 style="margin-top:0;margin-bottom:0;font-size:24px;font-weight:bold;"><span style="font-size:24px;"><span style="color:#04346C;"><span style="font-family:'open sans', sans-serif;"><b>What you must do</b></span></span></span></h2>
+</td>
+</tr></table></td>
+</tr><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 20px 20px;">
+<h3 style="margin-top:0;margin-bottom:0;font-size:18px;font-weight:bold;"><span style="font-family:'open sans', sans-serif;"><span style="font-size:18px;"><span style="color:#04346C;">Applicants</span></span></span></h3>
+<br><span style="font-family:'open sans', sans-serif;"><span style="font-size:14px;"><b>Within 7 days</b>, the applicant must send a copy of the application form submitted to VCAT to the respondent. This tells the respondent the details of the
+claim.</span><br><br><span style="color:#04346C;"><span style="font-size:18px;"><b>Respondents</b></span></span></span><br><br><span style="font-family:'open sans', sans-serif;"><span style="font-size:14px;">The applicant explains the claim in the
+application form submitted to VCAT.<b> Contact the applicant or their agent</b> if you don't receive a copy of the application form submitted to VCAT. Find out what this means for you and </span></span><a
+href="https://www.vcat.vic.gov.au/help-and-support?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email"  style="text-decoration:underline;"><span style="font-family:'open sans', sans-serif;"><span style="font-size:14px;">where you can get help
+</span></span></a><br><br><br>
+There are steps you must complete before the hearing:</td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161421 ddw_container_wrapper" vAlign="top">
+<table class="em_message_container_6161421" cellPadding="0" cellSpacing="0" border="0" height="100%" width="748">
+<tr>
+<td class="em_message_container_6161422" vAlign="top" width="219">
+<a name="26140"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph ddw_component_has_morelink"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style="width:100% !important;" cellspacing="0" cellpadding="5" bgcolor="#53AFAD"><tr><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#F7F7F7"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:16px 16px 0px 16px;">
+<span style="color:#0B53BF;"><span style="font-family:'open sans', sans-serif;"><span style="font-size:14px;">What applicants must do<br>
+&nbsp;<br>
+&nbsp;</span></span></span></td></tr><tr><td valign="top" align="left" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding: 0px 16px 24px 16px;">
+<a style="text-decoration:underline;font-size: 14px;font-weight: bold;font-family: 'Open Sans', sans-serif;" href="https://www.vcat.vic.gov.au/case-types/residential-tenancies/after-you-apply-residential-tenancy-disputes?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email" >
+Get started &gt;</a></td>
+</tr></table></td></tr></table></td>
+</tr></table></td></tr></table></td>
+</tr></table></td></tr></table>
+</td>
+<td class="em_message_container_6161425" vAlign="top" width="36">
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" >
+<tr>
+<td>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" >
+<tr>
+<td height="50" style="mso-line-height-rule:exactly; font-size: 1px; line-height: 1px; height:50px;">&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+</td>
+<td class="em_message_container_6161435" vAlign="top" width="239">
+<a name="33717"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph ddw_component_has_morelink"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style="width:100% !important;" cellspacing="0" cellpadding="5" bgcolor="#E57310"><tr><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#F7F7F7"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 0px 20px;">
+<span style="color:#0B53BF;"><span style="font-family:'open sans', sans-serif;"><span style="font-size:14px;">What respondents&nbsp; must do<br><br>
+&nbsp;</span></span></span></td></tr><tr><td valign="top" align="left" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding: 0px 20px 20px 20px;">
+<a style="text-decoration:underline;font-size: 14px;font-weight: bold;font-family: 'Open Sans', sans-serif;" href="https://www.vcat.vic.gov.au/case-types/residential-tenancies/respond-residential-tenancy-disputes?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email" >
+Get started &gt;</a></td>
+</tr></table></td></tr></table></td>
+</tr></table></td></tr></table></td>
+</tr></table></td></tr></table>
+</td>
+<td class="em_message_container_6161426" vAlign="top" width="33">
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" >
+<tr>
+<td>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" >
+<tr>
+<td height="50" style="mso-line-height-rule:exactly; font-size: 1px; line-height: 1px; height:50px;">&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+</td>
+<td class="em_message_container_6161424" vAlign="top" width="221">
+<a name="66619"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph ddw_component_has_morelink"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style="width:100% !important;" cellspacing="0" cellpadding="5" bgcolor="#0B53BF"><tr><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#F7F7F7"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 0px 20px;">
+<span style="color:#0B53BF;"><span style="font-family:'open sans', sans-serif;"><span style="font-size:14px;">Prepare your documents<br><br>
+&nbsp;</span></span></span></td></tr><tr><td valign="top" align="left" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding: 0px 20px 20px 20px;">
+<a style="text-decoration:underline;font-size: 14px;font-weight: bold;font-family: 'Open Sans', sans-serif;" href="https://www.vcat.vic.gov.au/case-types/residential-tenancies/access-documents-residential-tenancy-case?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email" >
+Get started &gt;</a></td>
+</tr></table></td></tr></table></td>
+</tr></table></td></tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161436 ddw_container_wrapper" vAlign="top">
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" >
+<tr>
+<td>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" >
+<tr>
+<td height="30" style="mso-line-height-rule:exactly; font-size: 1px; line-height: 1px; height:30px;">&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161686 ddw_container_wrapper" vAlign="top">
+<a name="47216"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4FBFF"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 8px 20px;">
+<span style="color:#04346C;"><span style="font-size:24px;"><span style="font-family:'open sans', sans-serif;"><b>Help and support</b></span></span></span></td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161687 ddw_container_wrapper" vAlign="top">
+<table class="em_message_container_6161687" cellPadding="0" cellSpacing="0" border="0" height="100%" width="748">
+<tr>
+<td class="em_message_container_6161691" vAlign="top" width="373">
+<table class="em_message_container_6161691" cellPadding="0" cellSpacing="0" border="0" height="100%" width="373">
+<tr>
+<td class="em_message_container_6161692" vAlign="top">
+<a name="87298"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4FBFF"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 0px 20px;">
+<div><a href="https://www.vcat.vic.gov.au/what-vcat-does/other-organisations?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email"  style="text-decoration:none;" title="Legal help and advice"><span style="color:#04346C;"><span style="font-size:14px;"><span style="font-family:'open
+sans', sans-serif;"><b><img align="absmiddle" alt="3257049.png" border="0" height="23" src="https://applications.vcat.vic.gov.au/api/gr/External_Link.png" width="22"><span style="color:#0B53BF;"> Legal help and advice
+&gt;</span></b></span></span></span></a></div>
+</td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161693" vAlign="top">
+<a name="93361"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4FBFF"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 0px 20px;">
+<div><a href="https://www.vcat.vic.gov.au/the-vcat-process/when-things-change/change-or-withdraw-your-application?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email"  style="text-decoration:none;"><span style="color:#0B53BF;"><span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;"><b><img
+align="absmiddle" alt="3257049.png" border="0" height="26" src="https://applications.vcat.vic.gov.au/api/gr/ApplyOnline_TopTask.png" width="24"></b></span></span></span></a><a
+href="https://www.vcat.vic.gov.au/the-vcat-process/when-things-change/change-or-withdraw-your-application?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email"  style="text-decoration:none;"><span style="color:#0B53BF;"><span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;"><b> How to
+withdraw an application</b></span></span></span></a><a href="https://www.vcat.vic.gov.au/the-vcat-process/when-things-change/change-or-withdraw-your-application?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email"  style="text-decoration:none;"><span style="color:#0B53BF;"><span style="font-size:14px;"><span
+style="font-family:'open sans', sans-serif;"><b> &gt;</b></span></span></span></a></div>
+</td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+<tr height="100%">
+<td class="em_message_container_6161775" vAlign="top">
+<a name="105314"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4FBFF"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 8px 20px;">
+<div><a href="https://www.vcat.vic.gov.au/other-languages?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email"  style="text-decoration:none;"><span style="color:#0B53BF;"><span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;"><b><img
+align="absmiddle" alt="3257049.png" border="0" height="26" src="https://applications.vcat.vic.gov.au/api/gr/OtherLanguages.png" width="24"></b></span></span></span></a><a
+href="https://www.vcat.vic.gov.au/other-languages?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email"  style="text-decoration:none;"><span style="color:#0B53BF;"><span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;"><b> Other
+languages &gt;</b></span></span></span></a></div>
+</td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+</table>
+</td>
+<td class="em_message_container_6161694" vAlign="top" width="375">
+<table class="em_message_container_6161694" cellPadding="0" cellSpacing="0" border="0" height="100%" width="375">
+<tr>
+<td class="em_message_container_6175279" vAlign="top">
+<a name="28847"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4FBFF"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 0px 20px;">
+<a href="https://www.vcat.vic.gov.au/help-and-support/support-services-vcat?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email"  style="text-decoration:none;"><span style="color:#0B53BF;"><span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;"><span
+style="vertical-align:middle;"><b><img align="absmiddle" alt="support.png" border="0" height="21" src="https://applications.vcat.vic.gov.au/api/gr/support.png" width="24"> VCAT support
+services&nbsp;&gt;</b></span></span></span></span></a></td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161696" vAlign="top">
+<a name="41695"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4FBFF"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 0px 20px;">
+<a href="https://www.vcat.vic.gov.au/the-vcat-process/settle-before-the-hearing?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email"  style="text-decoration:none;"><span style="color:#0B53BF;"><span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;"><span
+style="vertical-align:middle;"><b><img align="absmiddle" alt="VoluntAssisted.png" border="0" height="21" src="https://applications.vcat.vic.gov.au/api/gr/VoluntAssisted.png" width="24"> How to
+settle&nbsp;&gt;</b></span></span></span></span></a></td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+<tr height="100%">
+<td class="em_message_container_6161776" vAlign="top">
+<a name="89327"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4FBFF"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 8px 20px;">
+<a href="https://www.vcat.vic.gov.au/help-and-support?utm_source=residential-tenancies&utm_medium=email&utm_campaign=rt-email"  style="text-decoration:none;"><span style="color:#0B53BF;"><span style="font-size:14px;"><span style="font-family:'open sans', sans-serif;"><span
+style="vertical-align:middle;"><b><img align="absmiddle" alt="VoluntAssisted.png" border="0" height="21" src="https://applications.vcat.vic.gov.au/api/gr/nav_see_more.png" width="24"> More help and
+support&nbsp;&gt;</b></span></span></span></span></a></td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161839 ddw_container_wrapper" vAlign="top">
+<a name="22156"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" bgcolor="#04346C" class="ddw_component_header_footer ddw_component_header_footer_image_text"><tr><td align="left" valign="middle" style="padding:0px 0px 0px
+3px;">
+
+<img style="display:block;" alt="Image" src="https://applications.vcat.vic.gov.au/tcm/images/Portal_logo.png" width="160" height="32" border="0"></td>
+<td width="100%" align="" valign="middle" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 20px 20px;">
+<span style="font-size:18px;"><span style="font-family:'open sans', sans-serif;"><span style="color:#FFFFFF;">Contact us</span></span></span></td>
+</tr></table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6161938 ddw_container_wrapper" vAlign="top">
+<table class="em_message_container_6161938" cellPadding="0" cellSpacing="0" border="0" height="100%" width="748">
+<tr>
+<td class="em_message_container_6161939" vAlign="top" width="220">
+<a name="118105"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#04346C"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:10px 20px 8px 20px;">
+<img align="absmiddle" alt="nav_languages.png" border="0" height="15" src="https://applications.vcat.vic.gov.au/api/gr/nav_languages.png" width="17"><a href="https://www.vcat.vic.gov.au" 
+style="text-decoration:none;"><span style="font-size:13px;"><span style="font-family:'open sans', sans-serif;"><span style="color:#FFFFFF;"> vcat.vic.gov.au</span></span></span></a></td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+<td class="em_message_container_6162239" vAlign="top" width="287">
+<a name="104311"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#04346C"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:10px 20px 8px 20px;">
+<img align="absmiddle" border="0" height="15" src="https://applications.vcat.vic.gov.au/api/gr/Phone.png" width="17" alt="Phone.png"><span style="font-size:13px;"><span style="font-family:'open sans', sans-serif;"><span style="color:#FFFFFF;"> 1300 01 8228
+(1300 01 VCAT)</span></span></span></td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+<td class="em_message_container_6162240" vAlign="top" width="241">
+<a name="62237"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#04346C"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:10px 20px 8px 20px;">
+<img align="absmiddle" alt="Phone.png" border="0" height="15" src="https://applications.vcat.vic.gov.au/api/gr/Mail.png" width="17"><span style="color:#FFFFFF;"><span style="font-size:13px;"><span style="font-family:'open sans', sans-serif;">
+</span></span></span><span style="color:#FFFFFF;"><span style="font-size:13px;"><span style="font-family:'open sans', sans-serif;"><a href="mailto:renting@courts.vic.gov.au?subject=R202518214/00" style="text-decoration:none;color:#FFFFFF;"
+title="renting@courts.vic.gov.au">renting@courts.vic.gov.au</a></span></span></span></td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6162318 ddw_container_wrapper" vAlign="top">
+<a name="117839"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#04346C"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:16px 16px 4px 16px;">
+<img align="absmiddle" alt="Aboriginal_Flag.png" border="0" height="19" src="https://applications.vcat.vic.gov.au/api/gr/Aboriginal_Flag.png" width="33"><span style="font-size:13px;"><span style="font-family:'open sans', sans-serif;"><span
+style="color:#FFFFFF;"> VCAT acknowledges the Traditional Owners of the land on which we stand and pay our respects to Elders past, present and future.</span></span></span>
+
+<hr></td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+<tr>
+<td class="em_message_container_6162404 ddw_container_wrapper" vAlign="top">
+<table class="em_message_container_6162404" cellPadding="0" cellSpacing="0" border="0" height="100%" width="748">
+<tr>
+<td class="em_message_container_6162405" vAlign="top" width="372">
+<a name="154"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#04346C"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 20px 20px;">
+<a href="https://www.linkedin.com/company/18165211"  style="text-decoration:underline;"><img align="absmiddle" border="0" height="19" src="https://applications.vcat.vic.gov.au/api/gr/linkedin_icon.png"
+width="20" alt="linkedin_icon.png"></a>&nbsp; <a href="https://www.youtube.com/channel/UCc73nMfBWIiAc0w_Gb4vAEw"  style="text-decoration:underline;"><img align="absmiddle" border="0" height="19"
+src="https://applications.vcat.vic.gov.au/api/gr/youtube_icon.png" width="27" alt="youtube_icon.png"></a>&nbsp;&nbsp;&nbsp;</td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+<td class="em_message_container_6162406" vAlign="top" width="376">
+<a name="15773"></a>
+<table width="100%" style="width:100% !important;" border="0" cellspacing="0" cellpadding="0" class="ddw_component_paragraph"><tr><td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100% !important;"><tr height="100%"><td>
+<table width="100%" style=" width:100% !important;" border="0" cellpadding="0" cellspacing="0" bgcolor="#04346C"><tr><td valign="top">
+<table border="0" width="100%" style="width:100% !important;" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top" style="overflow:hidden;">
+<table width="100%" style="width:100% !important;" cellpadding="0" cellspacing="0" align="left"><tr><td valign="top" style="font-family: 'Open Sans', sans-serif;font-size:14px; padding:20px 20px 22px 20px;">
+<div align="right"><span style="color:#FFFFFF;">55 King Street, Melbourne VIC 3000</span></div>
+</td></tr></table></td></tr></table></td>
+</tr></table></td>
+</tr></table></td></tr></table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div><br clear="all" />
+</div>
+
+<HR>PRIVATE &amp; CONFIDENTIAL<BR>
+The content of this e-mail and any attachments may be private and confidential, intended only for use of the individual or entity named. If you are not the intended recipient of this message you must not read, forward, print, copy, disclose, use or store in any way the information this e-mail or any attachment contains.<BR>
+If you are not the intended recipient, please notify the sender immediately and delete or destroy all copies of this e-mail and any attachments.<BR>
+Our organisation respects the privacy of individuals. For a copy of our privacy policy please go to our website or contact us.<BR>
+</body>
+</html>
+
+------=_Part_11648_1641172386.1752478440204--

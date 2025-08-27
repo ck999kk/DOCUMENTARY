@@ -1,0 +1,519 @@
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Delivered-To: ck.chawakorn@gmail.com
+Received: by 2002:a05:622a:430e:b0:4ab:6c75:9b7d with SMTP id el14csp1040497qtb;
+        Tue, 15 Jul 2025 01:35:10 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEescWrDZE4c1AGYhQfRgaQSA+aRAZ8xDlsTcAnM9l9Q2QllryIPiVzJqBCKqQiles7RZeM
+X-Received: by 2002:a05:6402:51cc:b0:611:f4b2:379a with SMTP id 4fb4d7f45d1cf-611f4b23ad5mr14548431a12.27.1752568509585;
+        Tue, 15 Jul 2025 01:35:09 -0700 (PDT)
+Return-Path: <prvs=5291823768=renting@courts.vic.gov.au>
+Received: from mx07-001fc401.pphosted.com (mx08-001fc401.pphosted.com. [91.207.212.163])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-612688ddaa6si929731a12.162.2025.07.15.01.35.09
+        for <ck.chawakorn@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 15 Jul 2025 01:35:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of prvs=5291823768=renting@courts.vic.gov.au designates 91.207.212.163 as permitted sender) client-ip=91.207.212.163;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@courts.vic.gov.au header.s=COURTSDKIM0921 header.b=OOejQvav;
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of prvs=5291823768=renting@courts.vic.gov.au designates 91.207.212.163 as permitted sender) smtp.mailfrom="prvs=5291823768=renting@courts.vic.gov.au";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=courts.vic.gov.au
+Received: from pps.filterd (m0091489.ppops.net [127.0.0.1])
+	by mx08-001fc401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56F6v2NL013451
+	for <ck.chawakorn@gmail.com>; Tue, 15 Jul 2025 18:35:09 +1000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	courts.vic.gov.au; h=content-type:date:from:message-id
+	:mime-version:subject:to; s=COURTSDKIM0921; bh=o1Q3m8lfcbqptWY4y
+	7srk1GYyKbEWz5MHmYeMWxbxz0=; b=OOejQvavvHncOQHg9Dqmpw8FCh4Tvq59U
+	C/xUjT5RZ7BrFMOl1AYfxcR5eZU+D1Wc7+Dm4+8VD6n3BwEAZnabdfvWmMH0+Ugk
+	Cal5NpMyKk2fgtsRrqrSN9sDio2ij+bu8wEzyFOIUA1suvtYmYS42awfkND6hDXZ
+	Kh79CaKTyfpWL93KqadBwxoGKIb/4YHHNRg9eYzfCfBrbXAOg7iyGP1lRWaSCwxg
+	aSYlm6fd+yhJD1xl/adn1kpgZCNF/BpY2e7M20vBdpostbKIMA/c5ymYLb9Q4vBF
+	Jrn60CuH2oB82HTnG4WalsPJeEBOkr8vJVkov9hfjzl89pkO9gnHg==
+Received: from sy2pr01cu004.outbound.protection.outlook.com (mail-australiaeastazon11011012.outbound.protection.outlook.com [40.107.39.12])
+	by mx08-001fc401.pphosted.com (PPS) with ESMTPS id 47vwnmb2d4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <ck.chawakorn@gmail.com>; Tue, 15 Jul 2025 18:35:08 +1000 (AEST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZVWmtjek1PfAp7gY5GBS7L1F2reoqlUOaHdvC6e7IpwLTIVkHUAAg6/HJ8nrVKEHVM233pVR6iDbxZHXL9cf3l5TeRUouk2IdHg2XVB55pe23YAUu/VnF4RYuwJ4qHBQDk953qHOmEPfVX04iWumA0KqDP90l5gdqppeFGhyZIxI/0Cls9bIqgcdbJRblDohvIToJsnvKkCfojM3ZYuZKGhf1Xd7TtlhNsJePPLDPpA/DGZrQyYuFlaMkjbi2nLd9pWR8JtuD9SVzff/zk0GlglEYnopPeqikIv/gH2Aoyo32etopdZJ4vuOY+RensyJUa9ELiBelrqEkYTYBGRzcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=63eiNQXusPNuYr6XDOPzSb2ggMQtBcPMcxuQbQ0Zdy8=;
+ b=sCha5AiwNGr3Q2A2JN5UQWEULhiOnNudY8jF/UeKU//AFlqhwnboxzEMXp5f2PyrbBce0QsWyvWud4QsB8GEfteFs0ak3IQZkLD/m6+p2aCb7X+tr9lH5XOhsCI2MjWXjsuDURYxeSnlEqDckmZmwidIqGEbc8FQmjLjAxA0idmiVFP8gp/NdPLPVOJkiYurzty5j47d672qmEbPaO8DOKn+/OMpoDPzdzUAhpnNbiJPdXzqNw8B/hfZTvWXn8oQWOgMea0LH4crdtpgVP0GYFhTq/shzaYr+Pi1v5boSjYlCmxae3K9kSLwuiHE5NHuUfGYWuLweh50n6WnkSMQUg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=courts.vic.gov.au; dmarc=pass action=none
+ header.from=courts.vic.gov.au; dkim=pass header.d=courts.vic.gov.au; arc=none
+Received: from SYAPR01MB2544.ausprd01.prod.outlook.com (2603:10c6:1:4::19) by
+ MEWPR01MB9060.ausprd01.prod.outlook.com (2603:10c6:220:1f7::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8922.33; Tue, 15 Jul 2025 08:34:59 +0000
+Received: from SYAPR01MB2544.ausprd01.prod.outlook.com ([::1]) by
+ SYAPR01MB2544.ausprd01.prod.outlook.com ([fe80::4bfd:733f:6d78:54b7%3]) with
+ Microsoft SMTP Server id 15.20.8922.028; Tue, 15 Jul 2025 08:34:59 +0000
+From: "CSV-VCAT-RT Inbox (CSV)" <renting@courts.vic.gov.au>
+To: Chawakorn Kamnuansil <ck.chawakorn@gmail.com>
+Subject: Automated response - VCAT Residential Tenancies
+Thread-Topic: Automated response - VCAT Residential Tenancies
+Thread-Index: AQHb9WNZa1SgyQs5aE6k6OsNpM7A9g==
+Date: Tue, 15 Jul 2025 08:34:59 +0000
+Message-ID:
+ <dd618c0bf0df4ab490c20715c4e35776@SYAPR01MB2544.ausprd01.prod.outlook.com>
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: All
+X-MS-Exchange-Inbox-Rules-Loop: renting@courts.vic.gov.au
+X-MS-TNEF-Correlator:
+x-ms-exchange-parent-message-id:
+ <CAAV=8vt7RDekoOznVjEh_HSrTmBXTUsJU9h9YJV4gGeRvYBqBg@mail.gmail.com>
+auto-submitted: auto-generated
+x-ms-exchange-generated-message-source: Mailbox Rules Agent
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SYAPR01MB2544:EE_|MEWPR01MB9060:EE_
+x-ms-office365-filtering-correlation-id: 3e4521e5-1d74-4c00-588e-08ddc37a7c22
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|10070799003|366016|376014|1800799024|8096899003;
+x-microsoft-antispam-message-info:
+ =?Windows-1252?Q?IG4l2Sl3uxELrH6cwmWR30/CrwMb5lnkI1zhhs4K3KNZacOQqlwHtLoF?=
+ =?Windows-1252?Q?kfXkXLTMDWOY8tawK5DbIXkOQx98/PTT97hcwZr9tUDoGi6dt0cfJWMJ?=
+ =?Windows-1252?Q?9YWodzMMNwUvJsiJ60sQTKfAq3trbqEwFakUuFdw8HGcpn+eoOWnO+NB?=
+ =?Windows-1252?Q?9ZpMrP8WO37+O3npDT7qo/x9dHbMmg9QaEJljLTko1oNZDBpNuhvFZuF?=
+ =?Windows-1252?Q?KwOcBqHT0jCli9rIsCuRoe3+iGet7lF6F7NhSBGkr83sc8h60IuVttUQ?=
+ =?Windows-1252?Q?zMIHXlw1WuXG0FtT2sTUl8ZpblhNlReHrNgTxo0X3clPDRNXnOI5Y2No?=
+ =?Windows-1252?Q?olfmSM8ojY4LYeYllyHX/D20mWs/vW69ZKcekz7FDOSw36bYDF1IUVgT?=
+ =?Windows-1252?Q?jaH8STh8xgWrCDLYvuG2XH9927XU8GG5clp154VUJzdADom2y3bQFJuC?=
+ =?Windows-1252?Q?ZceVTsbFrmm0iAyLAbJSUqTJ6b95LfPqvVdInU3pEhBC3Ucae7bPmPEU?=
+ =?Windows-1252?Q?Oe6bNbkTyJ8Y89YHLHV8tzD8VW6F7QxHj5cTVBl7TfQLTj5LNUYf2mJz?=
+ =?Windows-1252?Q?o8lo9K4KEO854Pq3uArCBxRoS/IccfzDRoWxffAaRLJDC11FHcmffP4l?=
+ =?Windows-1252?Q?banIOqvhbr9QADUuzDw8DL3deQEKAvbZVR8Nc6+Yi+CXC7Xz7QWETkAp?=
+ =?Windows-1252?Q?JYuNrvRH05lYHSKpvS8ShU4wYz9qP+vTQS+aL4lNGWDxHGlMj1NhFpGC?=
+ =?Windows-1252?Q?DfrQbSBF9mO2ziPV4VXbPp60gcYecK0/lwAwAiZYWJQOLx1R3SG2Q3/j?=
+ =?Windows-1252?Q?mOHATMACFrijzhyR0oMGZbEPgkdMLnfVuSuNzT4scRedArEdXoJSN8Z7?=
+ =?Windows-1252?Q?deaJT5VFLyClbaGoCIg2+HHC0sq5Lo3yhjFuhGs3LJUUK3bIplHzPpjX?=
+ =?Windows-1252?Q?KdD4+wmivWJGYnjE93UmMAlerCz1DjEmUIrTaOZug0WJ1+BB7yvmtR2x?=
+ =?Windows-1252?Q?vd2awuZkpjE8myN3jImpJFVVJeq88XcMh45SoNrz2ZSC4J7LRkSINHAu?=
+ =?Windows-1252?Q?Pq0RMFxuc2mxvPMCsrR/s5Oe4ZbjY1P6vvPylxykYdYfDwaOxpUczE3F?=
+ =?Windows-1252?Q?PPCL7FO8Aem3IjnJK90RVcxbmnAK6faO6vhSrBjBc6K3y2VobHX9vQeb?=
+ =?Windows-1252?Q?WIJfUn4BUeuWwqpR7n8TY8i6sezK54xRTONTVyMHNFV853uRevHhCpK7?=
+ =?Windows-1252?Q?9F3atVAsj8jt/mcvz/SS9GUG7rW2NVnKq9B5chS+JXPRs+/BHRn0EkBt?=
+ =?Windows-1252?Q?VNKceOUZnLhfxCEtDDVMlSH5G9Up4N2y5KVAOaOcijCSAP8rf2y7AXVl?=
+ =?Windows-1252?Q?JrlMh98SrCtkMeUlUJuPrcZ+92Yk1r/ShfWbznYcgs9bDS4naW8Z0MVU?=
+ =?Windows-1252?Q?zsAk7ibHnv4zfIpJYEgfo/9spvbz5hjkVA+Mcd408sAOd3LoOKBkhWL4?=
+ =?Windows-1252?Q?lxhwIEsI?=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SYAPR01MB2544.ausprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(376014)(1800799024)(8096899003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ zgGv4P+ebho6JgBMbSYIXJnWlumWf94N/Pqvu6nJS/iDZr2bgFUBEv0dwFqnfK02RLIVC/MbERE1h2LU6N9APWsG4GfjNOVJSk7bEw7UwIyh7reDwfB1rC4xjM9mZg7IBFxfwDJx5H6syZCsZtknAFBCVMalOmNbuEBUJY/X1dSH8NVdNFcQ39IY1l6zKzGxrAQUr5RGhXXfyeZMujen574rA1NO4UX1MeIrtIbCRawrrxj/t2vdFWp5rimXj5aiLbNF6WOmwr78TJvMOiEWMzPdiJN+VJaV+T086kwBTTbaQHCtM5VmcQQyF9HORX8i
+Content-Type: multipart/alternative;
+	boundary="_000_dd618c0bf0df4ab490c20715c4e35776SYAPR01MB2544ausprd01pr_"
+MIME-Version: 1.0
+X-OriginatorOrg: courts.vic.gov.au
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SYAPR01MB2544.ausprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e4521e5-1d74-4c00-588e-08ddc37a7c22
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Jul 2025 08:34:59.2396
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 722ea0be-3e1c-4b11-ad6f-9401d6856e24
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MEWPR01MB9060
+X-Proofpoint-GUID: 3uoodUQflaa_2qpNRfkS7YLI9gyho_sO
+X-Proofpoint-ORIG-GUID: 3uoodUQflaa_2qpNRfkS7YLI9gyho_sO
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE1MDA3NyBTYWx0ZWRfX/d5hGb0Cf7Vk
+ 5JmOFjimNAhx1s4cJfYvk3e3jDeKPeplNIao7pXTw5bNAk4Dyh+JbzwAzTXkTP0VI6HJ3diTBH1
+ Z6DpeRdyMEF1H/sGEToMthDC5CCBxBIVpqHL+zCA2o8TevkoMFZ377BjI7fCCVZUx3fLZv0MvA4
+ iRxNh5smLX3ndrUwGuphuX1PyO0rGojssjkud6zFFw4hBi/7u+Rdyd0w1m75gMftAHxjJrXmMll
+ BMTGznLxOaFvqeB6P6De2qwUy6caxfLQIqKqlsIhS85Ddc2K4o+Oqu4irkGzMbcHIUH4+ncz9ZO
+ tNhnmvUXAkCdancw0HfI/Mr2G6r05A1gVy9IiCJQxVpwKcTjo+CDIUt92QHGwmTGt/rIlG+Z9jk
+ eA2M22uwIbzH5g3dBDaf0QauPXDUDCA5GKJlX/McqKZ3RQv16WCyJ7D+eOITXxZnsAPiCuQF
+X-Authority-Analysis: v=2.4 cv=SZn3duRu c=1 sm=1 tr=0 ts=687612bc cx=c_pps
+ a=UDnpDzf5LKhkhNt8K32KPQ==:117 a=KWvOQs04uFl5JYH95pWQHK6vTCQ=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=Wb1JkmetP80A:10
+ a=ZwfhqbDZjVgA:10 a=ZZnuYtJkoWoA:10 a=TQsyj_fYAAAA:8 a=8dQ8WfLxAAAA:8
+ a=j-EdkBskvd51Enbko1kA:9 a=pILNOxqGKmIA:10 a=yMhMjlubAAAA:8 a=SSmOFEACAAAA:8
+ a=KODWRwWhg4Esq_WOi6wA:9 a=Re8PPJBSWp6_r2d-:21 a=gKO2Hq4RSVkA:10
+ a=UiCQ7L4-1S4A:10 a=hTZeC7Yk6K0A:10 a=frz4AuCg-hUA:10 a=lqcHg5cX4UMA:10
+ a=ivxqE14EQoTC231JsB6A:22 a=4pUGiLOcQeALCYFIH_Ta:22 a=NWVoK91CQySWRX1oVYDe:22
+X-Proofpoint-Virus-Version: vendor=nai engine=6800 definitions=11492
+ signatures=596817
+
+--_000_dd618c0bf0df4ab490c20715c4e35776SYAPR01MB2544ausprd01pr_
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="Windows-1252"
+
+This is an automated email. To contact VCAT email renting@courts.vic.gov.au=
+<mailto:renting@courts.vic.gov.au> or phone 1300 01 8228 (1300 01 VCAT)
+
+How do I submit my evidence to VCAT for the hearing?
+You will receive an email from VCAT which includes a link enabling you to u=
+pload your documents directly to VCAT's portal for the member to view =96 t=
+he email will be titled: =91VCAT evidence link=92 and will include the case=
+ file number and rented premises address.
+
+You must submit your evidence at least 3 days prior to your hearing. (This =
+may be sooner for urgent cases.)
+
+Click the link to upload and submit your evidence. Ensure you have shared t=
+hese files with the other party. Do not submit any other information using =
+this link.
+
+If you have multiple cases in progress, they will each have a separate uplo=
+ad link.
+
+The link is active for 6 months from the date it is sent to you. If the cas=
+e is still active after 6 months, you will require a new link.
+
+If you are attending a hearing in person at one of our VCAT venues, you mus=
+t also bring a paper copy of all your documents to the hearing for the Memb=
+er. If you have not provided VCAT with an email address, please contact us =
+immediately on renting@courts.vic.gov.au<mailto:renting@courts.vic.gov.au> =
+to advise of your email address and ask for your evidence link.
+
+If you do not have a copy of the link, please email renting@courts.vic.gov.=
+au<mailto:renting@courts.vic.gov.au>
+How to send and access evidence in a residential tenancy case | VCAT<https:=
+//www.vcat.vic.gov.au/RTdocuments>
+
+Estimated time to VCAT
+We prioritise cases that the renting laws say must be heard within a certai=
+n time, and those we consider urgent. For example, urgent repairs are heard=
+ within 2 business days, and applications involving personal or family viol=
+ence are heard within 3 business days. It takes about 7 business days to he=
+ar cases about non-urgent repairs. Applications for possession due to dange=
+r, damage, or disruption are scheduled for hearing as soon as possible with=
+in 4-6 weeks. Possession applications due to unpaid rent are heard in about=
+ 6 weeks, and most other applications for possession and renewals are heard=
+ within 8-10 weeks.
+For applications considered urgent under the law<https://www.vcat.vic.gov.a=
+u/case-types/residential-tenancies/after-you-apply-residential-tenancy-disp=
+utes#modal-center1>, we contact you by text, phone or email within 24-48 ho=
+urs. At an urgent hearing, only the urgent issues will be dealt with. Non-u=
+rgent issues, such as compensation, will be dealt with when there is more t=
+ime at a later hearing.
+Applications for re-opening (request for a review)
+
+If you have submitted a review of an order that allows the Residential Rent=
+al Provider (Landlord) to purchase a Warrant of Possession, VCAT will not i=
+ssue the Warrant until the review hearing is heard.
+If the Warrant has been issued before the review request was made, VCAT wil=
+l make an order placing the Warrant on hold until the review hearing is hea=
+rd. If the Warrant is being executed within 48 hours, you must contact our =
+customer service team on 1300 01 8228 (1300 01 VCAT) and alert us to your r=
+equest.
+
+If the Warrant is executed before an order is made placing the Warrant on h=
+old, this cannot be reversed.
+A copy of this order is sent to all parties and the Police identified on th=
+e Warrant.
+If you or the Police have not received a copy of this order, please contact=
+ our customer service team on 1300 01 8228 (1300 01 VCAT)
+
+If you are being evicted
+Act now to seek help with alternative housing or get advice on your legal r=
+ights. If your rental provider has a warrant of possession from VCAT, the p=
+olice can make you leave the property. The police will tell you when you ne=
+ed to leave, this may be immediately or they may return (usually within 14 =
+days).
+If you need help with crisis or emergency housing call 1800 825 955. This i=
+s a 24-hour, state-wide, toll-free service.
+
+VCAT cannot provide legal advice but there are service providers who can gi=
+ve legal advice or information free or low cost<https://www.vcat.vic.gov.au=
+/what-vcat-does/legal-help-and-advice-services>
+If you need someone to talk to, call Lifeline 13 11 14. This is a 24-hour C=
+risis Support service.
+
+
+
+Information for applicants
+
+Find out what you can apply for under Victoria=92s renting laws<https://www=
+.vcat.vic.gov.au/case-types/residential-tenancies/apply-residential-tenanci=
+es>
+
+After you apply, find out what you need to do and applicant next steps. <ht=
+tp://www.vcat.vic.gov.au/afterapplyrenting>
+
+
+
+Information if you are responding to an application
+When you get an application or notice about the start of a case, find out w=
+hat to do next as a respondent.<http://www.vcat.vic.gov.au/respondrenting>
+
+
+
+----------------------------------------------------------------------
+PRIVATE & CONFIDENTIAL
+The content of this e-mail and any attachments may be private and confident=
+ial, intended only for use of the individual or entity named. If you are no=
+t the intended recipient of this message you must not read, forward, print,=
+ copy, disclose, use or store in any way the information this e-mail or any=
+ attachment contains.
+If you are not the intended recipient, please notify the sender immediately=
+ and delete or destroy all copies of this e-mail and any attachments.
+Our organisation respects the privacy of individuals. For a copy of our pri=
+vacy policy please go to our website or contact us.
+
+--_000_dd618c0bf0df4ab490c20715c4e35776SYAPR01MB2544ausprd01pr_
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="Windows-1252"
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ligatures:standardcontextual;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+span.EmailStyle18
+	{mso-style-type:personal-compose;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-AU" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:=
+break-word">
+<div class=3D"WordSection1">
+<p style=3D"margin-bottom:12.0pt;background:white"><i><span style=3D"color:=
+black">This is an automated email. To contact VCAT email
+<a href=3D"mailto:renting@courts.vic.gov.au">renting@courts.vic.gov.au</a> =
+or phone 1300 01 8228
+</span><span style=3D"color:#201F1E;border:none windowtext 1.0pt;padding:0c=
+m">(</span><span style=3D"color:black">1300 01 VCAT)</span></i><o:p></o:p><=
+/p>
+<p style=3D"margin:0cm;background:white"><b><u><span style=3D"font-size:11.=
+0pt;font-family:&quot;Calibri&quot;,sans-serif;color:black;mso-ligatures:st=
+andardcontextual;mso-fareast-language:EN-US">How do I submit my evidence to=
+ VCAT for the hearing?<br>
+</span></u></b><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&qu=
+ot;,sans-serif;color:black;mso-ligatures:standardcontextual;mso-fareast-lan=
+guage:EN-US">You will receive an email from VCAT which includes a link enab=
+ling you to upload your documents directly to
+ VCAT's portal for the member to view =96 the email will be titled: =91VCAT=
+ evidence link=92 and will include the case file number and rented premises=
+ address.</span><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&q=
+uot;,sans-serif;mso-ligatures:standardcontextual;mso-fareast-language:EN-US=
+"><o:p></o:p></span></p>
+<p style=3D"margin:0cm;background:white"><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:black;mso-ligatures:standard=
+contextual;mso-fareast-language:EN-US">You must submit your evidence at lea=
+st 3 days prior to your hearing. (This may be
+ sooner for urgent cases.)</span><span style=3D"font-size:11.0pt;font-famil=
+y:&quot;Calibri&quot;,sans-serif;mso-ligatures:standardcontextual;mso-farea=
+st-language:EN-US"><o:p></o:p></span></p>
+<p style=3D"margin:0cm;background:white"><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:black;mso-ligatures:standard=
+contextual;mso-fareast-language:EN-US">Click the link to upload and submit =
+your evidence. Ensure you have shared these files
+ with the other party. Do not submit any other information using this link.=
+</span><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans=
+-serif;mso-ligatures:standardcontextual;mso-fareast-language:EN-US"><o:p></=
+o:p></span></p>
+<p style=3D"margin:0cm;background:white"><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:black;mso-ligatures:standard=
+contextual;mso-fareast-language:EN-US">If you have multiple cases in progre=
+ss, they will each have a separate upload link.</span><span style=3D"font-s=
+ize:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;mso-ligatures:standar=
+dcontextual;mso-fareast-language:EN-US"><o:p></o:p></span></p>
+<p style=3D"margin:0cm;background:white"><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:black;mso-ligatures:standard=
+contextual;mso-fareast-language:EN-US">The link is active for 6 months from=
+ the date it is sent to you. If the case is still
+ active after 6 months, you will require a new link.&nbsp;</span><span styl=
+e=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;mso-ligatu=
+res:standardcontextual;mso-fareast-language:EN-US"><o:p></o:p></span></p>
+<p style=3D"margin:0cm;background:white"><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:black;mso-ligatures:standard=
+contextual;mso-fareast-language:EN-US">If you are attending a hearing in pe=
+rson at one of our VCAT venues, you must also
+ bring a paper copy of all your documents to the hearing for the Member. If=
+ you have not provided VCAT with an email address, please contact us immedi=
+ately on&nbsp;<a href=3D"mailto:renting@courts.vic.gov.au"><span style=3D"c=
+olor:black;text-decoration:none">renting@courts.vic.gov.au</span></a>&nbsp;=
+to
+ advise of your email address and ask for your evidence link.</span><span s=
+tyle=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;mso-lig=
+atures:standardcontextual;mso-fareast-language:EN-US"><o:p></o:p></span></p>
+<p style=3D"margin:0cm;background:white"><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:black;mso-ligatures:standard=
+contextual;mso-fareast-language:EN-US">If you do not have a copy of the lin=
+k, please email
+</span><i><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,s=
+ans-serif;color:black"><a href=3D"mailto:renting@courts.vic.gov.au">renting=
+@courts.vic.gov.au</a></span><span style=3D"color:black">
+<br>
+</span></i><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,=
+sans-serif;color:black"><a href=3D"https://www.vcat.vic.gov.au/RTdocuments"=
+>How to send and access evidence in a residential tenancy case | VCAT</a><b=
+r>
+<br>
+</span><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans=
+-serif"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-bottom:12.0p=
+t"><b><u>Estimated time to VCAT</u><span style=3D"color:black"><br>
+</span></b>We prioritise cases that the renting laws say must be heard with=
+in a certain time, and those we consider urgent. For example, urgent repair=
+s are heard within 2 business days, and applications involving personal or =
+family violence are heard within
+ 3 business days. It takes about 7 business days to hear cases about non-ur=
+gent repairs. Applications for possession due to danger, damage, or disrupt=
+ion are scheduled for hearing as soon as possible within 4-6 weeks. Possess=
+ion applications due to unpaid rent
+ are heard in about 6 weeks, and most other applications for possession and=
+ renewals are heard within 8-10 weeks.<span style=3D"color:black"><br>
+For&nbsp;</span><span style=3D"color:#404040"><a href=3D"https://www.vcat.v=
+ic.gov.au/case-types/residential-tenancies/after-you-apply-residential-tena=
+ncy-disputes#modal-center1" target=3D"_blank"><span style=3D"color:#0B53BF"=
+>applications considered urgent under the law</span></a>,
+</span><span style=3D"color:black">we contact you by text, phone or email w=
+ithin&nbsp;<strong><span style=3D"font-family:&quot;Calibri&quot;,sans-seri=
+f">24-48 hours</span></strong>. At an urgent hearing, only the urgent issue=
+s will be dealt with.&nbsp;Non-urgent issues, such as compensation,
+ will be dealt with when there is more time at a later hearing.</span><o:p>=
+</o:p></p>
+<p class=3D"MsoNormal"><b><u>Applications for re-opening (request for a rev=
+iew)</u></b><o:p></o:p></p>
+<p style=3D"margin:0cm;background:white"><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:black;mso-ligatures:standard=
+contextual;mso-fareast-language:EN-US">If you have submitted a review of an=
+ order that allows the Residential Rental Provider
+ (Landlord) to purchase a Warrant of Possession, VCAT will not issue the Wa=
+rrant until the review hearing is heard.<br>
+If the Warrant has been issued before the review request was made, VCAT wil=
+l make an order placing the Warrant on hold until the review hearing is hea=
+rd. If the Warrant is being executed within 48 hours, you must contact our =
+customer service team on 1300 01
+ 8228 (1300 01 VCAT) and alert us to your request.</span><span style=3D"fon=
+t-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;mso-ligatures:stan=
+dardcontextual;mso-fareast-language:EN-US"><o:p></o:p></span></p>
+<p style=3D"margin:0cm;background:white"><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:black;mso-ligatures:standard=
+contextual;mso-fareast-language:EN-US">If the Warrant is executed before an=
+ order is made placing the Warrant on hold, this
+ cannot be reversed.<br>
+A copy of this order is sent to all parties and the Police identified on th=
+e Warrant.<br>
+If you or the Police have not received a copy of this order, please contact=
+ our customer service team on 1300 01 8228 (1300 01 VCAT)<br>
+</span><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans=
+-serif;color:#201F1E;border:none windowtext 1.0pt;padding:0cm"><br>
+</span><b><u><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot=
+;,sans-serif;color:black">If you are being evicted<br>
+</span></u></b><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&qu=
+ot;,sans-serif;color:#201F1E;border:none windowtext 1.0pt;padding:0cm">Act =
+now to seek help with alternative housing or get advice on your legal right=
+s. If your rental provider has a warrant of
+ possession from VCAT, the police can make you leave the property. The poli=
+ce will tell you when you need to leave, this may be immediately or they ma=
+y return (usually within 14 days).<br>
+</span><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans=
+-serif;color:#252525">If you need help with<b> crisis or emergency housing
+</b>call 1800 825 955. This is a 24-hour, state-wide, toll-free service.</s=
+pan><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-se=
+rif"><o:p></o:p></span></p>
+<p style=3D"margin:0cm;background:white"><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:#201F1E;border:none windowte=
+xt 1.0pt;padding:0cm">VCAT cannot provide legal advice but there are servic=
+e providers who can give legal advice or information
+<a href=3D"https://www.vcat.vic.gov.au/what-vcat-does/legal-help-and-advice=
+-services" target=3D"_blank">
+free or low cost</a> </span><span style=3D"font-size:11.0pt;font-family:&qu=
+ot;Calibri&quot;,sans-serif"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:#252=
+525">If you need someone to talk to, call Lifeline 13 11 14. This is a 24-h=
+our Crisis Support service.</span><o:p></o:p></p>
+<p style=3D"margin:0cm;background:white"><b><u><span style=3D"font-size:11.=
+0pt;font-family:&quot;Calibri&quot;,sans-serif;color:black"><o:p><span styl=
+e=3D"text-decoration:none">&nbsp;</span></o:p></span></u></b></p>
+<p style=3D"margin:0cm;background:white"><b><u><span style=3D"font-size:11.=
+0pt;font-family:&quot;Calibri&quot;,sans-serif;color:black">Information for=
+ applicants</span></u></b><span style=3D"font-size:11.0pt;font-family:&quot=
+;Calibri&quot;,sans-serif"><o:p></o:p></span></p>
+<p style=3D"margin:0cm;background:white"><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:#201F1E">Find out what you c=
+an apply for under Victoria=92s
+<a href=3D"https://www.vcat.vic.gov.au/case-types/residential-tenancies/app=
+ly-residential-tenancies" target=3D"_blank">
+renting laws</a></span><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri&quot;,sans-serif"><o:p></o:p></span></p>
+<p style=3D"margin:0cm;background:white"><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:#201F1E">After you apply, fi=
+nd out what you need to do and
+<a href=3D"http://www.vcat.vic.gov.au/afterapplyrenting" target=3D"_blank">=
+applicant next steps.
+</a>&nbsp;</span><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&=
+quot;,sans-serif"><o:p></o:p></span></p>
+<p style=3D"margin:0cm;background:white"><b><span style=3D"font-size:11.0pt=
+;font-family:&quot;Calibri&quot;,sans-serif;color:black">&nbsp;</span></b><=
+span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif">=
+<o:p></o:p></span></p>
+<p style=3D"margin:0cm;background:white"><b><u><span style=3D"font-size:11.=
+0pt;font-family:&quot;Calibri&quot;,sans-serif;color:black">Information if =
+you are responding to an application</span></u></b><b><span style=3D"font-s=
+ize:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#201F1E"><br>
+</span></b><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,=
+sans-serif;color:black">When you get an application or notice about the sta=
+rt of a case, find out
+</span><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans=
+-serif;color:#0B53BF"><a href=3D"http://www.vcat.vic.gov.au/respondrenting"=
+ target=3D"_blank">what to do next as a respondent.</a></span><span style=
+=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif"><o:p></o:p=
+></span></p>
+<p class=3D"MsoNormal">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+
+<HR>PRIVATE &amp; CONFIDENTIAL<BR>
+The content of this e-mail and any attachments may be private and confident=
+ial, intended only for use of the individual or entity named. If you are no=
+t the intended recipient of this message you must not read, forward, print,=
+ copy, disclose, use or store in any way the information this e-mail or any=
+ attachment contains.<BR>
+If you are not the intended recipient, please notify the sender immediately=
+ and delete or destroy all copies of this e-mail and any attachments.<BR>
+Our organisation respects the privacy of individuals. For a copy of our pri=
+vacy policy please go to our website or contact us.<BR>
+</body>
+</html>
+
+--_000_dd618c0bf0df4ab490c20715c4e35776SYAPR01MB2544ausprd01pr_--

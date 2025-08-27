@@ -1,0 +1,1393 @@
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Delivered-To: ck.chawakorn@gmail.com
+Received: by 2002:a05:622a:458c:b0:4a6:f999:3fb5 with SMTP id ls12csp1258637qtb;
+        Mon, 9 Jun 2025 19:55:05 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHN2dNXCbfpIP/2AmXG4sxk7rVG5BfhuUAoLr82vaHdFYngxNiSJEQQBmORkpqxR8gd1KTh
+X-Received: by 2002:a05:620a:2689:b0:7d3:8c74:336 with SMTP id af79cd13be357-7d39f65a956mr167901185a.49.1749524105359;
+        Mon, 09 Jun 2025 19:55:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1749524105; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ckeN4HAQ/5gB9rN1o6mwzk4uLyFWhgcXUNYtaHTXkY2wmxYzWzfUOIPME89nEBZVEy
+         i6jAO4Ba4pPbMtqI4bh2aVkcR1FThpmNGn4RIZMpdrhjqItAxJrxzTMV543WkZ/u21dp
+         yWClGKcexip4CSpRkvS4KHCRShD6YpBbXhfZPfHxWR/g9tsmBzk/Fo54GICWA3SopLed
+         QiWO9uf1cApVjBSFB6XMpiejSx0AqXPIEm1gFlQHdIeNj8eqLTl//c1IAp+fT4Q+7UQs
+         CR1tb/KdzxRUGTRlc/dHjady3y1IzZuL9j1wu/UdRhrTN6Bm3WId72trvKt7trIpapq3
+         8iCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:in-reply-to:reply-to:subject:message-id:mime-version:from
+         :date:content-transfer-encoding:dkim-signature:dkim-signature;
+        bh=3yDcZL2rAYMQaNaLlNBhDzoKQzNr0nlkgKptWyNVwkQ=;
+        fh=l5JSxap3XfO76xET/OrqHyA1LJEYnTTV5LVfsEGWTPk=;
+        b=PDZCh8A9an4dkE/UiViJFrOtSG+OXPkQzDcG418jdDBcshjYvK0ZqHZe3BFR96Xluy
+         207azkMWV1z0EHaQ6HVCFTQnbH294uDuffRnd4Bl5EZok/dat2XSQWvCg1a9w5pyEvbH
+         6J2/Jll/tBvHhgY88Qafqu1+ecRvrgjlT2yXEivpAm7pe4Hl9dDfR2IL3IE0uLA7oc0R
+         YUfihCDCmEuuCoiqnSsAZPCNaT0C6FTha35/KjtmOBR14Ugq97gzxTOesfA5uReZVYv1
+         PshUt7cRYioPa4ovuFqh/ezpPcJP0mAVNbGKEIE0OfcJl9yebIa2qfk2St4ql1xAh2OO
+         RZKQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@email.propertyme.com header.s=s1 header.b=ty9mW9Nk;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=pnf3zMMs;
+       spf=pass (google.com: domain of bounces+19284957-a33c-ck.chawakorn=gmail.com@em2626.email.propertyme.com designates 168.245.92.39 as permitted sender) smtp.mailfrom="bounces+19284957-a33c-ck.chawakorn=gmail.com@em2626.email.propertyme.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=email.propertyme.com
+Return-Path: <bounces+19284957-a33c-ck.chawakorn=gmail.com@em2626.email.propertyme.com>
+Received: from o2.sg.email.propertyme.com (o2.sg.email.propertyme.com. [168.245.92.39])
+        by mx.google.com with ESMTPS id 6a1803df08f44-6fb09b2f717si91454606d6.383.2025.06.09.19.55.05
+        for <ck.chawakorn@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Jun 2025 19:55:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+19284957-a33c-ck.chawakorn=gmail.com@em2626.email.propertyme.com designates 168.245.92.39 as permitted sender) client-ip=168.245.92.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@email.propertyme.com header.s=s1 header.b=ty9mW9Nk;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=pnf3zMMs;
+       spf=pass (google.com: domain of bounces+19284957-a33c-ck.chawakorn=gmail.com@em2626.email.propertyme.com designates 168.245.92.39 as permitted sender) smtp.mailfrom="bounces+19284957-a33c-ck.chawakorn=gmail.com@em2626.email.propertyme.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=email.propertyme.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=email.propertyme.com;
+	h=content-transfer-encoding:content-type:from:mime-version:subject:
+	reply-to:in-reply-to:to:cc:cc:content-type:feedback-id:from:subject:to;
+	s=s1; bh=3yDcZL2rAYMQaNaLlNBhDzoKQzNr0nlkgKptWyNVwkQ=;
+	b=ty9mW9NkcxdI4mF7entWLOx8NKOHFWxl1J5KPglm6lHeI0FLbRIQIdAcCc2gtkNBZiCZ
+	Y06wO8XkiudVjeK96RdgFSEq4VJsmlu+uU1eN73NzUxB+RlYDI01t07N3rpDKM9sz6Cn0h
+	SqZSHLs7h+N83amGlKENluZHHYbtIhOhlhAFjw2aDzZM/6+BGGyEDjEk2HhaqQv2UlWyeh
+	yZfvdP+qlbutvz0G/OrrP2cDNwnXFzVu/7mCZL7tZUTcVwoPz50Blvk+y5eBI5bhKNxfOh
+	Pg6qfcOySCXuf6vU2QNmXTUB8+hL7DfrPiCY0V+/QPMrK5PKRJdmmaRO3sXcsEEg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-transfer-encoding:content-type:from:mime-version:subject:
+	reply-to:in-reply-to:to:cc:cc:content-type:feedback-id:from:subject:to;
+	s=smtpapi; bh=3yDcZL2rAYMQaNaLlNBhDzoKQzNr0nlkgKptWyNVwkQ=;
+	b=pnf3zMMsP+KO/JisEcwQ8S8aTMT0yp2zCAVb2Y0CmizqWDHRyzMWUu+Xnbs7bQpnmQaK
+	LIV8zoSVxN5PFtqnDKdbz2EOqk8u5rRLqhL4wxM6sRLEf3z/9maGQKY8bmJWIabGhiWl47
+	tCLJExKLW1psHhVgaznIzL/K8IPYOILhw=
+Received: by recvd-54b954cdc-v8pxd with SMTP id recvd-54b954cdc-v8pxd-1-68479E89-9
+	2025-06-10 02:55:05.099654872 +0000 UTC m=+469312.109184546
+Received: from MTkyODQ5NTc (unknown)
+	by geopod-ismtpd-3 (SG) with HTTP
+	id qoR5eGyiRgmLqDJH4SxPfw
+	Tue, 10 Jun 2025 02:55:05.001 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Date: Tue, 10 Jun 2025 02:55:05 +0000 (UTC)
+From: "Sylvia Hao - Areal Property Hawthorn (MPM)" <MPM@email.propertyme.com>
+Mime-Version: 1.0
+Message-ID: <qoR5eGyiRgmLqDJH4SxPfw@geopod-ismtpd-3>
+Subject: Re: Follow-up =?UTF-8?B?4oCT?= Formal Demand & Statement Regarding
+ Unresolved Repairs (Unit 1803)
+Reply-To: "Sylvia Hao - Areal Property Hawthorn (MPM)"
+	<MPM@email.propertyme.com>
+In-Reply-To:
+	<CAAV=8vvzDYSgJdB2nPq-SvmopCv0MwVVN4GAUD0F=Khiy6ZYeQ@mail.gmail.com>
+X-PME-Message-ID: b2f8009e-c114-4c2d-ba38-b6a2727c7469
+X-SG-EID: 
+ =?us-ascii?Q?u001=2E9RB=2FiD87REpc4OAlt=2Fbx1ZFPUPuAeNIuaiPRL=2F85Sk9TpJ+4LNrMOHfKX?=
+ =?us-ascii?Q?sKkWoWUsEBqpojqQBxm+GmCHDdzJG0j2GUJLUkw?=
+ =?us-ascii?Q?kZZZHQNOL3ppQVH9LrublIa6w9A1mLM4BjXVm1N?=
+ =?us-ascii?Q?vhyQwJmfrbaE98aBKksxJm4I32YrLexkwX5c2Zc?=
+ =?us-ascii?Q?AV8SimT0JxmvAsXYQs4MTxeJ2xvn2nAk1mU+=2FnO?=
+ =?us-ascii?Q?PfKuIS1PkuKV8HZK3gn3eMg+AvHJPg4B5XUQwMG?=
+ =?us-ascii?Q?9bT6ZlmLpfgT7erxoPpRAWtbONlGgOHPKCpawXx?=
+ =?us-ascii?Q?sbhbttAU=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprCJ0D=2FzM03152aEp?=
+ =?us-ascii?Q?B6xxwbUIRUIPRcUKU9DQhuZt4qBfgjICPioVP8R?=
+ =?us-ascii?Q?n8QQ=2FenQzzp0jJ4dd6WDAUkc7HkQOQ9i?=
+To: Chawakorn Kamnuansil <ck.chawakorn@gmail.com>, bewty980219@gmail.com
+Cc: mpm@email.propertyme.com
+X-Entity-ID: u001.deu+on/E3Lv+61CrnlixOA==
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml" style=3D"margin: 0;padding: 0;box-sizing: border-box"><head=
+ style=3D"margin: 0;padding: 0;box-sizing: border-box">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width" style=3D"margi=
+n: 0;padding: 0;box-sizing: border-box" />
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+" style=3D"margin: 0;padding: 0;box-sizing: border-box" />
+    <title style=3D"margin: 0;padding: 0;box-sizing: border-box">Email</tit=
+le>
+</head>
+
+<body class=3D"" style=3D"margin: 0;padding: 0;box-sizing: border-box;-webk=
+it-font-smoothing: antialiased;-webkit-text-size-adjust: none;width: 100%;h=
+eight: 100%;line-height: 1.6;margin-top: 0;margin-left: 0;margin-right: 0">
+    <div id=3D"email-content" style=3D"margin: 0;padding: 0;box-sizing: bor=
+der-box;-webkit-font-smoothing: antialiased;-webkit-text-size-adjust: none;=
+width: 100%;height: 100%;line-height: 1.6;margin-top: 0;margin-left: 0;marg=
+in-right: 0;background: #f6f6f6">
+        <table class=3D"body-wrap" style=3D"padding: 0;box-sizing: border-b=
+ox;background: white;margin: 0 auto;border-spacing: 0;background-color: #f6=
+f6f6;width: 100%;min-width: 50%">
+            <tbody style=3D"margin: 0;padding: 0;box-sizing: border-box"><t=
+r style=3D"margin: 0;padding: 0;box-sizing: border-box">
+                <td class=3D"container" style=3D"padding: 0;box-sizing: bor=
+der-box;vertical-align: top;display: block;max-width: 800px;min-width: 400p=
+x;margin: 0 auto;clear: both;background: #fff">
+                    <div class=3D"content" style=3D"padding: 0;box-sizing: =
+border-box;max-width: 800px;min-width: 400px;margin: 0 auto;display: block"=
+>
+                        <table class=3D"header" width=3D"100%" style=3D"mar=
+gin: 0;box-sizing: border-box;width: 100%;clear: both;padding: 0 20px;backg=
+round: white;border-width: 0;border-spacing: 0">
+                            <tbody style=3D"margin: 0;padding: 0;box-sizing=
+: border-box"><tr style=3D"margin: 0;padding: 0;box-sizing: border-box">
+	<td class=3D"header-footer-block" align=3D"left" style=3D"padding: 0;box-s=
+izing: border-box;clear: both;max-height: 50mm;margin: 0;vertical-align: mi=
+ddle;font-family: Verdana, Geneva, sans-serif;font-size: 15px">
+				<img style=3D"margin: 0;padding: 0;box-sizing: border-box;max-height: 1=
+06px;height: 106px;max-width: 100%;vertical-align: middle" src=3D"https://m=
+anager.propertyme.com/api/storage/images/public/b24c00fd-ab5d-ff7f-8906-1da=
+bef1916a8" alt=3D"agent image" />
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_LEFT_TEXT}}-->
+	</td>
+	<td class=3D"header-footer-block" align=3D"center" style=3D"padding: 0;box=
+-sizing: border-box;clear: both;max-height: 50mm;margin: 0;vertical-align: =
+middle;font-family: Verdana, Geneva, sans-serif;font-size: 15px">
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_CENTER_IMAGE}}-->
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_CENTER_TEXT}}-->
+	</td>
+	<td class=3D"header-footer-block" align=3D"right" style=3D"padding: 0;box-=
+sizing: border-box;clear: both;max-height: 50mm;margin: 0;vertical-align: m=
+iddle;font-family: Verdana, Geneva, sans-serif;font-size: 15px">
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_RIGHT_TEXT}}-->
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_RIGHT_IMAGE}}-->
+	</td>
+</tr>
+                        </tbody></table>
+
+
+                        <table class=3D"main" width=3D"100%" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"box-sizing: border-box;background: #;border-=
+width: 0;border-spacing: 0;padding: 0.7em 0;margin: 0">
+                            <tbody style=3D"margin: 0;padding: 0;box-sizing=
+: border-box"><tr style=3D"margin: 0;padding: 0;box-sizing: border-box">
+                                <td class=3D"content-wrap" style=3D"margin:=
+ 0;box-sizing: border-box;vertical-align: top;font-family: Verdana, Geneva,=
+ sans-serif;font-size: 15px;padding: 0 20px">
+                                    <table width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0" style=3D"margin: 0;padding: 0;box-sizing: border-box;fon=
+t-size: inherit;font-family: inherit">
+                                        <tbody style=3D"margin: 0;padding: =
+0;box-sizing: border-box"><tr style=3D"margin: 0;padding: 0;box-sizing: bor=
+der-box">
+                                            <td class=3D"content-block fr-v=
+iew" style=3D"margin: 0;box-sizing: border-box;vertical-align: top;font-fam=
+ily: Verdana, Geneva, sans-serif;font-size: 15px;padding: 12px 0 20px">
+                                                <!-- Please do not change t=
+he comment, it's used for merge -->
+                                                <div style=3D"margin: 0;pad=
+ding: 0;box-sizing: border-box">Dear Chawakorn,<br style=3D"margin: 0;paddi=
+ng: 0;box-sizing: border-box" /><br style=3D"margin: 0;padding: 0;box-sizin=
+g: border-box" />Thank you for your email and for clearly outlining your co=
+ncerns. We completely understand the frustration and inconvenience this ong=
+oing issue has caused, and we truly appreciate your patience.<br style=3D"m=
+argin: 0;padding: 0;box-sizing: border-box" /><br style=3D"margin: 0;paddin=
+g: 0;box-sizing: border-box" /><strong style=3D"margin: 0;padding: 0;box-si=
+zing: border-box;font-size: inherit;font-weight: 700">Repair Timeline:</str=
+ong><br style=3D"margin: 0;padding: 0;box-sizing: border-box" />We have for=
+mally submitted your 30% rent reduction request to the Owners Corporation a=
+nd are awaiting their response. Once we receive their feedback, we will pro=
+vide you with a confirmed repair timeline and projected completion date.<br=
+ style=3D"margin: 0;padding: 0;box-sizing: border-box" /><br style=3D"margi=
+n: 0;padding: 0;box-sizing: border-box" /><strong style=3D"margin: 0;paddin=
+g: 0;box-sizing: border-box;font-size: inherit;font-weight: 700">Temporary =
+Relocation:</strong><br style=3D"margin: 0;padding: 0;box-sizing: border-bo=
+x" />As discussed, the affected bedroom will need to be vacant during the r=
+epair work, including the installation of drying equipment. <br style=3D"ma=
+rgin: 0;padding: 0;box-sizing: border-box" /><br style=3D"margin: 0;padding=
+: 0;box-sizing: border-box" /><strong style=3D"margin: 0;padding: 0;box-siz=
+ing: border-box;font-size: inherit;font-weight: 700">Co-Tenant Impact:</str=
+ong><br style=3D"margin: 0;padding: 0;box-sizing: border-box" />We recogniz=
+e that your co-tenant will also be affected by these repairs. Please rest a=
+ssured that we will keep both of you informed about the repair schedule and=
+ any potential disruptions.<br style=3D"margin: 0;padding: 0;box-sizing: bo=
+rder-box" /><br style=3D"margin: 0;padding: 0;box-sizing: border-box" />We =
+fully respect your decision to withhold consent until these matters are ful=
+ly addressed in writing. We are working to resolve this as quickly as possi=
+ble and will provide all the necessary details as soon as they are availabl=
+e.<br style=3D"margin: 0;padding: 0;box-sizing: border-box" /><br style=3D"=
+margin: 0;padding: 0;box-sizing: border-box" />If you have any further ques=
+tions or need additional clarification, please don=E2=80=99t hesitate to re=
+ach out.<br style=3D"margin: 0;padding: 0;box-sizing: border-box" /><br sty=
+le=3D"margin: 0;padding: 0;box-sizing: border-box" />Kind regards,</div><ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin: 0;pad=
+ding: 0;box-sizing: border-box;border: none;empty-cells: show;max-width: 10=
+0%;width: 418.2pt;border-collapse: collapse" width=3D"418.2pt"><tbody style=
+=3D"margin: 0;padding: 0;box-sizing: border-box"><tr style=3D"margin: 0;pad=
+ding: 0;box-sizing: border-box"><td style=3D"margin: 0;box-sizing: border-b=
+ox;border: 1px solid #dddddd;width: 418.2pt;border-top: none;border-right: =
+none;border-left: none;border-image: initial;border-bottom: 1pt solid windo=
+wtext;padding: 5pt;height: 86.65pt;vertical-align: top" valign=3D"top" widt=
+h=3D"418.2pt"><p style=3D"padding: 0;box-sizing: border-box;font-weight: no=
+rmal;margin-right: 0cm;margin-left: 0cm;font-size: 15px;font-family: &quot;=
+Calibri&quot;,sans-serif;margin-top: 0cm;margin-bottom: 8.0pt;line-height: =
+115%;margin: 0cm"><strong style=3D"margin: 0;padding: 0;box-sizing: border-=
+box;font-size: inherit;font-weight: 700"><span style=3D"margin: 0;padding: =
+0;box-sizing: border-box;font-size: 21px;line-height: 115%;font-family: &qu=
+ot;Avenir Next LT Pro&quot;,sans-serif;color: black">Sylvia Hao</span></str=
+ong></p><p style=3D"padding: 0;box-sizing: border-box;font-weight: normal;m=
+argin-right: 0cm;margin-left: 0cm;font-size: 15px;font-family: &quot;Calibr=
+i&quot;,sans-serif;margin-top: 0cm;margin-bottom: 8.0pt;line-height: 115%;m=
+argin: 0cm"><strong style=3D"margin: 0;padding: 0;box-sizing: border-box;fo=
+nt-size: inherit;font-weight: 700"><span style=3D"margin: 0;padding: 0;box-=
+sizing: border-box;font-family: &quot;Avenir Next LT Pro Light&quot;,sans-s=
+erif;color: black">Relationship Manager</span></strong></p><p style=3D"padd=
+ing: 0;box-sizing: border-box;font-weight: normal;margin-right: 0cm;margin-=
+left: 0cm;font-size: 15px;font-family: &quot;Calibri&quot;,sans-serif;margi=
+n-top: 0cm;margin-bottom: 8.0pt;line-height: 115%;margin: 0cm"><strong styl=
+e=3D"margin: 0;padding: 0;box-sizing: border-box;font-size: inherit;font-we=
+ight: 700"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-=
+size: 16px;line-height: 115%;font-family: &quot;Avenir Next LT Pro&quot;,sa=
+ns-serif">&#160;</span></strong></p><p style=3D"padding: 0;box-sizing: bord=
+er-box;font-weight: normal;margin-right: 0cm;margin-left: 0cm;font-size: 15=
+px;font-family: &quot;Calibri&quot;,sans-serif;margin-top: 0cm;margin-botto=
+m: 8.0pt;line-height: 115%;margin: 0cm"><strong style=3D"margin: 0;padding:=
+ 0;box-sizing: border-box;font-size: inherit;font-weight: 700"><span style=
+=3D"margin: 0;padding: 0;box-sizing: border-box;font-family: &quot;Avenir N=
+ext LT Pro Demi&quot;,sans-serif;color: #70BF44">M</span></strong><strong s=
+tyle=3D"margin: 0;padding: 0;box-sizing: border-box;font-size: inherit;font=
+-weight: 700"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;fo=
+nt-family: &quot;Avenir Next LT Pro&quot;,sans-serif;color: black">&#160; &=
+#160;0420 675 561</span></strong></p><p style=3D"padding: 0;box-sizing: bor=
+der-box;font-weight: normal;margin-right: 0cm;margin-left: 0cm;font-size: 1=
+5px;font-family: &quot;Calibri&quot;,sans-serif;margin-top: 0cm;margin-bott=
+om: 8.0pt;line-height: 115%;margin: 0cm"><strong style=3D"margin: 0;padding=
+: 0;box-sizing: border-box;font-size: inherit;font-weight: 700"><span style=
+=3D"margin: 0;padding: 0;box-sizing: border-box;font-family: &quot;Avenir N=
+ext LT Pro Demi&quot;,sans-serif;color: #70BF44">P</span></strong><strong s=
+tyle=3D"margin: 0;padding: 0;box-sizing: border-box;font-size: inherit;font=
+-weight: 700"><span style=3D"margin: 0;padding: 0;box-sizing: border-box;fo=
+nt-family: &quot;Avenir Next LT Pro&quot;,sans-serif;color: black">&#160; &=
+#160;&#160;</span></strong><strong style=3D"margin: 0;padding: 0;box-sizing=
+: border-box;font-size: inherit;font-weight: 700"><span style=3D"margin: 0;=
+padding: 0;box-sizing: border-box;font-family: &quot;Avenir Next LT Pro Lig=
+ht&quot;,sans-serif;color: #2A2A2A">03 9818 8991</span></strong></p><p styl=
+e=3D"padding: 0;box-sizing: border-box;font-weight: normal;margin-right: 0c=
+m;margin-left: 0cm;font-size: 15px;font-family: &quot;Calibri&quot;,sans-se=
+rif;margin-top: 0cm;margin-bottom: 8.0pt;line-height: 115%;margin: 0cm"><st=
+rong style=3D"margin: 0;padding: 0;box-sizing: border-box;font-size: inheri=
+t;font-weight: 700"><span style=3D"margin: 0;padding: 0;box-sizing: border-=
+box;font-family: &quot;Avenir Next LT Pro Demi&quot;,sans-serif;color: #70B=
+F44">A</span></strong><strong style=3D"margin: 0;padding: 0;box-sizing: bor=
+der-box;font-size: inherit;font-weight: 700"><span style=3D"margin: 0;paddi=
+ng: 0;box-sizing: border-box;font-family: &quot;Avenir Next LT Pro&quot;,sa=
+ns-serif;color: black">&#160; &#160; 33 Camberwell Road, Hawthorn East VIC =
+3123</span></strong></p></td></tr><tr style=3D"margin: 0;padding: 0;box-siz=
+ing: border-box"><td style=3D"margin: 0;box-sizing: border-box;vertical-ali=
+gn: top;width: 418.2pt;border: none;padding: 5.0pt 5.0pt 5.0pt 5.0pt;height=
+: 33.5pt" width=3D"418.2pt"><p style=3D"padding: 0;box-sizing: border-box;f=
+ont-weight: normal;margin-right: 0cm;margin-left: 0cm;font-size: 15px;font-=
+family: &quot;Calibri&quot;,sans-serif;margin-top: 0cm;margin-bottom: 8.0pt=
+;line-height: 107%;margin: 0cm"><img width=3D"230" src=3D"data:image/png;ba=
+se64,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
+UVORK5CYII=3D" data-fr-image-pasted=3D"true" style=3D"margin: 0;padding: 0;=
+box-sizing: border-box;position: relative;max-width: 100%" /></p><p style=
+=3D"padding: 0;box-sizing: border-box;font-weight: normal;margin-right: 0cm=
+;margin-left: 0cm;font-size: 15px;font-family: &quot;Calibri&quot;,sans-ser=
+if;margin-top: 0cm;margin-bottom: 8.0pt;line-height: 107%;margin: 0cm"><spa=
+n style=3D"margin: 0;padding: 0;box-sizing: border-box;font-family: &quot;T=
+enorite Display&quot;;color: black;background: white">&#160; &#160;</span><=
+a href=3D"https://link.email.propertyme.com/ls/click?upn=3Du001.uPeXt1-2FWM=
+MlLMhZtXudDrNUsu8Cal5eTkKkmIFyovPY0K-2FbiPyDTzHDN1WxSXAzOVQJy_ToOUkN9R21HVu=
+2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1qerBvoBvFoFL9NUYCOKVol0fE6HUJDslzW=
+hvAkVJJb0rfXJB29pksjRxQli8sLcmLzaX0lZQFKEHBXFR5zviPBlUCHHl6MmxemvTIMxoUv5LW=
+FOklajYDNso206L2G9a1fOvL3voggu9PsUCM9GPVC0hfB5znouNO5ZxvZNyf-2BsLLEyPDdkyt3=
+1JieLwGSgpPjZtguQMxGWjmdQreNet-2Fxkar52rdC8n5LstFMP1weBA-2BF4vV-2FSko8vEB2o=
+-3D" style=3D"margin: 0;padding: 0;box-sizing: border-box;color: #348eda;te=
+xt-decoration: underline"><img border=3D"0" width=3D"25" src=3D"data:image/=
+png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAxCAYAAACcXioiAAAACXBIWXMAAAsSAAAL=
+EgHS3X78AAAHkElEQVRogc1ae0xTVxj/GAVRC4JWizpFg5qN4ECws3FGoO6faayoiQ6VgZtsi4+=
+MDYfjtfLWqcwlPrbM6GBO0RlnaSIscysPH2vWOBU121AiDInUNQiCojzm8l3O6W5vex8t1O2XkF=
+7O+c73Oo/vfN+9Xk+fPgVPQKXWxLLYNplNxiZPyBkWA1RqTTwAoMKRABAjQNoJAFcAoAZ/zSajf=
+qiy3TaAeDgZAFD5MW7KR4PQiFKzyVjjDgOXDSCK54p42h3UIl9XDZFsgEqtCQSAzwAgaZgV56IC=
+AFKl7hlJBhCv64ewVFwFLq1kKXvkOQnK43KpfobKA5F1msgWhOAMqNSa0mewZMRQZjYZk/loeA0=
+YqvLRUZF2/1/69Yq7rEDICKcGqNSaVADY44qE2JgFEL9sSUvES+FyuXx0kDOa7u6H96/WX+/WV5=
+yZUlN73hX2iPVmk7GU2+hgANmw1VK5xmuX9GzZ8nZvgL+/S3vkQVdX5969X/rqDWdGujBsjtlkt=
+JtKOwPIUYkEIWKcZs2aAZ/uKrQqlRMUzvrv3m0DXd72NnzO02UET5wY7JSPxXLP+sGH2YqGhltS=
+DGjGaG82GTtoA/cUSpWiPHq97PCBR1R5VHZreo4lR1fci/93dXVDyrup1stXrgXjHz5jG+LzLw4=
+/eXPD5ha6J5AH8kKeEgwIITraYJsBlVozDQBuS1E+KzPNNu379h/sLDtSziwfw+ljgJ5mt1EkJS=
+Z0bt6UMgaN1S5fw7Qu0y62Zmdutc1gUXFJj8QlNZ0GOvYMiJ65mriFj6jy6NE1iSlWqujs8LAWV=
+B7bjx0/6csdi23YhzShodMt2FZhqFRo4xPa6ewgb5QhwQCbrowBZO3HC41AwYX52V5U+bWJKe03=
+bzbavKfVvsY8/1Rd29PX1+/gRWzDPnx+ffWKANp+t80yFnlRI1AG335hIYnobJsB0RulLifd6uM=
+jYxRDgSiY3b8oLobpMxiqrHw8aB+lZRvxzsb3mT6UUbKzgJcHC8lcA3iBQSk6KpLxMK5vrvLjFe=
+Ms/v5y5vn3PxqcnkrsPqTFMew+nE3kjc8zZ4YquIGQ1wAyFcuEKDdt3NBCn8tPnPLj9oeFvcD84=
+lHobPlQYB89LukYNti82TJ5EIG6e82dFycYuNBbxrMGEV6eAZ5WeGoJYPlzJBXkxaK4GCnns0cw=
+TxUtJjtSBgCBQhSxsQtwQ00ZDE7vWXqf9D7m0uwo1oVgZM7N39FaX3+jX4jf2jWr5CtXLB2HS+m=
+jzLxmbr9CMXZEya6iYJx5lK03nJkiZoDgbpk69fm/8bfh5i1obLytdEbT1T14BKLyLXdaBSP58R=
+OnWleuWMqMcUbbcqeVkYWbmMoWQKBoQhMUGMic2efO/WwRo5WCgYEBwRliy6KyhSBqAL0a9/f3O=
+ywdT4HK4ruWsyFqQF9f/3+2iaXIFjWgzWK5h79z584RvaUOF6gsKlvMgA4hgo6OTsbISeL3E/Ad=
+4esQ5LiIiooYLUZDZVHZQpCRBIY3Etdfu+E7OzyMSWDwuiyXy4FeG7g4fvSQ01OKA+Y6gaeM2WQ=
+UJKyru+Bc0L+oQQsFC0iVVWdtSuEtkU95T+CiySy2iZtkpNDKCww4mL9izothPS09x/q45/FDNr=
+1Wuzgg+Y2EIKTNyils5Tsqvb29ZUUF2ZNxNku/Lr9vMFQ+YPf7jfQbXbKzQIGOQpkNDbfE8uwaG=
+WY2KrWmWSiVxOQ7KzONmYFJE4MHausu2NEaDJXNaAAq1tT852QhiUhDxjzgBrKYha9YaC6AMkWU=
+b0bd6SYRLOFhmoceASYv2Kb09fGxiwlsRbjXZDaUyglWZ2MQyBN5A6lYSEgtGZ2pAQ71Fi6Kikt=
+8gNxOvzq0308mk9mlfjRJnz9/njcfj1c1MQPAU+RCnnR/pW/TSSnRlNoMILWWWiFqY3XdqApDJe=
+NBXAZFBdmYPdkCTdX3PzJ9b61fx5vQrF61nPHwtyf17bQNeXyyPfcRXVooQ0IVr5bWh1xK6guLd=
+yuM1XWMcE3cwlGlhw6MDPD3Z5ZWZdUPzPnOTtrZwDa6vs+dv8gsDxyLPJAXcVI7yhDTwyGph8FZ=
+qBGbBcS2jNyx1Aj0mv67o2OwZAKDe4WZkT27i5Ts2cHnfF2GktJ4gZcXjsGx1PPIE3lLUL6W/RK=
+EW5nDq/VlCUxg86aUzqTEBNtaxXyBXoOBHL/0SM3KTAuh7bg8Zs2cYRdPyo6Ud+7bf1BqadKuvO=
+isNorTo5PCCb2Xr8uwhIZOlxKBHdDYeNvycd52pcSyIiLPbDLaLXW+6rReLNFnA72buG51y8uqa=
+AUtvfABb5i/mC9Zj3xzYoqLJfcKs8noUD3hMyCQROgIVyQAMWZ2+Iv3FeMVdlHW+pc14Nr134Lc=
+fE9wFbNbdlGXQugFh9tGDDN4lQehfIAMiCUM/pfKg1hCwzKizCPqCaNMTHlw8T1xPAnfnn5b2Un=
+eE4teb0BKSklB3tlO8/BsIO9pUpUHd7+VIC9Dcof4nQQF/V4i150vWob8tYpKrUkm+yRWyuspgm=
+ZywumH+sXKsH4vRI5evDPgH7dkid7FP/zMRnBjSgYA/AOEin7Ju0II+QAAAABJRU5ErkJggg=3D=
+=3D" data-fr-image-pasted=3D"true" style=3D"margin: 0;padding: 0;box-sizing=
+: border-box;position: relative;max-width: 100%" /></a><span style=3D"margi=
+n: 0;padding: 0;box-sizing: border-box;font-family: &quot;Tenorite Display&=
+quot;;color: black;background: white">&#160;</span><a href=3D"https://link.=
+email.propertyme.com/ls/click?upn=3Du001.uPeXt1-2FWMMlLMhZtXudDrGRmddulwEJ6=
+wPY-2BzhqQhFs6OQdcmi-2FQ0uCNgxZiSNO-2BodecqpjVE7zNdCs1OGOABw-3D-3DjHpI_ToOU=
+kN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1qerBvoBvFoFL9NUYCOKVol0fE=
+6HUJDslzWhvAkVJJb0rfXJB29pksjRxQli8sLcmLzaX0lZQFKEHBXFR5zviPBlUCHHl6MmxemvT=
+IMxoUv5LWFOklajYDNso205I6WWDF8U98ZqxS8g4U-2FNRmtM7nldpHFBaBmO-2B37ioYq0v8DT=
+mCxDNRFIUvz6Dq4xv-2BbBAcZBDskiGboS9iiV-2B-2Bfx4hA-2FUnoWniUEhww0mAsh1pWfCFC=
+MRa202qcQvDec-3D" style=3D"margin: 0;padding: 0;box-sizing: border-box;colo=
+r: #348eda;text-decoration: underline"><img border=3D"0" width=3D"26" src=
+=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAxCAYAAABznEEcAAAAC=
+XBIWXMAAAsSAAALEgHS3X78AAADbUlEQVRogdWaQWsTQRTHX0NuptijPSloc+3SuLgg2LgXhRZa=
+8CCeEqGK6CXqwZOYfgFJDl5KD4kgehEitqCXtd4WFiW5xgrtxeotS71HZn0bdpOZzezsa5r9wbJ=
+JdjLz/jszb2bezEy/3wcqdMMsAoAGAHOBu08PANqBe9uxrR5F0YlE6IbJjFzHa00hiw4ANACg5d=
+jWgaodSiLQ+ApeZ1ULH+IDANQc29qL+8fYInTDrBIbPwwTU4lTM9IidMPUsOoXE5kohwsAVce2a=
+jKppUTohllmVX2Cb19EE2sl0gGMFYHN58UEDBbBOn8xSkikCN0wWfMpUVqUz1+C4rWr3n12Nuf9=
+dnz8F7rdfe/zx93PcHT0e/hvkUKEIqhrgBldff4MFhYuRqZ78PAJfPve5j0SCsnwUmMfIBOwunI=
+T3rzeGitgDIvYL0cYEaEb5gVRYhXm58/B08ePqLIr6YZZGSsC3SiZF7q/UYJc7gxVdowqvugBIR=
+HYjJYpS1xduUGZHeALDrWU7FCCKmVphSUt8vkOxxP9GvVMPNbYZNOfogxEYC2cJ7J/LC9rr+Dtu=
+/dJsmD2eiKCzWmkwyQlnxd7o273Z9LsS37f8ETgF/I50WwuJ3zW/bFPUQRbAgxqYp0ixziwUZqA=
+kIjipEUQsXyqItg0hALmpbK4Sks8uDF3WlgKd6tCQexi79y+xXGvf2Bn91PcorUsLugTwwTc25C=
+f8PIGQTZuKIiY404ATwvOFFyGYoaqJihgzUmFzFBsKI014YlQjvdQIzlvmm4RijXRm7l85TobI7=
+7Qm/R/LSHyWLphUhWzmVGJuE0ZB76LPUyxiLYvIq214Tq2lXoRoUVRC+OfaaM1EIEBqVbKBLghE=
+QhZrGlC1Pxo4EAE6yAA8DUlAtzgSx+exZYnb48StWBMNiQCd2c2p1xAx7GtUHxsZD2BCToTNUse=
+l9daRIui8pS63Ar23RBcEZhw2iIgdce2GrwHwuUpCrl7ombJ03RsSxihlNmz03B4jx0R4UVAfLa=
+2m7LZ1KMEQIzd00lu//q42Ae4TSiIVLQj0EfqxIaKYIOuJiMAFE8UaDhakm7GIIe4CS9lvI/yAR=
+U8UVMm2iJmb74R13ifxEeFAidtinjJbNS46Cz2kp6wYZCed/LBJsf2PIKBOWaodyU1OgQA/ANoX=
+0RNtTzNhAAAAABJRU5ErkJggg=3D=3D" data-fr-image-pasted=3D"true" style=3D"mar=
+gin: 0;padding: 0;box-sizing: border-box;position: relative;max-width: 100%=
+" /></a><span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-fam=
+ily: &quot;Tenorite Display&quot;;color: black;background: white">&#160;</s=
+pan><a href=3D"https://link.email.propertyme.com/ls/click?upn=3Du001.uPeXt1=
+-2FWMMlLMhZtXudDrPi9DiHLmH460gpPdmTlwPUxC3pW9H1ldc0Em-2FtZBuxVUwHL68PCq4EA0=
+UT2V1gQsw-3D-3DazUV_ToOUkN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1q=
+erBvoBvFoFL9NUYCOKVol0fE6HUJDslzWhvAkVJJb0rfXJB29pksjRxQli8sLcmLzaX0lZQFKEH=
+BXFR5zviPBlUCHHl6MmxemvTIMxoUv5LWFOklajYDNso2064RxdzPN8uwfUygqbNdzT6PiCR25S=
+sKNzLmT-2FSIxGHASrSp74QmcDW3nlezGv3CtpIfilzWk0uIB0iQfchP2tVS7scoTZpdge-2FCi=
+TRGk8EQYyH8LgrrYnqe0ItYpiXD8c-3D" style=3D"margin: 0;padding: 0;box-sizing:=
+ border-box;color: #348eda;text-decoration: underline"><img border=3D"0" wi=
+dth=3D"26" src=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAY=
+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" data-fr-image-pasted=3D"tr=
+ue" style=3D"margin: 0;padding: 0;box-sizing: border-box;position: relative=
+;max-width: 100%" /></a><span style=3D"margin: 0;padding: 0;box-sizing: bor=
+der-box;font-family: &quot;Tenorite Display&quot;;color: black;background: =
+white">&#160;</span><a href=3D"https://link.email.propertyme.com/ls/click?u=
+pn=3Du001.uPeXt1-2FWMMlLMhZtXudDrMqLymbMAGMONEyWmkzUaAqhlKyv2m17YSv05SVeciR=
+EPvJ6GnWS846ef5XewoA8Cg-3D-3Do9Tl_ToOUkN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6LIra=
+U3f-2FDIqT2r1qerBvoBvFoFL9NUYCOKVol0fE6HUJDslzWhvAkVJJb0rfXJB29pksjRxQli8sL=
+cmLzaX0lZQFKEHBXFR5zviPBlUCHHl6MmxemvTIMxoUv5LWFOklajYDNso204031YuAcc1FUsvA=
+OYWPYZLHb8o3eQtDYMa7gvtjWLtbaJyo-2FrVql19SmUGFbN4KCsFeGB8fS48rEFVFRibr3oU8P=
+9TBI0WL6pe0melHTRswgGwJbeXl0jBI6mnO-2BBX37k-3D" style=3D"margin: 0;padding:=
+ 0;box-sizing: border-box;color: #348eda;text-decoration: underline"><img b=
+order=3D"0" width=3D"26" src=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEU=
+gAAADEAAAAxCAYAAABznEEcAAAACXBIWXMAAAsSAAALEgHS3X78AAAERklEQVRogdVaX0hTURj/=
+1BkpLUcsp71oUFq9ZNqlkeTmoCCL0kiCpPIhQ7TAUoqKaNGTEqYv4kv4hx56S4Negu7UKC5eMve=
+qRg4LW9kfaWbgyvjmueO6nXt37912t/1gOq/nnPv7ne9853znOydtdXUV4gHG6rBTmp3kOfZnrF=
+8XExGEsPApAYCcCFVGURAAjPAcOxTt+zWLYKyOQgBoAYB6BaTlsAgAKMTJc+yslgZUiyDknQBwI=
+QriUhjQIkaVCMbqQPJ3Y0RYCmiZLp5jnUorKBLBWB04zvsBYG8cSEvBDQDVSqwSUQRx2qEox71W=
+oFXsPMdOytVPjyAAndaVIAFA3vuO8JCEpCUYq6MaAJ7qyTgCaqSmY6oI4gMjCbQADZJDK0wEY3W=
+YyEJUkEDCUvDgYhq66tN8ol9OwOXmhsU3r14s8xwL+HnQcd9rNG7SS0QBWaPWYZ0lyEzkkmqh+s=
+Sx5du3WrNCn4+Ovfa2Xb9jiQ9vKip5jh0R/hFqiS65mnV1td9pz20V5XoKgFBrBEWQaUx2McvIy=
+PDHk5kK2MRRstgSsnMxgnWNmWjPp6ffL+irIYAW4UvAJ0hQ90FJzd6ezoWy0hKz8LfX+2WhobHF=
+PD//OV5k5bAdwxIDKVCttFZj0zVzfn4ebMvPg18+H0xNzZgVVIsXkHeXICLiUBIDez1BPR8Ku1i=
+EouiUYUqXbBXlYeN/YsK9lXWNZeN3tFLd2VqPVJmy0hJobro4t6u4yJyZaQhM1z7f0o+X7OjfR3=
+2P1Q7Lk/gjbf+BStm1QYy21iueM7U1YQvh3MdPnlOnzwWeI8nens6wulhmcPBJLm2dEeD3+3+3d=
+3SnDT17LlmGgn04OxWqqKAZFkuuRU4AwmAwZGMZ7AgVMOkmYkNm5kalZTva7y2qaNouu5+IF74u=
+fPOurPiXpZrfbDTmFBXtUPx2XUXgmlJ3/hJUHa+1HDx0JIt1jVHDGETV0cNepe3qKgIXxampmeD=
+fN246t6BVaGUNBsMfpe3qJgJnJ9r0OT7+lhqP7dldrJhbQnxCDN/SElWEyZTzT2kb6WQbmsoYQR=
+GaUodJhNl0kpxSMy8nEzzIX/CJqDPTCULAFQQRqeoX60QMpeCQWuQ5FjMzayJIHifVhlSQr3idU=
+JxKTxIE+QZFkFlqIEUEdItT/qHJMxNZN6g5WGFvHQqy1w48xWxg0c7wCFRcRm2bIUDfLRSnMmm5=
+WNxv90XujIQhLDseFjsRj0/WYTVAS+9LBYAt5LgpmeDmOZaalaGKIOPNnkRC3IQPFZKheBIJcZP=
+DFcmbCLL7CZGQ4bjQi4zhSAJAzTk2Y3WgnzzUhfoarvIcK3vUIEDtYXwhOUmyRctQBnjvo17NrQ=
+JNdzvI2YAzxmJGyZUI1RF1VLdsyClrPclOazmo9JBADq9BaN5hxuy+ExlqaCHhN4Yw4kQ19jQCe=
+xoJ4zWh6LfGAPAfZ3SvAVxEtRsAAAAASUVORK5CYII=3D" data-fr-image-pasted=3D"true=
+" style=3D"margin: 0;padding: 0;box-sizing: border-box;position: relative;m=
+ax-width: 100%" /></a><span style=3D"margin: 0;padding: 0;box-sizing: borde=
+r-box;font-family: &quot;Tenorite Display&quot;;color: black;background: wh=
+ite">&#160;</span><a href=3D"https://link.email.propertyme.com/ls/click?upn=
+=3Du001.uPeXt1-2FWMMlLMhZtXudDrITaejTn2rHGWk8htGNkCDIr75XQAN1Rda7ka1TlZodNA=
+6A2_ToOUkN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1qerBvoBvFoFL9NUYC=
+OKVol0fE6HUJDslzWhvAkVJJb0rfXJB29pksjRxQli8sLcmLzaX0lZQFKEHBXFR5zviPBlUCHHl=
+6MmxemvTIMxoUv5LWFOklajYDNso205xrl9jR676gSsJR8-2BP-2BbHrfZF-2FvxXUCq9ZGqkbS=
+5gs7-2BfS-2FPCKeIAZRwPKp16E0qgEu9kQTxlUascDpsuo-2Fhjdkm2RdLLHos1Ymmy6NIJEKh=
+NyDHff852X3QZokAobhR8-3D" style=3D"margin: 0;padding: 0;box-sizing: border-=
+box;color: #348eda;text-decoration: underline"><img border=3D"0" width=3D"2=
+6" src=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAxCAYAAABznEE=
+cAAAACXBIWXMAAAsSAAALEgHS3X78AAAFL0lEQVRogdVafUxbVRQ/K8UwhFG6xYJT6bIF/xTd6u=
+pHhDUx6FBWJEbNXGT4me0PhhjYl6EbuoS5RRozY1wMbEKi+2PiEjBk8Y0uYym+MItT/4DhaBjMm=
+oYPQUqgDHPqfaR95b13330PVn/JTV7hfpzfPefee+45d9XCwgLoDZvdYQKAvCW69fFeblzv8XQh=
+YbM7CgBAKPkUTTxICAA6sWglxkzCZndYAaCMlBwtQgDAGQBo4r1cJ0tj1SSIqbgAoIJlQAWghlx=
+qyagiYbM7nDhjAJChr+xxcBMyVGZGRYLMPgq/Q29pZeAHACfv5XxKFQ1KFWx2Rx5ZgCtJAMg6+9=
+lmd5QpVZTVRBSB5TYfJezmvVyTVB1JTSQQAUSjnEaW1ARZAz4dtk69UcJ7uVZxn1KaaE1AAogmc=
+j7FII6Eze5wUZ66dwMZZJeMQYw5EZY3E5RANGIWulgTruUePT09DTY/lhcp+M2IBrJuIzAKH0QL=
+b9AKMjk5pWr43NxNcLT2QGDjxg2W6L97LncFjtTVW7A/7Le05MWxQf9QZqfnilx3aFb7hElfNCe=
+b3dFEQ8JZXBQqL389tHPX22ZaItjm0MGq1VL/n5r6ZywQ+GsWCc7Ozc08t700haJvP+/lIos82p=
+ycNAIVFz8fzM6ymFu+Pj1KYw7Z2VlQU10h69ukpd2biQTm5sKhQ4frUl4oKqQRJYf4cv+RID+oD=
+jWTKeNORLgsi7n1fMsEmokcCp/dNmY0GlNp+k5ONq7+pP4ohKZnQjT1hYkXNFFA2Qjm5+cX19Ga=
+9PSMlrNfwuGDHwSltFJUVDhN2zfi42MnQ60X2iRNT4SI3KpJtLV1xM3qjuLt6zraz4dOHK8LiDW=
+TlJQUpu2762r3kAoCQEzKKszqI7StOi5eynz3nd3TYhNBU8h/5iksgLY9PDIy2v1TT3itOZN6H7=
+01PHJHBQEBeQbi6FHj4dxNcLb5myS5+kjImvPQ+ldeLslJTU1dS9v3jf4/7mMhgZowUVRcxN49b=
+w2jgAyDKWLo1rAaUxJgNagl0XW120hRjQl9/TdYmkVIqDKnb899ZwmHw6p2HBrggafWCxCgeD0V=
+4/btP6H+uHuV3iR+5DzzrG0N5PamCrgNvrfnfRgYuBnQi8RXjc3rtJBgQlXl3qDYmWNFf/9AEDX=
+MiE4kMcjS9uSnp5hnToyq6g819WXgvRwTiZ5rvoiLoGVwhPuzL2Y0aAEETQAJH6qGsDau//r7EE=
+t77tLl0eaWcylaGGBAQyARF0GgBWqkonL/g3i5UUug5oDLrJFAL4Y6hYOLKRqNV8zXXi0NPPnE1=
+jXJyUbqRf79hfbgR8dO6LGmInJH3+x8So5gQf7T8Gb5rvEH1t+/gBcZtSP+PTk5UV1Tm4Ha0wkb=
+cE1Hb7ENirQ9V6B6f62p55pvVq3wpz4/PeZ8aaeeBDzCpiQO2QzSBs2EqMWWLY/6tz6+2Si+N4y=
+PTxh+uf7bPe0/XLT09TH5RErYJuQxxCQw3tm4HCPqDNTC4kUu5sQmAane/wGJmODyUm6HYj7gLu=
+OI+ICOI0EyM5UJSgDNKC5KuaQDyHu5BpLRTCT0SsXGJL1Y3suVJRCRCTRzqUSkrCueIESQQIFcA=
+lLxPkGIuHUXjQ5oQlalDCp1HnsFc9gC3LyX20dTkfpmR3Jl1hUwr15yGlMRANa3HSSX4aLNZ1AC=
+hW+QS/VKQdMrG0LGSQ5I6lBoFPzkLoOPU5g9Q93eOxFCGMPCgt9YohOYONO4RaLThicuvn3S7tI=
+CwL8GAQACduXYzgAAAABJRU5ErkJggg=3D=3D" data-fr-image-pasted=3D"true" style=
+=3D"margin: 0;padding: 0;box-sizing: border-box;position: relative;max-widt=
+h: 100%" /></a><span style=3D"margin: 0;padding: 0;box-sizing: border-box;f=
+ont-family: &quot;Tenorite Display&quot;;color: black;background: white">&#=
+160;</span><a href=3D"https://link.email.propertyme.com/ls/click?upn=3Du001=
+.uPeXt1-2FWMMlLMhZtXudDrGXAfET5Yhja0GeIoY4iit-2FpOj-2BUaDBZLw8PU7kB0Mr64zTw=
+3IeQT6MAHhcKpZTSTqQHTfvUVn03DPcPrzLzbLA-3DZAzP_ToOUkN9R21HVu2xbS1rOni2pedl-=
+2FRX-2Fk6LIraU3f-2FDIqT2r1qerBvoBvFoFL9NUYCOKVol0fE6HUJDslzWhvAkVJJb0rfXJB2=
+9pksjRxQli8sLcmLzaX0lZQFKEHBXFR5zviPBlUCHHl6MmxemvTIMxoUv5LWFOklajYDNso205g=
+SO3HR36g-2BCDKPtQjK5ygUFW2ErUoofZBKKJjl5PqBET-2ByYm5Ny2q0UB2j0axiKrgTJGI2-2=
+F6J6j7LV9g1GcTRQdqROx6KOlv8LLbE6Vka36iETYa1uu7PKBhoP2Nrd9Y-3D" style=3D"mar=
+gin: 0;padding: 0;box-sizing: border-box;color: #348eda;text-decoration: un=
+derline"><img border=3D"0" width=3D"26" src=3D"data:image/png;base64,iVBORw=
+0KGgoAAAANSUhEUgAAADAAAAAvCAYAAAClgknJAAAACXBIWXMAAAsSAAALEgHS3X78AAADtElEQ=
+VRogeVaX0hTURj/GnsJFYdIcyZqlEYFutLVoHDzvhWk6y3qRehF7GWaFEXBorfIWkgR+KIEPav9=
+fbpOJbp2mU2hMv+kPpkwYoMeM+NcvjOud9vdOdu97Uo/GIPtfOf+vvOd7zvf+b67Z3t7G4yAxyv=
+UA4AbP/X4USMBADEAWAOAiCyJ5LtgFKQAkg4CgB8AmjnF1wFgFACGZUmM5cshLwU8XoEQDgGAL9=
+8HazCJigzzCnIpgCs+bCBxLYgiQR6L2FgHerxCEPewWeQB5/7k8QohVoGcFvB4BQeueqcRDDkwR=
+3xLlsSEnoiuBZB8pAjkAYNCxOMV3HqDslpARZ43uhiNJAnJ2SyhZwErkCcoR0s4Mv2ZUQGPVwhb=
+hDxFM/phGtK2EMb4iSIRzYVeWRLD6jE7FEAzkVBZZzHiFGn+oN1CQQuTB/SHzBbA1V/DQVbHAZo=
+Mqi0Q2CXkAXeKAnumH1ng952B1tbjJKOEmv3Vttramj+8LObnP9sTyaR9evqDMzrLlZB2Ub7KFs=
+IkbZVV+vat/nhnx7lKXsJ6ECemft64GargEGmXJTFCt1CAVaqsrBSMJk8gtLdVNDYe4hFROFMF/=
+KxSLSd0U5OC0HH+7DqHvFutADMruu/NQGlJiZ1jWp9aAUNjP3HIi5evbHI6JjQ1HfvNM574rg0d=
+2HCsrKw6u3v6oLunL76x8cOMRxDU2zJUDwxFdDZW2XHhEvRfv7NphiLMV8pCMTn13jn4ZOiX0fP=
+yOI2CUydbuGV8bac3r/VedbpcVaW8srlgx+zTFDQ0HIwP3L9X6XJVOc16hi3XpVmLmY/RnJGi2l=
+UFz54+hBfPhwh5o7hmQoxuhzkjb2CEdD7EE4kkl0+SxacCzHXK5aXv+7iZMeLL1288CSEpgqWiU=
+IRVakaO7jWBu4Lxl295DlTFd6kCo6xSJJaPjb+Jc7PLAZKNLi4u84gonNU3shiPH5DMkSZfR48c=
+tjkc5Vz3ga2tLTsNCAsLS3WvXr/jEU/KkqiUWdQxnZQtHrHOQFbrwcBgse7PqRKLTfNjsjh8uJG=
+62KcUwPMgbMj05mJE3d3Rxt0wdk6siqT27r5DAbRCl4UVCGkzh7STj1yUAeDxP6XFhjFtWRGypd=
+OyJAbpSWcRzGXbGXq5RwAFiw3dTk1WBVDAX2QlcraZdLM/lRIjptDTxyRLj4y5zYpdSuaTukDcl=
+SWRqVO56/vE/1enXgu0SABD3O55VyITsEFCSpS0zqqttxKS9I2VmCFvqwDAX9ZDYc4gsXZJAAAA=
+AElFTkSuQmCC" data-fr-image-pasted=3D"true" style=3D"margin: 0;padding: 0;b=
+ox-sizing: border-box;position: relative;max-width: 100%" /></a></p></td></=
+tr></tbody></table><div style=3D"margin: 0;padding: 0;box-sizing: border-bo=
+x"><br style=3D"margin: 0;padding: 0;box-sizing: border-box" /></div><div s=
+tyle=3D"margin: 0;padding: 0;box-sizing: border-box">On 6/06/2025 4:36 PM, =
+Chawakorn Kamnuansil &lt;ck.chawakorn@gmail.com&gt; wrote:<blockquote style=
+=3D"margin: 0;padding: 0;box-sizing: border-box;border-left: solid 2px #5e3=
+5b1;margin-left: 0;padding-left: 5px;color: #5e35b1"><div style=3D"margin: =
+0;padding: 0;box-sizing: border-box"><div style=3D"margin: 0;padding: 0;box=
+-sizing: border-box">Dear Sylvia,<br style=3D"margin: 0;padding: 0;box-sizi=
+ng: border-box" /><br style=3D"margin: 0;padding: 0;box-sizing: border-box"=
+ />Thank you for your response dated Friday, 6 June 2025 at 11:50am.<br sty=
+le=3D"margin: 0;padding: 0;box-sizing: border-box" /><br style=3D"margin: 0=
+;padding: 0;box-sizing: border-box" />As the primary resident of the proper=
+ty who has lived through weeks of unresolved water damage, I must reiterate=
+ that no one is more eager than I am to see the situation resolved quickly =
+and properly. However, I am currently unable to provide consent for any rep=
+air work to begin.<br style=3D"margin: 0;padding: 0;box-sizing: border-box"=
+ /><br style=3D"margin: 0;padding: 0;box-sizing: border-box" />Firstly, you=
+r email referred to repairs commencing on "Thursday, 6 June"a date which ha=
+d already passed at the time of your message. This inconsistency is not jus=
+t confusing; it is logistically impossible and calls into question the seri=
+ousness of the repair planning. Such unclear and last-minute communication =
+cannot form the basis for valid consent.<br style=3D"margin: 0;padding: 0;b=
+ox-sizing: border-box" /><br style=3D"margin: 0;padding: 0;box-sizing: bord=
+er-box" />Secondly, I must emphasise that I cannot authorise access until t=
+he following points are clearly confirmed in writing:<br style=3D"margin: 0=
+;padding: 0;box-sizing: border-box" /><br style=3D"margin: 0;padding: 0;box=
+-sizing: border-box" />1. A definitive and specific repair timeline, includ=
+ing projected completion date.<br style=3D"margin: 0;padding: 0;box-sizing:=
+ border-box" />2. Whether temporary relocation will be required, and if so,=
+ what arrangements or compensation are being offered.<br style=3D"margin: 0=
+;padding: 0;box-sizing: border-box" />3. Your position on my formal request=
+ for rent reduction and confirmation of non-liability, which remain outstan=
+ding.<br style=3D"margin: 0;padding: 0;box-sizing: border-box" />4. Acknowl=
+edgment of the impact on my co-tenant, who is also named in the lease agree=
+ment, and who will equally be affected by noise and accessibility issues re=
+lated to the drying equipment.<br style=3D"margin: 0;padding: 0;box-sizing:=
+ border-box" /><br style=3D"margin: 0;padding: 0;box-sizing: border-box" />=
+It is my responsibility to ensure that any agreement made does not inadvert=
+ently waive our legal rights or create further hardship. I must act cautiou=
+sly, especially as the installation of industrial drying equipment operatin=
+g 24/7 poses real disturbancessomething your office acknowledged in our pre=
+vious phone call.<br style=3D"margin: 0;padding: 0;box-sizing: border-box" =
+/><br style=3D"margin: 0;padding: 0;box-sizing: border-box" />If I were to =
+consent now without these matters resolved in writing, it could later be us=
+ed to suggest that I accepted all resulting conditions, which I absolutely =
+do not.<br style=3D"margin: 0;padding: 0;box-sizing: border-box" /><br styl=
+e=3D"margin: 0;padding: 0;box-sizing: border-box" />Therefore, I will only =
+provide access once I receive formal written confirmation addressing all po=
+ints above. Until then, I consider it unreasonable to demand a commitment f=
+rom me, especially under these unclear and one-sided circumstances.<br styl=
+e=3D"margin: 0;padding: 0;box-sizing: border-box" /><br style=3D"margin: 0;=
+padding: 0;box-sizing: border-box" />As noted in my formal demand, if a res=
+olution is not reached within five (5) calendar daysincluding weekendsI wil=
+l proceed to file an application with VCAT.<br style=3D"margin: 0;padding: =
+0;box-sizing: border-box" /><br style=3D"margin: 0;padding: 0;box-sizing: b=
+order-box" />Kind regards,<br style=3D"margin: 0;padding: 0;box-sizing: bor=
+der-box" /><br style=3D"margin: 0;padding: 0;box-sizing: border-box" />Chaw=
+akorn Kamnuansil<br style=3D"margin: 0;padding: 0;box-sizing: border-box" /=
+><a href=3D"mailto:ck.chawakorn@gmail.com" style=3D"margin: 0;padding: 0;bo=
+x-sizing: border-box;color: #348eda;text-decoration: underline">ck.chawakor=
+n@gmail.com</a></div><br style=3D"margin: 0;padding: 0;box-sizing: border-b=
+ox" /></div><div style=3D"margin: 0;padding: 0;box-sizing: border-box"><br =
+style=3D"margin: 0;padding: 0;box-sizing: border-box" /><div class=3D"gmail=
+_quote gmail_quote_container" style=3D"margin: 0;padding: 0;box-sizing: bor=
+der-box"><div class=3D"gmail_attr" dir=3D"ltr" style=3D"margin: 0;padding: =
+0;box-sizing: border-box">On Fri, 6 Jun 2025 at 11:50, Sylvia Hao - Areal P=
+roperty Hawthorn (MPM) &lt;<a href=3D"mailto:MPM@email.propertyme.com" styl=
+e=3D"margin: 0;padding: 0;box-sizing: border-box;color: #348eda;text-decora=
+tion: underline">MPM@email.propertyme.com</a>&gt; wrote:</div><blockquote c=
+lass=3D"gmail_quote" style=3D"padding: 0;box-sizing: border-box;border-left=
+: solid 2px #5e35b1;margin-left: 0;border-color: #00bcd4;color: #00bcd4;mar=
+gin: 0px 0px 0px 0.8ex;border-left-width: 1px;border-left-style: solid;padd=
+ing-left: 1ex;border-left-color: rgb(204,204,204)"><div style=3D"margin: 0p=
+x;padding: 0px;box-sizing: border-box;width: 100%;height: 100%;line-height:=
+ 1.6"><div id=3D"m_-1611195608084071637email-content" style=3D"margin: 0px;=
+padding: 0px;box-sizing: border-box;width: 100%;height: 100%;line-height: 1=
+.6;background: repeat rgb(246,246,246)"><table style=3D"border: none;border=
+-collapse: collapse;empty-cells: show;max-width: 100%;padding: 0px;box-sizi=
+ng: border-box;background: repeat rgb(246,246,246);margin: 0px auto;border-=
+spacing: 0px;width: 100%;min-width: 50%"><tbody style=3D"margin: 0px;paddin=
+g: 0px;box-sizing: border-box"><tr style=3D"margin: 0px;padding: 0px;box-si=
+zing: border-box"><td style=3D"border: 1px solid #dddddd;padding: 0px;box-s=
+izing: border-box;vertical-align: top;display: block;max-width: 800px;min-w=
+idth: 400px;margin: 0px auto;clear: both;background-image: none;background-=
+position: 0% 0%;background-size: auto;background-repeat: repeat;background-=
+origin: padding-box;background-clip: border-box"><div style=3D"padding: 0px=
+;box-sizing: border-box;max-width: 800px;min-width: 400px;margin: 0px auto;=
+display: block"><table style=3D"border: none;border-collapse: collapse;empt=
+y-cells: show;max-width: 100%;margin: 0px;box-sizing: border-box;width: 100=
+%;clear: both;padding: 0px 20px;background: repeat white;border-width: 0px;=
+border-spacing: 0px" width=3D"100%"><tbody style=3D"margin: 0px;padding: 0p=
+x;box-sizing: border-box"><tr style=3D"margin: 0px;padding: 0px;box-sizing:=
+ border-box"><td align=3D"left" style=3D"border: 1px solid #dddddd;padding:=
+ 0px;box-sizing: border-box;clear: both;max-height: 50mm;margin: 0px;vertic=
+al-align: middle;font-family: Verdana,Geneva,sans-serif;font-size: 15px"><i=
+mg style=3D"position: relative;margin: 0px;padding: 0px;box-sizing: border-=
+box;max-height: 106px;height: 106px;max-width: 100%;vertical-align: middle;=
+font-family: Verdana, Geneva, sans-serif" src=3D"https://manager.propertyme=
+.com/api/storage/images/public/b24c00fd-ab5d-ff7f-8906-1dabef1916a8" alt=3D=
+"agent image" /></td><td align=3D"center" style=3D"border: 1px solid #ddddd=
+d;padding: 0px;box-sizing: border-box;clear: both;max-height: 50mm;margin: =
+0px;vertical-align: middle;font-family: Verdana,Geneva,sans-serif;font-size=
+: 15px"><br style=3D"margin: 0;padding: 0;box-sizing: border-box" /></td><t=
+d align=3D"right" style=3D"border: 1px solid #dddddd;padding: 0px;box-sizin=
+g: border-box;clear: both;max-height: 50mm;margin: 0px;vertical-align: midd=
+le;font-family: Verdana,Geneva,sans-serif;font-size: 15px"><br style=3D"mar=
+gin: 0;padding: 0;box-sizing: border-box" /></td></tr></tbody></table><tabl=
+e cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"margin: 0;pad=
+ding: 0;box-sizing: border-box;border: none;border-collapse: collapse;empty=
+-cells: show;max-width: 100%"><tbody style=3D"margin: 0px;padding: 0px;box-=
+sizing: border-box"><tr style=3D"margin: 0px;padding: 0px;box-sizing: borde=
+r-box"><td style=3D"border: 1px solid #dddddd;margin: 0px;box-sizing: borde=
+r-box;vertical-align: top;font-family: Verdana,Geneva,sans-serif;font-size:=
+ 15px;padding: 0px 20px"><table cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"border: none;border-collapse: collapse;empty-cells: show;max-width: 100=
+%;margin: 0px;padding: 0px;box-sizing: border-box;font-size: inherit;font-f=
+amily: Verdana,Geneva,sans-serif" width=3D"100%"><tbody style=3D"margin: 0p=
+x;padding: 0px;box-sizing: border-box;font-family: Verdana,Geneva,sans-seri=
+f"><tr style=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-family=
+: Verdana,Geneva,sans-serif"><td style=3D"border: 1px solid #dddddd;margin:=
+ 0px;box-sizing: border-box;vertical-align: top;font-family: Verdana,Geneva=
+,sans-serif;font-size: 15px;padding: 12px 0px 20px"><div style=3D"margin: 0=
+px;padding: 0px;box-sizing: border-box;font-family: Verdana,Geneva,sans-ser=
+if">Dear Chawakorn,<br style=3D"margin: 0;padding: 0;box-sizing: border-box=
+" /><br style=3D"margin: 0;padding: 0;box-sizing: border-box" />Thank you f=
+or your email and the supporting documents outlining your concerns and form=
+al request.<br style=3D"margin: 0;padding: 0;box-sizing: border-box" /><br =
+style=3D"margin: 0;padding: 0;box-sizing: border-box" />We understand the i=
+mpact this situation has had on your tenancy and appreciate the way you=E2=
+=80=99ve approached the matter. We will now forward your request and docume=
+ntation to the Owners Corporation for consideration of a rent compensation =
+claim based on the current circumstances.<br style=3D"margin: 0;padding: 0;=
+box-sizing: border-box" /><br style=3D"margin: 0;padding: 0;box-sizing: bor=
+der-box" />In the meantime, we are aiming to proceed with the repair works =
+as soon as possible. Could you kindly confirm whether works can commence on=
+ Thursday, 6 June 2025, or let us know your earliest availability to provid=
+e access?<br style=3D"margin: 0;padding: 0;box-sizing: border-box" /><br st=
+yle=3D"margin: 0;padding: 0;box-sizing: border-box" />We will continue to k=
+eep you updated as we receive further information from the Owners Corporati=
+on.<br style=3D"margin: 0;padding: 0;box-sizing: border-box" /><br style=3D=
+"margin: 0;padding: 0;box-sizing: border-box" />Kind regards,</div><table b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin: 0px;paddin=
+g: 0px;box-sizing: border-box;border: medium;empty-cells: show;max-width: 1=
+00%;width: 418.2pt;border-collapse: collapse;font-family: Verdana,Geneva,sa=
+ns-serif" width=3D"418.2pt"><tbody style=3D"margin: 0px;padding: 0px;box-si=
+zing: border-box;font-family: Verdana,Geneva,sans-serif"><tr style=3D"margi=
+n: 0px;padding: 0px;box-sizing: border-box;font-family: Verdana,Geneva,sans=
+-serif"><td style=3D"border: 1px solid #dddddd;margin: 0px;box-sizing: bord=
+er-box;width: 418.2pt;border-width: medium medium 1pt;border-style: none no=
+ne solid;padding: 5pt;height: 86.65pt;vertical-align: top;font-family: Verd=
+ana,Geneva,sans-serif;border-color: currentcolor currentcolor windowtext" v=
+align=3D"top" width=3D"418.2pt"><p style=3D"margin-bottom: 10px;padding: 0p=
+x;box-sizing: border-box;font-weight: normal;font-size: 15px;font-family: C=
+alibri,sans-serif;line-height: 115%;margin: 0cm"><strong style=3D"font-size=
+: inherit;margin: 0px;padding: 0px;box-sizing: border-box;font-weight: 700;=
+font-family: Calibri,sans-serif"><span style=3D"margin: 0px;padding: 0px;bo=
+x-sizing: border-box;font-size: 21px;line-height: 115%;font-family: &quot;A=
+venir Next LT Pro&quot;,sans-serif;color: black">Sylvia Hao</span></strong>=
+</p><p style=3D"margin-bottom: 10px;padding: 0px;box-sizing: border-box;fon=
+t-weight: normal;font-size: 15px;font-family: Calibri,sans-serif;line-heigh=
+t: 115%;margin: 0cm"><strong style=3D"font-size: inherit;margin: 0px;paddin=
+g: 0px;box-sizing: border-box;font-weight: 700;font-family: Calibri,sans-se=
+rif"><span style=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-fa=
+mily: &quot;Avenir Next LT Pro Light&quot;,sans-serif;color: black">Relatio=
+nship Manager</span></strong></p><p style=3D"margin-bottom: 10px;padding: 0=
+px;box-sizing: border-box;font-weight: normal;font-size: 15px;font-family: =
+Calibri,sans-serif;line-height: 115%;margin: 0cm"><strong style=3D"font-siz=
+e: inherit;margin: 0px;padding: 0px;box-sizing: border-box;font-weight: 700=
+;font-family: Calibri,sans-serif"><span style=3D"margin: 0px;padding: 0px;b=
+ox-sizing: border-box;font-size: 16px;line-height: 115%;font-family: &quot;=
+Avenir Next LT Pro&quot;,sans-serif">&#160;</span></strong></p><p style=3D"=
+margin-bottom: 10px;padding: 0px;box-sizing: border-box;font-weight: normal=
+;font-size: 15px;font-family: Calibri,sans-serif;line-height: 115%;margin: =
+0cm"><strong style=3D"font-size: inherit;margin: 0px;padding: 0px;box-sizin=
+g: border-box;font-weight: 700;font-family: Calibri,sans-serif"><span style=
+=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-family: &quot;Aven=
+ir Next LT Pro Demi&quot;,sans-serif;color: rgb(112,191,68)">M</span></stro=
+ng><strong style=3D"font-size: inherit;margin: 0px;padding: 0px;box-sizing:=
+ border-box;font-weight: 700;font-family: Calibri,sans-serif"><span style=
+=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-family: &quot;Aven=
+ir Next LT Pro&quot;,sans-serif;color: black">&#160; &#160;0420 675 561</sp=
+an></strong></p><p style=3D"margin-bottom: 10px;padding: 0px;box-sizing: bo=
+rder-box;font-weight: normal;font-size: 15px;font-family: Calibri,sans-seri=
+f;line-height: 115%;margin: 0cm"><strong style=3D"font-size: inherit;margin=
+: 0px;padding: 0px;box-sizing: border-box;font-weight: 700;font-family: Cal=
+ibri,sans-serif"><span style=3D"margin: 0px;padding: 0px;box-sizing: border=
+-box;font-family: &quot;Avenir Next LT Pro Demi&quot;,sans-serif;color: rgb=
+(112,191,68)">P</span></strong><strong style=3D"font-size: inherit;margin: =
+0px;padding: 0px;box-sizing: border-box;font-weight: 700;font-family: Calib=
+ri,sans-serif"><span style=3D"margin: 0px;padding: 0px;box-sizing: border-b=
+ox;font-family: &quot;Avenir Next LT Pro&quot;,sans-serif;color: black">&#1=
+60; &#160;&#160;</span></strong><strong style=3D"font-size: inherit;margin:=
+ 0px;padding: 0px;box-sizing: border-box;font-weight: 700;font-family: Cali=
+bri,sans-serif"><span style=3D"margin: 0px;padding: 0px;box-sizing: border-=
+box;font-family: &quot;Avenir Next LT Pro Light&quot;,sans-serif;color: rgb=
+(42,42,42)">03 9818 8991</span></strong></p><p style=3D"margin-bottom: 10px=
+;padding: 0px;box-sizing: border-box;font-weight: normal;font-size: 15px;fo=
+nt-family: Calibri,sans-serif;line-height: 115%;margin: 0cm"><strong style=
+=3D"font-size: inherit;margin: 0px;padding: 0px;box-sizing: border-box;font=
+-weight: 700;font-family: Calibri,sans-serif"><span style=3D"margin: 0px;pa=
+dding: 0px;box-sizing: border-box;font-family: &quot;Avenir Next LT Pro Dem=
+i&quot;,sans-serif;color: rgb(112,191,68)">A</span></strong><strong style=
+=3D"font-size: inherit;margin: 0px;padding: 0px;box-sizing: border-box;font=
+-weight: 700;font-family: Calibri,sans-serif"><span style=3D"margin: 0px;pa=
+dding: 0px;box-sizing: border-box;font-family: &quot;Avenir Next LT Pro&quo=
+t;,sans-serif;color: black">&#160; &#160; <a href=3D"https://link.email.pro=
+pertyme.com/ls/click?upn=3Du001.uPeXt1-2FWMMlLMhZtXudDrBYQ-2B5lgca9vx61Qeda=
+4RVMe6sGDEgZrH8GbRCiyTagqiERrst-2FpNwEEGHHAU6g2MsS54Zinq2S193oFFaNeD-2B-2BI=
+jL7Qz0Wlc8OyTArxs41Ypvh5hNgAYyHGJ0OfWmLEeg-3D-3DkyE1_ToOUkN9R21HVu2xbS1rOni=
+2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1qerBvoBvFoFL9NUYCOKVol0fE6HUJDslzWhvAkVJJb0=
+rfXJB29pksjRxQli8sLcmLzaX0lZQFKEHBXFR5zviPBlUCHHl6MmxemvTIMxoUv5LWFOklajYDN=
+so204aozlNrUJMCoA3xMF70V8ew-2F2xaF6nFDKtcBe2DJRD9X8ho-2FFOyc7sEfh8ub6JBC1eh=
+OjbCsC9W1B9UgUxK9Vm0EBxirzJUPTh72vjv5OexTOql-2BiNTQXwBJXfTjfAjzs-3D" style=
+=3D"margin: 0;padding: 0;box-sizing: border-box;color: #348eda;text-decorat=
+ion: underline;font-family: &quot;Avenir Next LT Pro&quot;,sans-serif">33 C=
+amberwell Road, Hawthorn East VIC 3123</a></span></strong></p></td></tr><tr=
+ style=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-family: Verd=
+ana,Geneva,sans-serif"><td style=3D"margin: 0px;box-sizing: border-box;vert=
+ical-align: top;width: 418.2pt;border: medium;padding: 5pt;height: 33.5pt;f=
+ont-family: Verdana,Geneva,sans-serif" width=3D"418.2pt"><p style=3D"margin=
+-bottom: 10px;padding: 0px;box-sizing: border-box;font-weight: normal;font-=
+size: 15px;font-family: Calibri,sans-serif;line-height: 107%;margin: 0cm"><=
+img width=3D"230" style=3D"position: relative;margin: 0px;padding: 0px;box-=
+sizing: border-box;max-width: 100%;font-family: Calibri, sans-serif" /></p>=
+<p style=3D"margin-bottom: 10px;padding: 0px;box-sizing: border-box;font-we=
+ight: normal;font-size: 15px;font-family: Calibri,sans-serif;line-height: 1=
+07%;margin: 0cm"><span style=3D"margin: 0px;padding: 0px;box-sizing: border=
+-box;font-family: &quot;Tenorite Display&quot;;background: repeat white;col=
+or: black">&#160; &#160;</span><a href=3D"https://link.email.propertyme.com=
+/ls/click?upn=3Du001.uPeXt1-2FWMMlLMhZtXudDrGuSD9FrtNyL-2FZcjE3tyDn4-2BG-2F=
+bgzYY1eFDKZyaV-2BI65SwRvImrC-2F3zy6VBWrVFFGY7sAJOTfZDoKkENKUS1zgOqNYVO6xGst=
+F17ilzL-2BbGGGBhbFC3pXzp3y8QwX6eEQaducCg5Mg-2B0FHoVMoL4H9BaG04B0epa3DnuFB62=
+XZn4G405uuzq90EvT5DcxTKTKcgdLzqD2dJaiwR9a-2F0xd-2BcDxaVGxe7KCifcdQrzpVHkATT=
+SeoGCOCVBB4uM7gDA0-2F04fcPD4Zh6TYMq9uu4ycBjICh7D2i3l3M5qwRtNEW4DxrkR-2BcBUi=
+QU-2FcuL2qRO26b9quBv6-2FEBrmRvLaJdP73yPkutywUMmQYMjM7aeiLDHOSX5LmX5aUUFuddz=
+nygy6zBb1H7NDYcs-2B7YX66PuwAxlYGjN5Gg-2FU26WDBjoUHKkrhlHTc-2FHnvhtZsk46umpE=
+wWPCUmDfGsu6IwcBufeATJmRROyQO6e5HIAsnqPj-2BgsyqHvnTxZTj5VfiKWr6AHZQzNL4YH2-=
+2BKk8FaVk2rCHogbKDAGGCN-2Bj-2BLQbV-2B1hxH-2FtuDRfSzlrafdjr7qD8qFhJfhxC558f9=
+bwlMZqc3fDE-3DxkVb_ToOUkN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1qe=
+rBvoBvFoFL9NUYCOKVol0fE6HUJDslzWhvAkVJJb0rfXJB29pksjRxQli8sLcmLzaX0lZQFKEHB=
+XFR5zviPBlUCHHl6MmxemvTIMxoUv5LWFOklajYDNso206H0rXZcU8AWjM9zzcHQMB2HG95zTzE=
+kjfdZa1RlJaDd3AhPMbNu6ECzl7HIp2QTQfCSINuR1-2B7lFzXtE3dFDe9aehHennibRRK-2FqK=
+YREwoe7-2BXycM7NYr2dZ7-2FmWl2iUg-3D" style=3D"margin: 0px;padding: 0px;box-=
+sizing: border-box;text-decoration: underline;font-family: Calibri,sans-ser=
+if;color: rgb(52,142,218)" target=3D"_blank"><img border=3D"0" width=3D"25"=
+ style=3D"position: relative;margin: 0px;padding: 0px;box-sizing: border-bo=
+x;max-width: 100%;font-family: Calibri, sans-serif" /></a><span style=3D"ma=
+rgin: 0px;padding: 0px;box-sizing: border-box;font-family: &quot;Tenorite D=
+isplay&quot;;background: repeat white;color: black">&#160;</span><a href=3D=
+"https://link.email.propertyme.com/ls/click?upn=3Du001.uPeXt1-2FWMMlLMhZtXu=
+dDrGuSD9FrtNyL-2FZcjE3tyDn4-2BG-2FbgzYY1eFDKZyaV-2BI65SwRvImrC-2F3zy6VBWrVF=
+FGY7sAJOTfZDoKkENKUS1zgNzSIsO93QKBA1cbpc7aANYwJ2DvKG1vU8sAu91StQXYaEk7FBl4Z=
+3D78gu9qkebYxy3P5wtXPCAsXRtYtxSAe1qFGNSAGJ0aTNHfjBejUP9A16UmacHBhroloEH6dDB=
+aiJLo8-2B9-2BZriU3WIYHIgGs533fH8Z3IeNWMmzqCz0C3spL3d3qCvy4-2BYnBToTCHXQqjRb=
+86U-2Ft4ENyhHn-2Bw6-2BCaLUU-2FdSTVNnv2Il3N5mT-2FOPzcOpQbuiBuXngwLveD98cDd0S=
+UM6J7871iOPXtamQQOHqpIFgYWX1RKNnihWt7OPnUchJysFlAKqA4V-2FyLLWQR93V8S8fnWc4x=
+gyjjeewmqWtbAO50nHmoRt7oG9LixwQM-2By0XM4GkIMWMYc7GzNUUOUdCqv16KJlKfHiFwEd5h=
+dT2bpoJNbonbBi1hQBWzS7Syai45bHknq2WVAnGkObhZMjxubvoYmXRV-2B9nuv1jMsmTvdNpe5=
+BkaFFOOyVPxE-2FaDvaiGsGE-2BO4yf8f5GMeJA-2FuVVrq9tOmNxJcqjTol1oX6Ftw1BjXUZdh=
+p8ICIeg-3D-3D8bOM_ToOUkN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1qer=
+BvoBvFoFL9NUYCOKVol0fE6HUJDslzWhvAkVJJb0rfXJB29pksjRxQli8sLcmLzaX0lZQFKEHBX=
+FR5zviPBlUCHHl6MmxemvTIMxoUv5LWFOklajYDNso206L-2FEWQ19pxw3MjuaDmO6xG5Qduvrx=
+VNmKKXcE364QoNNDw6Q2J-2F78en5NdbTDZiRYul4-2B0DiQOCVJ139dMS2WAONy2SW3hkbgflb=
+zDzYSyqIGK49EIJCrSbBPoCo-2FaMBE-3D" style=3D"margin: 0px;padding: 0px;box-s=
+izing: border-box;text-decoration: underline;font-family: Calibri,sans-seri=
+f;color: rgb(52,142,218)" target=3D"_blank"><img border=3D"0" width=3D"26" =
+style=3D"position: relative;margin: 0px;padding: 0px;box-sizing: border-box=
+;max-width: 100%;font-family: Calibri, sans-serif" /></a><span style=3D"mar=
+gin: 0px;padding: 0px;box-sizing: border-box;font-family: &quot;Tenorite Di=
+splay&quot;;background: repeat white;color: black">&#160;</span><a href=3D"=
+https://link.email.propertyme.com/ls/click?upn=3Du001.uPeXt1-2FWMMlLMhZtXud=
+DrGuSD9FrtNyL-2FZcjE3tyDn4-2BG-2FbgzYY1eFDKZyaV-2BI65SwRvImrC-2F3zy6VBWrVFF=
+GY7sAJOTfZDoKkENKUS1zgNvIQHYb6k8sOvKKlWpaVNC8yH1CZkfkIf2DSo4QH9Q3j1DfwtHvuN=
+iX9vUzMW7HXeMLhQ24jHMQmqN6WA3rWOgS2YKTI4g-2FiDH-2B6HSLHoVHNi5bmC20jnh3NbeBM=
+ZQyoi-2BZImvLCIAEthvJ7EoKJPih-2FVi3-2FwD6JrTdiltVsBvATTdY6hWb9YMqADbFiTMUxa=
+UNOo-2FDvDoeBkx7HDFPVUwybVFmWTstpfEjfMrDP203oCx-2F9NfbJZPs4DIjyBLtPNm-2F4yX=
+bW745ZpQwNHHY9-2B-2BWbTQ1YPvDC2yOy5GF9cEOMpiiWijs1lB1cQWKZr1fcazpoxAVOnbaZj=
+H-2B-2Bd4to-2ByT10MDPMm3tjXDbTC-2Fmt7LIncOwoxJG2tOFouDAQOqw-2F7SaM7BPV2w1AX=
+JxKgvZyhrq0EHHmlsEuCzCp-2BBBfqyOfVh-2FzcU85oo4FxxF3rD0Hzn3B2HhgFr8GJe-2FqUM=
+XQPyYqt06-2FTR-2FWvs-2BzA-2FwODScxWpTBszCSuyhVxX-2BTfpEMTF5C8xV2SKU0y18moSz=
+JPrwz5OvMHNYpPuMeS-2BHmFPg-3D-3DO6vh_ToOUkN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6L=
+IraU3f-2FDIqT2r1qerBvoBvFoFL9NUYCOKVol0fE6HUJDslzWhvAkVJJb0rfXJB29pksjRxQli=
+8sLcmLzaX0lZQFKEHBXFR5zviPBlUCHHl6MmxemvTIMxoUv5LWFOklajYDNso206Mefn1AhtpKz=
+V5aCmQrDGN550qd6Oeal9p4JsFLvK040vaV1TrxMGD-2B3-2FiChWByUHzIVgjeedinuU3Rsig6=
+Gi8VjDIhryX0aotPjG7oo97gq6OY6GbyBNsG4v2XggBSys-3D" style=3D"margin: 0px;pad=
+ding: 0px;box-sizing: border-box;text-decoration: underline;font-family: Ca=
+libri,sans-serif;color: rgb(52,142,218)" target=3D"_blank"><img border=3D"0=
+" width=3D"26" style=3D"position: relative;margin: 0px;padding: 0px;box-siz=
+ing: border-box;max-width: 100%;font-family: Calibri, sans-serif" /></a><sp=
+an style=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-family: &q=
+uot;Tenorite Display&quot;;background: repeat white;color: black">&#160;</s=
+pan><a href=3D"https://link.email.propertyme.com/ls/click?upn=3Du001.uPeXt1=
+-2FWMMlLMhZtXudDrGuSD9FrtNyL-2FZcjE3tyDn4-2BG-2FbgzYY1eFDKZyaV-2BI65SwRvImr=
+C-2F3zy6VBWrVFFGY7sAJOTfZDoKkENKUS1zgMWLUcyzJAfDdxRQHkgAHJDW6sH0Er10B1Y8Jx8=
+PFAPCcMq0OMQccrmzm0p-2FcDdU4rxZS6JKW59E5SoQrjkaDkDhsylf4ir1eD-2BJOVol5JVrGJ=
+MIWDnGAmYqBfGHIBwQDzNNW4czlSSxnyip2Jd80e4x6WCJ2TetPrc5fIQJSo6DGN7-2B3lXcPc8=
+XceRcmSfrEVgL1bz1wzQLqmrGAWGK73J6HRoMjqFb-2B5K94RCLn1Htw1-2FRAdhc5Y5dr9I1aa=
+qfeh2uZ4xEobJNZxweIElGucrUp-2FY02cxqiMAfz0rE0shZy66VfASbEXTPzwXT4MP1EnK9l2B=
+3wUO15qdgJeUOGt-2BA7FCP-2B4WYgjrsMQefBNyXfP1uw0ZYcI6Vfq5CGHaST78PFsT-2B3V4b=
+TMZJYykQpPAIetv6Ocsg4oD2PkdKPHTcZ85wPhCtJ1vDzrGLPM-2BnUoYdngfPliOhmxYqgmjSt=
+OwQJccUsY5tcEJefGRAPUuJW5F-2Fz6VjgDbS3Xoz2Tx9kQk76YzWJksUaPuYlaMiMKZVhUlOw9=
+z1tBr3SqdJwvNXQ-3D-3DnQUD_ToOUkN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDI=
+qT2r1qerBvoBvFoFL9NUYCOKVol0fE6HUJDslzWhvAkVJJb0rfXJB29pksjRxQli8sLcmLzaX0l=
+ZQFKEHBXFR5zviPBlUCHHl6MmxemvTIMxoUv5LWFOklajYDNso207PnETuiN8dYwKxX3oQaxNR1=
+kBp1PkNYMNJA2u2OI19e-2F6lDb4SotVo6sbhVzZUVZfGzod6RU0TV-2B0x-2BFjKdiOq7UW94M=
+ZA1wf68VqKCBJ-2FlnVBni1YQ-2FiJEoZ3Lr3wGlk-3D" style=3D"margin: 0px;padding:=
+ 0px;box-sizing: border-box;text-decoration: underline;font-family: Calibri=
+,sans-serif;color: rgb(52,142,218)" target=3D"_blank"><img border=3D"0" wid=
+th=3D"26" style=3D"position: relative;margin: 0px;padding: 0px;box-sizing: =
+border-box;max-width: 100%;font-family: Calibri, sans-serif" /></a><span st=
+yle=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-family: &quot;T=
+enorite Display&quot;;background: repeat white;color: black">&#160;</span><=
+a href=3D"https://link.email.propertyme.com/ls/click?upn=3Du001.uPeXt1-2FWM=
+MlLMhZtXudDrGuSD9FrtNyL-2FZcjE3tyDn4-2BG-2FbgzYY1eFDKZyaV-2BI65SwRvImrC-2F3=
+zy6VBWrVFFGY7sAJOTfZDoKkENKUS1zgN82EVCSifrI03KgK-2FDOJFd6ww-2Ftica9G-2FWC3o=
+gX3NI7rNnd2DdQ4iMrAlpDFvdM7xshx2txkKo3DNGODV0E0VG9ATEDKmKqj9YHYVI1ALneuaj-2=
+BudA1Z7xlnuJidvGCARG-2FXKlvJzwq1aMI3tXJ-2FCsvawkdDBle-2B4I30jK48qkAOolCOXyU=
+DMLMLdI2ToijW448rPgaNpMQNYOK2buh6PXBxgOzwzE60IS2RTrvq1mUFEGZEz62odL5f0Upc5j=
+1tN4RGhbpDt6c0S42mY8kVDo-2F51o90X9Q-2BYpVfzKw3Wghb7Z9VkgIXZzlUvm4NU6O2YGky5=
+PRbxdP7ytbX1qXUrTMJfg-2FogClh-2BhthuRyUGwSN1zvig0U9e6Z4wnafpVUCOP-2FxFJnt3-=
+2FZyqYHFDwt5TP1zDXpCNnIuRmaLp7MRS5-2BEt882Od49mFqrSS3DqVaWnkmTGoFwsR58C5BLN=
+AL477iMtLa-2B7-2FWCx3EpCsguNDAqJ27GRtqhiY79bmK-2FbmGtk-3DWO-y_ToOUkN9R21HVu=
+2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1qerBvoBvFoFL9NUYCOKVol0fE6HUJDslzW=
+hvAkVJJb0rfXJB29pksjRxQli8sLcmLzaX0lZQFKEHBXFR5zviPBlUCHHl6MmxemvTIMxoUv5LW=
+FOklajYDNso207axKiutSwqt08HYxMTCnD7N91xCd5dCU10fMzDKiSn3GoA7I5tIdGUuZ8UkiCz=
+yr9XRK9ry4cqXMxWSkOMJvNrxLvA1LR3jZPq57p16OzAsLqxjxP0sSNSklM-2FmEPvp1g-3D" s=
+tyle=3D"margin: 0px;padding: 0px;box-sizing: border-box;text-decoration: un=
+derline;font-family: Calibri,sans-serif;color: rgb(52,142,218)" target=3D"_=
+blank"><img border=3D"0" width=3D"26" style=3D"position: relative;margin: 0=
+px;padding: 0px;box-sizing: border-box;max-width: 100%;font-family: Calibri=
+, sans-serif" /></a><span style=3D"margin: 0px;padding: 0px;box-sizing: bor=
+der-box;font-family: &quot;Tenorite Display&quot;;background: repeat white;=
+color: black">&#160;</span><a href=3D"https://link.email.propertyme.com/ls/=
+click?upn=3Du001.uPeXt1-2FWMMlLMhZtXudDrGuSD9FrtNyL-2FZcjE3tyDn4-2BG-2FbgzY=
+Y1eFDKZyaV-2BI65SwRvImrC-2F3zy6VBWrVFFGY7sAJOTfZDoKkENKUS1zgOetCmwASfVSBdiF=
+8joNCt80yndIsvY2eV2jFovJUmyrGXqQYrl2iJwCdKzIA-2BLSMVXMrdxY2TcSUsQsjQJTXdMub=
+t8dGnTMhTYklhCEhKKsdFE9q0hJ3PVSO5GInRdBa9XAhHbIjGA7wpdpXgHNoySjLR5ZT38m6EMi=
+Gl-2BFlFaCjBT-2B1ZumPxrrGEVrYM1bvJVIV4nc4VSR66ZafHYwF1nL3g-2FPmXOMrwc-2FjQf=
+ImEdUjtPCEj-2F3vYLg65BYldX1PnMOAenykkdcNlEdp6U785-2F-2BQWGIvK3rY8B008o3aqBD=
+uteXic-2BddK9UOh-2BSUt78CfrLdn-2FSwyTmZJ39bE2-2BysbUq4jJZE8Tjbn9NNyXegI-2FP=
+MBn4JqXr8W-2BxvHvzt6EoFEO5iuAASmek0rIjqHqfvHyLB4KXzj1RQZYXyinEInZwBrmSlTfKE=
+6bQoNkeZ0naVvsfeWOv4NKyJflIqaDx3RNQDl73SdFtd8d30aALHrhMJegtR1sWD9T9bI1nQTaB=
+xMDDZn12AgoAXvP7NUr1ZThD1BlyV89y6NzV0Q-2FWBUWC90llSMHCe8x5Ga-2BocO0NgfThy8w=
+aHX8vviWIaSftY9q5ZF_ToOUkN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1q=
+erBvoBvFoFL9NUYCOKVol0fE6HUJDslzWhvAkVJJb0rfXJB29pksjRxQli8sLcmLzaX0lZQFKEH=
+BXFR5zviPBlUCHHl6MmxemvTIMxoUv5LWFOklajYDNso204IedBDvwx923a208cgT56Nvx0QSrh=
+-2Fc3XYZ30tCrmJ2WsAONXnbFl1l-2FzmEPU6lH9MyUmVOPVh4HEvgK49aCj1d6Vz3nACs9i9Qa=
+tbKICuKZbRqcnH91x6DYHFKyDGNXI-3D" style=3D"margin: 0px;padding: 0px;box-siz=
+ing: border-box;text-decoration: underline;font-family: Calibri,sans-serif;=
+color: rgb(52,142,218)" target=3D"_blank"><img border=3D"0" width=3D"26" st=
+yle=3D"position: relative;margin: 0px;padding: 0px;box-sizing: border-box;m=
+ax-width: 100%;font-family: Calibri, sans-serif" /></a></p></td></tr></tbod=
+y></table></td></tr></tbody></table></td></tr></tbody></table></div></td></=
+tr></tbody></table></div></div><div style=3D"margin: 0px;padding: 0px;box-s=
+izing: border-box;width: 100%;height: 100%;line-height: 1.6"><div id=3D"m_-=
+1611195608084071637email-content-altered-1" style=3D"margin: 0px;padding: 0=
+px;box-sizing: border-box;width: 100%;height: 100%;line-height: 1.6;backgro=
+und: repeat rgb(246,246,246)"><table style=3D"border: none;border-collapse:=
+ collapse;empty-cells: show;max-width: 100%;padding: 0px;box-sizing: border=
+-box;background: repeat rgb(246,246,246);margin: 0px auto;border-spacing: 0=
+px;width: 100%;min-width: 50%"><tbody style=3D"margin: 0px;padding: 0px;box=
+-sizing: border-box"><tr style=3D"margin: 0px;padding: 0px;box-sizing: bord=
+er-box"><td style=3D"border: 1px solid #dddddd;padding: 0px;box-sizing: bor=
+der-box;vertical-align: top;display: block;max-width: 800px;min-width: 400p=
+x;margin: 0px auto;clear: both;background-image: none;background-position: =
+0% 0%;background-size: auto;background-repeat: repeat;background-origin: pa=
+dding-box;background-clip: border-box"><div style=3D"padding: 0px;box-sizin=
+g: border-box;max-width: 800px;min-width: 400px;margin: 0px auto;display: b=
+lock"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"ma=
+rgin: 0;padding: 0;box-sizing: border-box;border: none;border-collapse: col=
+lapse;empty-cells: show;max-width: 100%"><tbody style=3D"margin: 0px;paddin=
+g: 0px;box-sizing: border-box"><tr style=3D"margin: 0px;padding: 0px;box-si=
+zing: border-box"><td style=3D"border: 1px solid #dddddd;margin: 0px;box-si=
+zing: border-box;vertical-align: top;font-family: Verdana,Geneva,sans-serif=
+;font-size: 15px;padding: 0px 20px"><table cellpadding=3D"0" cellspacing=3D=
+"0" style=3D"border: none;border-collapse: collapse;empty-cells: show;max-w=
+idth: 100%;margin: 0px;padding: 0px;box-sizing: border-box;font-size: inher=
+it;font-family: Verdana,Geneva,sans-serif" width=3D"100%"><tbody style=3D"m=
+argin: 0px;padding: 0px;box-sizing: border-box;font-family: Verdana,Geneva,=
+sans-serif"><tr style=3D"margin: 0px;padding: 0px;box-sizing: border-box;fo=
+nt-family: Verdana,Geneva,sans-serif"><td style=3D"border: 1px solid #ddddd=
+d;margin: 0px;box-sizing: border-box;vertical-align: top;font-family: Verda=
+na,Geneva,sans-serif;font-size: 15px;padding: 12px 0px 20px"><div style=3D"=
+margin: 0px;padding: 0px;box-sizing: border-box;font-family: Verdana,Geneva=
+,sans-serif"><br style=3D"margin: 0;padding: 0;box-sizing: border-box" /></=
+div><div style=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-fami=
+ly: Verdana,Geneva,sans-serif">On 6/06/2025 1:21 AM, Chawakorn Kamnuansil &=
+lt;<a href=3D"mailto:ck.chawakorn@gmail.com" style=3D"margin: 0;padding: 0;=
+box-sizing: border-box;color: #348eda;text-decoration: underline;font-famil=
+y: Verdana,Geneva,sans-serif" target=3D"_blank">ck.chawakorn@gmail.com</a>&=
+gt; wrote:<blockquote style=3D"border-left: solid 2px #5e35b1;margin-left: =
+0;padding-left: 5px;border-color: #43a047;margin: 0px;padding: 0px 0px 0px =
+5px;box-sizing: border-box;border-left-width: 2px;border-left-style: solid;=
+font-family: Verdana,Geneva,sans-serif;border-left-color: rgb(94,53,177);co=
+lor: rgb(94,53,177)"><div style=3D"margin: 0px;padding: 0px;box-sizing: bor=
+der-box;font-family: Verdana,Geneva,sans-serif"><div style=3D"margin: 0px;p=
+adding: 0px;box-sizing: border-box;font-family: Verdana,Geneva,sans-serif">=
+<div style=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-family: =
+Verdana,Geneva,sans-serif"><p style=3D"margin-bottom: 10px;margin: 0px 0px =
+10px;padding: 0px;box-sizing: border-box;font-weight: normal;font-family: V=
+erdana,Geneva,sans-serif"><br style=3D"margin: 0;padding: 0;box-sizing: bor=
+der-box" /></p><h3 style=3D"padding: 0px;box-sizing: border-box;font-family=
+: &quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;Lucida Grande&quot;,sans=
+-serif;margin: 40px 0px 0px;line-height: 1.2;font-weight: 400;font-size: 18=
+px;color: rgb(0,0,0)"><br style=3D"margin: 0;padding: 0;box-sizing: border-=
+box" /></h3><p style=3D"margin-bottom: 10px;margin: 0px 0px 10px;padding: 0=
+px;box-sizing: border-box;font-weight: normal;font-family: Verdana,Geneva,s=
+ans-serif"><br style=3D"margin: 0;padding: 0;box-sizing: border-box" /></p>=
+<p style=3D"margin-bottom: 10px;margin: 0px 0px 10px;padding: 0px;box-sizin=
+g: border-box;font-weight: normal;font-family: Verdana,Geneva,sans-serif">D=
+ear Sylvia,</p><p style=3D"margin-bottom: 10px;margin: 0px 0px 10px;padding=
+: 0px;box-sizing: border-box;font-weight: normal;font-family: Verdana,Genev=
+a,sans-serif"><br style=3D"margin: 0;padding: 0;box-sizing: border-box" /><=
+/p><p style=3D"margin-bottom: 10px;margin: 0px 0px 10px;padding: 0px;box-si=
+zing: border-box;font-weight: normal;font-family: Verdana,Geneva,sans-serif=
+">I am writing with the intent of resolving this matter constructively and =
+without escalation, if possible.</p><p style=3D"margin-bottom: 10px;margin:=
+ 0px 0px 10px;padding: 0px;box-sizing: border-box;font-weight: normal;font-=
+family: Verdana,Geneva,sans-serif"><br style=3D"margin: 0;padding: 0;box-si=
+zing: border-box" /></p><p style=3D"margin-bottom: 10px;margin: 0px 0px 10p=
+x;padding: 0px;box-sizing: border-box;font-weight: normal;font-family: Verd=
+ana,Geneva,sans-serif">Over the past two months, I have reported the water =
+damage issue multiple times in good faith, cooperated with your office, and=
+ done my best to remain in the property despite the difficulties. I am not =
+trying to be confrontational; I simply need a clear and reasonable outcome,=
+ supported by appropriate action and communication.</p><p style=3D"margin-b=
+ottom: 10px;margin: 0px 0px 10px;padding: 0px;box-sizing: border-box;font-w=
+eight: normal;font-family: Verdana,Geneva,sans-serif"><br style=3D"margin: =
+0;padding: 0;box-sizing: border-box" /></p><p style=3D"margin-bottom: 10px;=
+margin: 0px 0px 10px;padding: 0px;box-sizing: border-box;font-weight: norma=
+l;font-family: Verdana,Geneva,sans-serif">Please find attached:</p><p style=
+=3D"margin-bottom: 10px;margin: 0px 0px 10px;padding: 0px;box-sizing: borde=
+r-box;font-weight: normal;font-family: Verdana,Geneva,sans-serif"><br style=
+=3D"margin: 0;padding: 0;box-sizing: border-box" /></p><ol start=3D"1" styl=
+e=3D"margin-bottom: 10px;margin: 0px 0px 10px;padding: 0px;box-sizing: bord=
+er-box;font-weight: normal;font-family: Verdana,Geneva,sans-serif"><li styl=
+e=3D"margin-left: 5px;margin: 0px 0px 0px 5px;padding: 0px;box-sizing: bord=
+er-box;list-style-position: inside;font-family: Verdana,Geneva,sans-serif">=
+<p style=3D"margin-bottom: 10px;margin: 0px 0px 10px;padding: 0px;box-sizin=
+g: border-box;font-weight: normal;font-family: Verdana,Geneva,sans-serif">A=
+ formal demand letter outlining my request for rent compensation, a firm re=
+pair timeline, and confirmation of non-liability =E2=80=93 based on my righ=
+ts under the Residential Tenancies Act 1997 (VIC).</p></li><li style=3D"mar=
+gin-left: 5px;margin: 0px 0px 0px 5px;padding: 0px;box-sizing: border-box;l=
+ist-style-position: inside;font-family: Verdana,Geneva,sans-serif"><p style=
+=3D"margin-bottom: 10px;margin: 0px 0px 10px;padding: 0px;box-sizing: borde=
+r-box;font-weight: normal;font-family: Verdana,Geneva,sans-serif">A support=
+ing tenant statement summarising the verbal communication with your office =
+around 2=E2=80=933 June 2025, including the temporary accommodation proposa=
+l and its impractical conditions.</p></li></ol><p style=3D"margin-bottom: 1=
+0px;margin: 0px 0px 10px;padding: 0px;box-sizing: border-box;font-weight: n=
+ormal;font-family: Verdana,Geneva,sans-serif"><br style=3D"margin: 0;paddin=
+g: 0;box-sizing: border-box" /></p><p style=3D"margin-bottom: 10px;margin: =
+0px 0px 10px;padding: 0px;box-sizing: border-box;font-weight: normal;font-f=
+amily: Verdana,Geneva,sans-serif"><br style=3D"margin: 0;padding: 0;box-siz=
+ing: border-box" /></p><p style=3D"margin-bottom: 10px;margin: 0px 0px 10px=
+;padding: 0px;box-sizing: border-box;font-weight: normal;font-family: Verda=
+na,Geneva,sans-serif">If a fair and written resolution is not reached withi=
+n five (5) business days, I will have no choice but to initiate proceedings=
+ through VCAT. I sincerely hope this can be avoided and that we can achieve=
+ a reasonable solution for all parties involved.</p><p style=3D"margin-bott=
+om: 10px;margin: 0px 0px 10px;padding: 0px;box-sizing: border-box;font-weig=
+ht: normal;font-family: Verdana,Geneva,sans-serif"><br style=3D"margin: 0;p=
+adding: 0;box-sizing: border-box" /></p><p style=3D"margin-bottom: 10px;mar=
+gin: 0px 0px 10px;padding: 0px;box-sizing: border-box;font-weight: normal;f=
+ont-family: Verdana,Geneva,sans-serif">I would appreciate your written resp=
+onse at your earliest convenience.</p><p style=3D"margin-bottom: 10px;margi=
+n: 0px 0px 10px;padding: 0px;box-sizing: border-box;font-weight: normal;fon=
+t-family: Verdana,Geneva,sans-serif"><br style=3D"margin: 0;padding: 0;box-=
+sizing: border-box" /></p><p style=3D"margin-bottom: 10px;margin: 0px 0px 1=
+0px;padding: 0px;box-sizing: border-box;font-weight: normal;font-family: Ve=
+rdana,Geneva,sans-serif">Kind regards,</p><p style=3D"margin-bottom: 10px;m=
+argin: 0px 0px 10px;padding: 0px;box-sizing: border-box;font-weight: normal=
+;font-family: Verdana,Geneva,sans-serif">Chawakorn Kamnuansil</p><p style=
+=3D"margin-bottom: 10px;margin: 0px 0px 10px;padding: 0px;box-sizing: borde=
+r-box;font-weight: normal;font-family: Verdana,Geneva,sans-serif"><a href=
+=3D"mailto:ck.chawakorn@gmail.com" style=3D"margin: 0px;padding: 0px;box-si=
+zing: border-box;text-decoration: underline;font-family: Verdana,Geneva,san=
+s-serif;color: rgb(52,142,218)" target=3D"_blank">ck.chawakorn@gmail.com</a=
+></p><p style=3D"margin-bottom: 10px;margin: 0px 0px 10px;padding: 0px;box-=
+sizing: border-box;font-weight: normal;font-family: Verdana,Geneva,sans-ser=
+if"><br style=3D"margin: 0;padding: 0;box-sizing: border-box" /></p><hr sty=
+le=3D"user-select: none;-o-user-select: none;-moz-user-select: none;-khtml-=
+user-select: none;-webkit-user-select: none;-ms-user-select: none;page-brea=
+k-after: always;margin: 0px;padding: 0px;box-sizing: border-box;clear: both=
+;break-after: page;font-family: Verdana,Geneva,sans-serif" /><p style=3D"ma=
+rgin-bottom: 10px;margin: 0px 0px 10px;padding: 0px;box-sizing: border-box;=
+font-weight: normal;font-family: Verdana,Geneva,sans-serif"><br style=3D"ma=
+rgin: 0;padding: 0;box-sizing: border-box" /></p><p style=3D"margin-bottom:=
+ 10px;margin: 0px 0px 10px;padding: 0px;box-sizing: border-box;font-weight:=
+ normal;font-family: Verdana,Geneva,sans-serif">Attachments:</p><p style=3D=
+"margin-bottom: 10px;margin: 0px 0px 10px;padding: 0px;box-sizing: border-b=
+ox;font-weight: normal;font-family: Verdana,Geneva,sans-serif"><br style=3D=
+"margin: 0;padding: 0;box-sizing: border-box" /></p><ol start=3D"1" style=
+=3D"margin-bottom: 10px;margin: 0px 0px 10px;padding: 0px;box-sizing: borde=
+r-box;font-weight: normal;font-family: Verdana,Geneva,sans-serif"><li style=
+=3D"margin-left: 5px;margin: 0px 0px 0px 5px;padding: 0px;box-sizing: borde=
+r-box;list-style-position: inside;font-family: Verdana,Geneva,sans-serif"><=
+p style=3D"margin-bottom: 10px;margin: 0px 0px 10px;padding: 0px;box-sizing=
+: border-box;font-weight: normal;font-family: Verdana,Geneva,sans-serif">Fo=
+rmal_Demand_Letter_Chawakorn.pdf</p></li><li style=3D"margin-left: 5px;marg=
+in: 0px 0px 0px 5px;padding: 0px;box-sizing: border-box;list-style-position=
+: inside;font-family: Verdana,Geneva,sans-serif"><p style=3D"margin-bottom:=
+ 10px;margin: 0px 0px 10px;padding: 0px;box-sizing: border-box;font-weight:=
+ normal;font-family: Verdana,Geneva,sans-serif">Tenant_Statement_Chawakorn.=
+pdf</p></li></ol><p style=3D"margin-bottom: 10px;margin: 0px 0px 10px;paddi=
+ng: 0px;box-sizing: border-box;font-weight: normal;font-family: Verdana,Gen=
+eva,sans-serif"><br style=3D"margin: 0;padding: 0;box-sizing: border-box" /=
+></p></div></div></div></blockquote></div></td></tr></tbody></table></td></=
+tr></tbody></table></div></td></tr></tbody></table></div></div><div style=
+=3D"margin: 0px;padding: 0px;box-sizing: border-box;width: 100%;height: 100=
+%;line-height: 1.6"><div id=3D"m_-1611195608084071637email-content-altered-=
+2" style=3D"margin: 0px;padding: 0px;box-sizing: border-box;width: 100%;hei=
+ght: 100%;line-height: 1.6;background: repeat rgb(246,246,246)"><table styl=
+e=3D"border: none;border-collapse: collapse;empty-cells: show;max-width: 10=
+0%;padding: 0px;box-sizing: border-box;background: repeat rgb(246,246,246);=
+margin: 0px auto;border-spacing: 0px;width: 100%;min-width: 50%"><tbody sty=
+le=3D"margin: 0px;padding: 0px;box-sizing: border-box"><tr style=3D"margin:=
+ 0px;padding: 0px;box-sizing: border-box"><td style=3D"border: 1px solid #d=
+ddddd;padding: 0px;box-sizing: border-box;vertical-align: top;display: bloc=
+k;max-width: 800px;min-width: 400px;margin: 0px auto;clear: both;background=
+-image: none;background-position: 0% 0%;background-size: auto;background-re=
+peat: repeat;background-origin: padding-box;background-clip: border-box"><d=
+iv style=3D"padding: 0px;box-sizing: border-box;max-width: 800px;min-width:=
+ 400px;margin: 0px auto;display: block"><table cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%" style=3D"margin: 0;padding: 0;box-sizing: border-box=
+;border: none;border-collapse: collapse;empty-cells: show;max-width: 100%">=
+<tbody style=3D"margin: 0px;padding: 0px;box-sizing: border-box"><tr style=
+=3D"margin: 0px;padding: 0px;box-sizing: border-box"><td style=3D"border: 1=
+px solid #dddddd;margin: 0px;box-sizing: border-box;vertical-align: top;fon=
+t-family: Verdana,Geneva,sans-serif;font-size: 15px;padding: 0px 20px"><tab=
+le cellpadding=3D"0" cellspacing=3D"0" style=3D"border: none;border-collaps=
+e: collapse;empty-cells: show;max-width: 100%;margin: 0px;padding: 0px;box-=
+sizing: border-box;font-size: inherit;font-family: Verdana,Geneva,sans-seri=
+f" width=3D"100%"><tbody style=3D"margin: 0px;padding: 0px;box-sizing: bord=
+er-box;font-family: Verdana,Geneva,sans-serif"><tr style=3D"margin: 0px;pad=
+ding: 0px;box-sizing: border-box;font-family: Verdana,Geneva,sans-serif"><t=
+d style=3D"border: 1px solid #dddddd;margin: 0px;box-sizing: border-box;ver=
+tical-align: top;font-family: Verdana,Geneva,sans-serif;font-size: 15px;pad=
+ding: 12px 0px 20px"><br style=3D"margin: 0;padding: 0;box-sizing: border-b=
+ox" /></td></tr></tbody></table></td></tr></tbody></table><table style=3D"b=
+order: none;border-collapse: collapse;empty-cells: show;max-width: 100%;mar=
+gin: 0px;box-sizing: border-box;width: 100%;clear: both;padding: 0px 20px;b=
+ackground: repeat white;border-width: 0px;border-spacing: 0px" width=3D"100=
+%"><tbody style=3D"margin: 0px;padding: 0px;box-sizing: border-box"><tr sty=
+le=3D"margin: 0px;padding: 0px;box-sizing: border-box"><td align=3D"left" s=
+tyle=3D"border: 1px solid #dddddd;padding: 0px;box-sizing: border-box;clear=
+: both;max-height: 50mm;margin: 0px;vertical-align: middle;font-family: Ver=
+dana,Geneva,sans-serif;font-size: 15px"><div style=3D"margin: 0px;padding: =
+0px;box-sizing: border-box;vertical-align: middle;display: inline-block;max=
+-width: 90%;font-family: Verdana,Geneva,sans-serif"><div style=3D"box-sizin=
+g: border-box;margin: 0px;padding: 0px;overflow: visible;clear: both;direct=
+ion: ltr;font-family: &quot;Segoe UI&quot;,&quot;Segoe UI Web&quot;,Arial,V=
+erdana,sans-serif;font-size: 12px;font-style: normal;font-variant-ligatures=
+: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;=
+text-align: start;text-indent: 0px;text-transform: none;white-space: normal=
+;word-spacing: 0px;text-decoration-style: initial;text-decoration-color: in=
+itial;color: rgb(0,0,0)"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border: none;empty-cells: show;max-width: 100%;margin: 0px;=
+padding: 0px;box-sizing: border-box;width: 393.75pt;border-collapse: collap=
+se;font-family: &quot;Segoe UI&quot;,&quot;Segoe UI Web&quot;,Arial,Verdana=
+,sans-serif" width=3D"393.75pt"><tbody style=3D"margin: 0px;padding: 0px;bo=
+x-sizing: border-box;font-family: &quot;Segoe UI&quot;,&quot;Segoe UI Web&q=
+uot;,Arial,Verdana,sans-serif"><tr style=3D"margin: 0px;padding: 0px;box-si=
+zing: border-box;font-family: &quot;Segoe UI&quot;,&quot;Segoe UI Web&quot;=
+,Arial,Verdana,sans-serif" /></tbody></table><div style=3D"font-style: norm=
+al;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 40=
+0;letter-spacing: normal;text-indent: 0px;text-transform: none;white-space:=
+ normal;word-spacing: 0px;text-decoration-style: initial;text-decoration-co=
+lor: initial;box-sizing: border-box;margin: 0px;padding: 0px;overflow: visi=
+ble;clear: both;direction: ltr;font-family: &quot;Segoe UI&quot;,&quot;Sego=
+e UI Web&quot;,Arial,Verdana,sans-serif;font-size: 12px;text-align: start;c=
+olor: rgb(0,0,0)"><p style=3D"margin-bottom: 10px;padding: 0px;box-sizing: =
+border-box;font-weight: normal;margin: 0cm;font-size: 15px;font-family: Cal=
+ibri,sans-serif"><strong style=3D"font-size: inherit;font-weight: 700;margi=
+n: 0px;padding: 0px;box-sizing: border-box;font-family: Calibri,sans-serif"=
+><span style=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-size: =
+14px;font-family: Arial,sans-serif;background: repeat white;color: rgb(0,17=
+6,80)">If you have any feedback regarding my service, please feel free to c=
+ontact my manager.</span></strong></p><p style=3D"margin-bottom: 10px;paddi=
+ng: 0px;box-sizing: border-box;font-weight: normal;margin: 0cm;font-size: 1=
+5px;font-family: Calibri,sans-serif"><strong style=3D"font-size: inherit;fo=
+nt-weight: 700;margin: 0px;padding: 0px;box-sizing: border-box;font-family:=
+ Calibri,sans-serif"><span style=3D"margin: 0px;padding: 0px;box-sizing: bo=
+rder-box;font-family: Calibri,sans-serif;color: black">Jamie Ong (Head of P=
+roperty Management) <span style=3D"margin: 0px;padding: 0px;box-sizing: bor=
+der-box;font-size: 13px;font-family: Arial,sans-serif"><a href=3D"mailto:ja=
+mie.ong@areal.com.au" style=3D"margin: 0px;padding: 0px;box-sizing: border-=
+box;text-decoration: underline;font-family: Arial,sans-serif;color: rgb(52,=
+142,218)" target=3D"_blank">jamie.ong@areal.com.au</a></span></span></stron=
+g></p><div style=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-fa=
+mily: &quot;Segoe UI&quot;,&quot;Segoe UI Web&quot;,Arial,Verdana,sans-seri=
+f"><br style=3D"margin: 0;padding: 0;box-sizing: border-box" /></div><div s=
+tyle=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-family: &quot;=
+Segoe UI&quot;,&quot;Segoe UI Web&quot;,Arial,Verdana,sans-serif"><span sty=
+le=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-size: 10px;font-=
+family: &quot;Segoe UI&quot;,&quot;Segoe UI Web&quot;,Arial,Verdana,sans-se=
+rif;color: black">DISCLAIMER &amp; WARNING. This correspondence and the inf=
+ormation contained in this and associated e-mails are confidential and were=
+ only intended for the exclusive use of the addressee(s). If you have recei=
+ved this e-mail in error, any use, copying or inference with this informati=
+on is unauthorized and prohibited and please immediately delete it and any =
+related attachments or emails from your system and its related sub system a=
+nd notify the sender. You must never copy, disclose, make conclusions and o=
+ther information in this message that do not relate to the business of the =
+Areal Property and shall be understood as neither given nor approved or agr=
+eed by it. Although Areal Property has taken reasonable precautions to ensu=
+re no viruses are present in this e-mail, Areal Property cannot accept resp=
+onsibility for any loss or damage arising from the use of this e-mail or at=
+tachments.</span></div></div></div></div></td><td align=3D"center" style=3D=
+"border: 1px solid #dddddd;padding: 0px;box-sizing: border-box;clear: both;=
+max-height: 50mm;margin: 0px;vertical-align: middle;font-family: Verdana,Ge=
+neva,sans-serif;font-size: 15px"><br style=3D"margin: 0;padding: 0;box-sizi=
+ng: border-box" /></td><td align=3D"right" style=3D"border: 1px solid #dddd=
+dd;padding: 0px;box-sizing: border-box;clear: both;max-height: 50mm;margin:=
+ 0px;vertical-align: middle;font-family: Verdana,Geneva,sans-serif;font-siz=
+e: 15px"><br style=3D"margin: 0;padding: 0;box-sizing: border-box" /></td><=
+/tr></tbody></table></div></td></tr></tbody></table><table style=3D"border:=
+ none;border-collapse: collapse;empty-cells: show;max-width: 100%;margin: 0=
+px;padding: 0px;box-sizing: border-box" width=3D"100%"><tbody style=3D"marg=
+in: 0px;padding: 0px;box-sizing: border-box"><tr style=3D"margin: 0px;paddi=
+ng: 0px;box-sizing: border-box"><td style=3D"border: 1px solid #dddddd;marg=
+in: 0px;padding: 0.5em 0px 0px;box-sizing: border-box;vertical-align: top;f=
+ont-size: 10px;text-align: center">Click to <a href=3D"https://link.email.p=
+ropertyme.com/ls/click?upn=3Du001.uPeXt1-2FWMMlLMhZtXudDrGuSD9FrtNyL-2FZcjE=
+3tyDn4-2BG-2FbgzYY1eFDKZyaV-2BI65SwRvImrC-2F3zy6VBWrVFFGY7sAJOTfZDoKkENKUS1=
+zgPyHn9zIjOOy6RlhJg7bNzci97KC8g-2BG3L-2Bxtzytcd6Jqh7RHSla-2BC8-2BIB1XBJrTpu=
+NJlAMnyYV-2BTNua9oWNu2McKXlqGqhEXn-2B48rKg8Rl7fIxXzOytkcfUvJWIs5wgeUh-2FaG6=
+SiX6ERKpry3qmiFBXgUMCMIZGkN-2FPx3i2FoigX3sPvj7cfClhs-2B8-2Fso9CU131Od7hQ0KO=
+zcrwr9k8oafiXeR0BuSoSkf-2FR89y63-2FgzOhWdJFFSgoz69WzUGsFyDPcCdAVSyG-2FzxHQf=
+vYqpD4CepzzsQrXR9uVab9VGlstB5SWZ4fouN45nrWH13jmdzB8lvXJhna8-2Fg6xCzSTNPlzD4=
+JH1-2B2U2M1eaXFvPbIrxGRJdqozSU1j9B-2BR-2FaoguVTmCS5UY-2BRMabe086FGGkTbBzSrN=
+mrV9hZXvOzJhwccSHhxd3MFDNGsxO32NtwpGlR5NHeCxHgCQA2HO2ON4nquwS6weOFDq72dJ7FD=
+lUkjAhu9A0M7YLNOxIw5V9c5v6l-2ByWaputebS8X5suv60vRaY4AMyz0SQpDgBJfK-2F4mIGjE=
+KF-2FfXLovblG0knYKIcXOVmAobLQids2i-2F4SEd0UroEKCmqBP6-2BORbEd3DA1d1-2FmTlYS=
+XiFuSAmYgIzMzsNJsYDNdjcHFsRmKudBV2KuHWuYHxjK21AoT0ZIrtyi8zw8aSCMt2QW-2BPtaf=
+v0HQX6aYrHpFlloI-2BderggpPC-2FzQuZ9A-2BJceDgWnTrgasZc40Q-3D-3DuPVl_ToOUkN9R=
+21HVu2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1qerBvoBvFoFL9NUYCOKVol0fE6HUJ=
+DslzWhvAkVJJb0rfXJB29pksjRxQli8sLcmLzaX0lZQFKEHBXFR5zviPBlUCHHl6MmxemvTIMxo=
+Uv5LWFOklajYDNso207kOn5WefT0Tpw5xWkr8equ1EwqG9PF7K5KWIQ7-2B-2BmB7vC433CSLUc=
+3CNV1ceSrbZhlRMVK87bHHZSnvsE1Pzg64CtaYfMF2XZnShFIuBwq4g8-2FSpWB9PdltQBq6-2B=
+qGvSM-3D" style=3D"margin: 0px;padding: 0.5em 0px 0px;box-sizing: border-bo=
+x;text-decoration: underline;font-size: 10px;text-align: center;color: rgb(=
+153,153,153)" target=3D"_blank">unsubscribe</a> from future email communica=
+tion</td></tr></tbody></table></div><img src=3D"https://link.email.property=
+me.com/wf/open?upn=3Du001.PpynGQtUGdQRBxEs0HMXYufOos6DZA9kNY1IxDqmC8vx6LQ8z=
+YisVSVbpzXlz9q2HhPkhannEw84UXoakpO853oRohMafWwDydZvxFa6kI1AU7ZqTHe4bk0LXhyL=
+0BFzDxLU5T-2BI8dqs6VsAaX-2BE2Q5LXZYFCF0AiNBnMYDnJD0do-2B4t7NcVF-2FObKy4UOFq=
+iFx3DLgvN5MJzcbl-2Fkk7Lv2tiVEHFOJ0n5JkAcL296ZRzQXg-2B4KEXvzSZSA4kxA1Df8iTYD=
+BcynGQ-2BanggSxaxHo-2Fo6flYxKMgVQn9gXFKqExRQsb8XTvEX4Cv-2FJEw94E" alt=3D"" =
+width=3D"1" height=3D"1" border=3D"0" style=3D"box-sizing: border-box;posit=
+ion: relative;max-width: 100%;height: 1px;width: 1px;border-width: 0px;marg=
+in: 0px;padding: 0px" /></div></blockquote></div></div></blockquote></div>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+
+                        <table class=3D"footer" width=3D"100%" style=3D"mar=
+gin: 0;box-sizing: border-box;width: 100%;clear: both;padding: 0 20px;backg=
+round: white;border-width: 0;border-spacing: 0">
+                            <tbody style=3D"margin: 0;padding: 0;box-sizing=
+: border-box"><tr style=3D"margin: 0;padding: 0;box-sizing: border-box">
+	<td class=3D"header-footer-block" align=3D"left" style=3D"padding: 0;box-s=
+izing: border-box;clear: both;max-height: 50mm;margin: 0;vertical-align: mi=
+ddle;font-family: Verdana, Geneva, sans-serif;font-size: 15px">
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_LEFT_IMAGE}}-->
+				<div style=3D"margin: 0;padding: 0;box-sizing: border-box;vertical-alig=
+n: middle;display: inline-block;word-wrap: break-word;max-width: 90%"><div =
+style=3D"box-sizing: border-box;margin: 0px;padding: 0px;user-select: text;=
+-webkit-user-drag: none;-webkit-tap-highlight-color: transparent;overflow: =
+visible;cursor: text;clear: both;position: relative;direction: ltr;color: r=
+gb(0, 0, 0);font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Ar=
+ial, Verdana, sans-serif;font-size: 12px;font-style: normal;font-variant-li=
+gatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: =
+normal;orphans: 2;text-align: start;text-indent: 0px;text-transform: none;w=
+hite-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0=
+px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;=
+text-decoration-style: initial;text-decoration-color: initial"><table borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin: 0;padding: 0;b=
+ox-sizing: border-box;width: 393.75pt;border-collapse: collapse" width=3D"3=
+93.75pt"><tbody style=3D"margin: 0;padding: 0;box-sizing: border-box"><tr s=
+tyle=3D"margin: 0;padding: 0;box-sizing: border-box" /></tbody></table><div=
+ style=3D"color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: no=
+rmal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orph=
+ans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;=
+word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness:=
+ initial;text-decoration-style: initial;text-decoration-color: initial;box-=
+sizing: border-box;margin: 0px;padding: 0px;user-select: text;-webkit-user-=
+drag: none;-webkit-tap-highlight-color: transparent;overflow: visible;curso=
+r: text;clear: both;position: relative;direction: ltr;font-family: &quot;Se=
+goe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif;font-siz=
+e: 12px;text-align: start;background-color: rgb(255, 255, 255)"><p style=3D=
+"margin-bottom: 2px;padding: 0px;box-sizing: border-box;font-weight: normal=
+;margin: 0cm;font-size: 15px;font-family: Calibri, sans-serif"><strong styl=
+e=3D"font-size: inherit;margin: 0px;padding: 0px;box-sizing: border-box"><s=
+pan style=3D"margin: 0px;padding: 0px;box-sizing: border-box;font-size: 14p=
+x;font-family: Arial, sans-serif;color: rgb(0, 176, 80);background: white">=
+If you have any feedback regarding my service, please feel free to contact =
+my manager.</span></strong></p><p style=3D"margin-bottom: 2px;padding: 0px;=
+box-sizing: border-box;font-weight: normal;margin: 0cm;font-size: 15px;font=
+-family: Calibri, sans-serif"><strong style=3D"font-size: inherit;margin: 0=
+px;padding: 0px;box-sizing: border-box"><span style=3D"margin: 0px;padding:=
+ 0px;box-sizing: border-box;color: black">Jamie Ong (Head of Property Manag=
+ement) <span style=3D"margin: 0;padding: 0;box-sizing: border-box;font-size=
+: 13px;font-family: &quot;Arial&quot;,sans-serif"><a href=3D"mailto:jamie.o=
+ng@areal.com.au" style=3D"margin: 0;padding: 0;box-sizing: border-box;color=
+: #348eda;text-decoration: underline">jamie.ong@areal.com.au</a></span></sp=
+an></strong></p><div style=3D"margin: 0;padding: 0;box-sizing: border-box">=
+<br style=3D"margin: 0;padding: 0;box-sizing: border-box" /></div><div styl=
+e=3D"margin: 0;padding: 0;box-sizing: border-box"><span style=3D"margin: 0p=
+x;padding: 0px;box-sizing: border-box;color: black;font-size: 10px">DISCLAI=
+MER &amp; WARNING. This correspondence and the information contained in thi=
+s and associated e-mails are confidential and were only intended for the ex=
+clusive use of the addressee(s). If you have received this e-mail in error,=
+ any use, copying or inference with this information is unauthorized and pr=
+ohibited and please immediately delete it and any related attachments or em=
+ails from your system and its related sub system and notify the sender. You=
+ must never copy, disclose, make conclusions and other information in this =
+message that do not relate to the business of the Areal Property and shall =
+be understood as neither given nor approved or agreed by it. Although Areal=
+ Property has taken reasonable precautions to ensure no viruses are present=
+ in this e-mail, Areal Property cannot accept responsibility for any loss o=
+r damage arising from the use of this e-mail or attachments.</span></div></=
+div></div></div>
+	</td>
+	<td class=3D"header-footer-block" align=3D"center" style=3D"padding: 0;box=
+-sizing: border-box;clear: both;max-height: 50mm;margin: 0;vertical-align: =
+middle;font-family: Verdana, Geneva, sans-serif;font-size: 15px">
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_CENTER_IMAGE}}-->
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_CENTER_TEXT}}-->
+	</td>
+	<td class=3D"header-footer-block" align=3D"right" style=3D"padding: 0;box-=
+sizing: border-box;clear: both;max-height: 50mm;margin: 0;vertical-align: m=
+iddle;font-family: Verdana, Geneva, sans-serif;font-size: 15px">
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_RIGHT_TEXT}}-->
+				<!--{{MESSAGE_EMAIL_HEADER_FOOTER_RIGHT_IMAGE}}-->
+	</td>
+</tr>
+                        </tbody></table>
+
+                       =20
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+
+
+        <table width=3D"100%" class=3D"unsubscribe" style=3D"margin: 0;padd=
+ing: 0;box-sizing: border-box">
+            <tbody style=3D"margin: 0;padding: 0;box-sizing: border-box"><t=
+r style=3D"margin: 0;padding: 0;box-sizing: border-box">
+                <td style=3D"margin: 0;padding: 0;box-sizing: border-box;ve=
+rtical-align: top;font-size: 10px;padding-top: 0.5em;text-align: center">
+                    Click to <a target=3D"_blank" href=3D"https://link.emai=
+l.propertyme.com/ls/click?upn=3Du001.uPeXt1-2FWMMlLMhZtXudDrEFf-2BcgHG6Mx-2=
+B3buLhWmkCTWoGNFQQhl6KE-2BlTjn7wyI-2BOLQyaEiDU4axnLMDYqU812tMmInYPqjh99WQ-2=
+BXd-2FSiI-2FQhYDRK5L5pMmTwvZP26BoQ1da65F6OUx4T9rzbBtXdg3bJORQzEIAUdItaWXp9o=
+Um4C-2FQo-2BxOJ57F5YkCKmCQNdkJoVFLsx-2B4HcAY7hd9hVeRd3mrX0vtArRPaCi5c-3DC2w=
+e_ToOUkN9R21HVu2xbS1rOni2pedl-2FRX-2Fk6LIraU3f-2FDIqT2r1qerBvoBvFoFL9NUYCOK=
+Vol0fE6HUJDslzWhvAkVJJb0rfXJB29pksjRxQli8sLcmLzaX0lZQFKEHBXFR5zviPBlUCHHl6M=
+mxemvTIMxoUv5LWFOklajYDNso207bpXHZ64ew7LV2RyAulaRmd3vy9XM0RqeJQwh32WC1o-2Be=
+6Nsml9td4OGI2jtXkscQXN5TWjzx1-2B2o8XcHUfeIpSK3YbbAxBJsLUc3nDb8rciR4XEbljl3y=
+1nF8JIF9VNc-3D" style=3D"margin: 0;padding: 0;box-sizing: border-box;text-d=
+ecoration: underline;color: #999;font-size: 10px;padding-top: 0.5em;text-al=
+ign: center">unsubscribe</a> from future email communication
+                </td>
+            </tr>
+        </tbody></table>
+
+    </div>
+
+
+<img src=3D"https://link.email.propertyme.com/wf/open?upn=3Du001.PpynGQtUGd=
+QRBxEs0HMXYufOos6DZA9kNY1IxDqmC8vx6LQ8zYisVSVbpzXlz9q2U1-2B-2FDflPmRDwziTlu=
+gs3xkzKMm4ubKsSt5S5-2F-2FtN40OPSwKWHAUNRsrJYTkT7duAa1Rtloxru3yi63HbCNbXsSp5=
+9bWx2jObB9xPj0lVE-2FeXQxFD5ZS5Dm9GTNZNrepzQzW1G3OnQcM5zPtvH7xtfvEV5LWoQ18-2=
+FRnFE3O8IkDNmgm-2FuacTifBoAoQjqaydt67i5kG-2Fzgj99ci-2FlarSFJsh1xkCF0j5NeFyM=
+xWOcoyI-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:=
+1px !important;width:1px !important;border-width:0 !important;margin-top:0 =
+!important;margin-bottom:0 !important;margin-right:0 !important;margin-left=
+:0 !important;padding-top:0 !important;padding-bottom:0 !important;padding-=
+right:0 !important;padding-left:0 !important;"/></body></html>
