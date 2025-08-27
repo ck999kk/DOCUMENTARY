@@ -1,4 +1,57 @@
-# AI USAGE GUIDE
+
+# QUICK START
+
+
+To analyze and cite evidence from this repository for government or legal submission:
+
+1. Read the README.md for case context and repository structure.
+2. Use OCR text files for analysis:
+	- Combined_Attachments/*.txt
+	- Additional_Documents/**/*.txt
+	- All_Case_Parties_EML/*.eml
+3. For every citation, reference the original evidence file (.pdf, .jpg, .png, .eml) using a permanent GitHub URL (commit-specific).
+4. Include the first 16 characters of the SHA256 hash from `VERIFICATION/integrity_manifest.sha256` for each cited file.
+5. Reference the chain of custody in `LEGAL_DOCUMENTATION/CHAIN_OF_CUSTODY.md`.
+6. Ensure all generated documents include:
+	- Case Reference: R202518214 and/or R202518589
+	- Repository Citation: <https://github.com/ck999kk/DOCUMENTARY>
+	- SHA256 Hash Verification
+	- Chain of Custody Reference
+
+
+## MANDATORY VERIFICATION STEPS
+
+1. Always verify the SHA256 hash for every cited evidence file. Use the hash from `VERIFICATION/integrity_manifest.sha256`.
+2. Use only permanent GitHub URLs (with commit hash) for citations, not branch URLs.
+3. Cross-reference the Evidence Index (`LEGAL_DOCUMENTATION/EVIDENCE_INDEX.md`) to ensure correct mapping between OCR and original files.
+4. Reference the chain of custody for every citation.
+
+
+## TROUBLESHOOTING & FAQ
+
+
+**Q: What if the SHA256 hash is missing for a file?**
+A: Update `VERIFICATION/integrity_manifest.sha256` to include the missing file and its hash.
+
+**Q: What if the citation format is incorrect?**
+A: Use the following format:
+
+```text
+Source: [Document Name]
+URL: <https://github.com/ck999kk/DOCUMENTARY/blob/[commit]/path/to/file.pdf>
+Hash: [First 16 characters of SHA256]
+Verified: [Date] per Chain of Custody
+```
+
+**Q: What if chain of custody is not referenced?**
+A: Add a reference to `LEGAL_DOCUMENTATION/CHAIN_OF_CUSTODY.md` in your document.
+
+**Q: How do I generate permanent GitHub URLs?**
+A: Use the commit hash in the URL, e.g., <https://github.com/ck999kk/DOCUMENTARY/blob/[commit]/path/to/file.pdf>
+
+**Q: Who to contact for support?**
+A: Contact the repository owner or refer to the README.md for support information.
+
 ## VCAT Evidence Repository - AI Platform Instructions
 
 **Repository:** https://github.com/ck999kk/DOCUMENTARY  
@@ -150,23 +203,25 @@ Legal Documents:
 - Combined_Attachments/Exhibit*.pdf  
 - Combined_Attachments/Notice*.pdf
 
-Financial Records:
+
+## QUICK START
 - Additional_Documents/Financial_Records/**/*.png (receipts)
-- Combined_Attachments/Receipt*.pdf
 
-Property Evidence:
-- Additional_Documents/Evidence/Access_Records/*.jpg
-- Combined_Attachments/IMG*.jpeg (property photos)
+To analyze and cite evidence from this repository for government or legal submission:
 
-Communications:
-- All_Case_Parties_EML/*.eml (all email correspondence)
-```
-
-### **Analysis Files (For Content Reading)**
-```
-Corresponding OCR Text Files:
-- All .pdf files have matching .txt files
-- All .jpg/.png files have matching .txt files  
+1. Read the README.md for case context and repository structure.
+2. Use OCR text files for analysis:
+	- Combined_Attachments/*.txt
+	- Additional_Documents/**/*.txt
+	- All_Case_Parties_EML/*.eml
+3. For every citation, reference the original evidence file (.pdf, .jpg, .png, .eml) using a permanent GitHub URL (commit-specific).
+4. Include the first 16 characters of the SHA256 hash from `VERIFICATION/integrity_manifest.sha256` for each cited file.
+5. Reference the chain of custody in `LEGAL_DOCUMENTATION/CHAIN_OF_CUSTODY.md`.
+6. Ensure all generated documents include:
+	- Case Reference: R202518214 and/or R202518589
+	- Repository Citation: <https://github.com/ck999kk/DOCUMENTARY>
+	- SHA256 Hash Verification
+	- Chain of Custody Reference
 - Email files (.eml) are self-contained text
 
 File Mapping Reference:

@@ -1,3 +1,26 @@
+# HOW TO USE THIS EVIDENCE INDEX
+
+This index provides a complete mapping between original evidence files and their OCR text versions, including SHA256 hashes for verification. Use this table to:
+
+1. Locate the OCR text file for any original evidence document.
+2. Find the SHA256 hash for citation and verification.
+3. Identify missing OCR files for manual review or reprocessing.
+4. Cross-reference file relationships for AI analysis and legal documentation.
+
+## Search Tips
+- Use your editor's search (Ctrl+F) to find filenames or keywords.
+- Look for the SHA256 hash in the third column for citation.
+- Files marked with ❌ Missing OCR require manual review.
+
+## Sample Citation Block
+```text
+Source: [Document Name]
+URL: <https://github.com/ck999kk/DOCUMENTARY/blob/[commit]/path/to/file.pdf>
+Hash: [First 16 characters of SHA256]
+Verified: [Date] per Chain of Custody
+```
+
+---
 # EVIDENCE INDEX AND FILE MAPPING
 ## VCAT Case Documentation - File Relationship Matrix
 

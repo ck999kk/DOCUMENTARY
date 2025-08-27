@@ -70,6 +70,38 @@ This repository contains sensitive legal evidence from active VCAT proceedings.
 
 ---
 
+## 🤖 HOW TO USE FOR AI/DOCUMENT GENERATION
+
+This repository is designed for government, legal, and AI-assisted document generation. Follow these steps for correct and efficient usage:
+
+### Key Links
+- Evidence Index: [`LEGAL_DOCUMENTATION/EVIDENCE_INDEX.md`](LEGAL_DOCUMENTATION/EVIDENCE_INDEX.md)
+- Chain of Custody: [`LEGAL_DOCUMENTATION/CHAIN_OF_CUSTODY.md`](LEGAL_DOCUMENTATION/CHAIN_OF_CUSTODY.md)
+- SHA256 Manifest: [`VERIFICATION/integrity_manifest.sha256`](VERIFICATION/integrity_manifest.sha256)
+
+### Workflow
+1. Use OCR text files (`*.txt`) for analysis and searching.
+2. For every citation, reference the original evidence file using a permanent GitHub URL (with commit hash).
+3. Include the first 16 characters of the SHA256 hash from the manifest for each cited file.
+4. Reference the chain of custody for every citation.
+5. Cross-check file relationships using the Evidence Index.
+
+### Example AI Prompt
+```
+"Analyze the water damage incident timeline using OCR text files, then provide citations to the original PDF evidence files. Each citation must include the permanent GitHub URL, the first 16 characters of the SHA256 hash, and a reference to the chain of custody."
+```
+
+### Citation Format Example
+```text
+Source: [Document Name]
+URL: <https://github.com/ck999kk/DOCUMENTARY/blob/[commit]/path/to/file.pdf>
+Hash: [First 16 characters of SHA256]
+Verified: [Date] per Chain of Custody
+```
+
+
+---
+
 ## 🤖 AI USAGE INSTRUCTIONS
 
 ### **For AI Analysis:**

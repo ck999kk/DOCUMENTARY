@@ -1,0 +1,33 @@
+name: Auto Merge if No Errors
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-and-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install markdownlint-cli
+        run: npm install -g markdownlint-cli
+      - name: Lint Markdown files
+        run: markdownlint '**/*.md' || exit 1
+      - name: Check for errors
+        run: |
+          if [ $? -ne 0 ]; then
+            echo "Lint errors found. Merge aborted."
+            exit 1
+          fi
+      - name: Auto-merge if no errors
+        if: ${{ success() }}
+        run: |
+          echo "No errors found. Ready to merge."
+          # You can add auto-merge logic here if using PRs
+          # For direct pushes to main, this is a safety check
