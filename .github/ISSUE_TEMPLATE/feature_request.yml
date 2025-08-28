@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest an enhancement for tools or documentation
+labels: [enhancement]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What problem are you solving?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the change and alternatives considered
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Affected paths (e.g., VERIFICATION/, LEGAL_DOCUMENTATION/, tools/verify)
+

@@ -11,6 +11,12 @@ Evidence management for legal and AI workflows.
 
 ---
 
+## 🤝 Contributing
+
+See `AGENTS.md` for contributor guidelines, coding style, and CI gates.
+
+---
+
 ## 📦 Quick Start
 
 - **For AI:** Use `.txt` OCR files for analysis.
@@ -32,10 +38,17 @@ Evidence management for legal and AI workflows.
 
 ## 🔒 Integrity Check
 
+Run from the repository root to verify against the manifest:
+
 ```bash
-cd VERIFICATION/
-sha256sum -c integrity_manifest.sha256
+# macOS/Linux
+shasum -a 256 -c VERIFICATION/integrity_manifest.sha256
 ```
+
+Notes:
+- The manifest intentionally excludes itself and volatile files (e.g., `.DS_Store`).
+- If files change, regenerate the manifest from repo root:
+  `find . -type f -not -name '.DS_Store' -not -path './.git/*' -not -path './.venv/*' -not -path './VERIFICATION/integrity_manifest.sha256' -print0 | xargs -0 shasum -a 256 > VERIFICATION/integrity_manifest.sha256`
 
 ---
 
@@ -57,6 +70,18 @@ Verified: [Date] per Chain of Custody
 - Always include SHA256 hash and chain of custody
 
 ---
+
+## 🤖 For AI Agents
+
+- Start here: `LEGAL_DOCUMENTATION/EVIDENCE_INDEX.md` (maps originals ↔ OCR text with SHA256).
+- Exhibits: `LEGAL_DOCUMENTATION/EXHIBITS_commit_pinned.md` and `.csv` (commit‑pinned URLs + hashes).
+- Chain of Custody: `LEGAL_DOCUMENTATION/CHAIN_OF_CUSTODY.md` (handling timeline and verification notes).
+- Integrity: `VERIFICATION/integrity_manifest.sha256` and quick check via `tools/verify.sh check`.
+- Citations: `LEGAL_DOCUMENTATION/CITATIONS.md` (ready‑to‑copy citation blocks).
+
+Notes for agents:
+- Do not alter originals; derivatives live alongside and are referenced in legal docs.
+- When new evidence is added, regenerate manifest with `tools/verify.sh update` and update Exhibits.
 
 ## 📋 Evidence Types
 

@@ -65,3 +65,10 @@ processing_logs/
 *DRAFT*
 *_draft.md
 *_temp.md
+ 
+# Development artifacts (tools only)
+tools/**/.venv/
+tools/**/__pycache__/
+tools/**/.pytest_cache/
+tools/**/*.egg-info/
+tools/**/*.dist-info/

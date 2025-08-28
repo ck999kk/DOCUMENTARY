@@ -1,0 +1,34 @@
+name: Bug report
+description: Report a problem or integrity failure
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the issue and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include commands (e.g., verify check output)
+      placeholder: |
+        1. Run verify check …
+        2. Open file …
+        3. See error …
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs/Output
+      render: shell
+      placeholder: |
+        $ verify check VERIFICATION/integrity_manifest.sha256 --root .
+        MISMATCH: … expected … got …
+  - type: input
+    id: affected-files
+    attributes:
+      label: Affected files
+      placeholder: path/to/file
+
