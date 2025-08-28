@@ -1,4 +1,12 @@
 # HOW TO USE THIS EVIDENCE INDEX
+Last Verified: 2025-08-28 14:30 AEST (Integrity OK: 0 failures)
+
+Verification Command: `shasum -a 256 -c VERIFICATION/integrity_manifest.sha256`
+
+Verification Notes:
+- Manifest excludes `.git/`, `.venv/`, `.DS_Store`, and the manifest itself.
+- Executed from repository root; all entries reported `OK`.
+- For new changes, regenerate via `tools/verify.sh update` then re-run check.
 
 This index provides a complete mapping between original evidence files and their OCR text versions, including SHA256 hashes for verification. Use this table to:
 

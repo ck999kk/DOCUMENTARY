@@ -338,7 +338,7 @@
 
 **☑️ 24 Hours Before Hearing**
 - [ ] Verify repository accessibility from tribunal location
-- [ ] Confirm hash integrity of all evidence files
+- [x] Confirm hash integrity of all evidence files (verified 2025-08-28; 0 failures)
 - [ ] Prepare custodian for authentication testimony
 - [ ] Test digital presentation equipment if required
 

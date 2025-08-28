@@ -61,7 +61,19 @@
 **To:** Git Repository Structure  
 **Date:** 2025-08-27  
 **Verification Method:** SHA256 hash verification  
-**Status:** In Progress
+**Status:** ✓ Complete
+
+**Update (2025-08-28):**
+- Regenerated `VERIFICATION/integrity_manifest.sha256` (excluding `.DS_Store`, self-manifest, `.git`, `.venv`).  
+- Verified integrity from repository root: `shasum -a 256 -c VERIFICATION/integrity_manifest.sha256` → 0 failures.  
+- Added OCR text for 3 DOCX attachments under `All_Case_Parties_HTML+ATTACH/messages/`.  
+- Documentation updated: README integrity-check instructions corrected.
+
+**Update (2025-08-28 14:30 AEST):**
+- Performed full integrity verification again after workspace review; all entries reported OK (0 failures).  
+- Confirmed `tools/verify.sh` operational; permissions fixed and verifier runnable from repo root.  
+- Confirmed `tools/verify/` Python package and tests present for reproducible verification.  
+- Ready for legal-grade citation: commit-pinned URLs + SHA256 per manifest.
 
 ---
 
@@ -91,9 +103,9 @@ This chain of custody documentation has been prepared in accordance with:
 **Certification:**
 I certify that the above information is accurate and complete to the best of my knowledge. All digital evidence has been handled in accordance with established procedures to maintain integrity and authenticity.
 
-**Digital Signature:** SHA256 hash of this document to be generated upon completion
-**Custodian:** Chawakorn Kamnuansil
-**Date:** 2025-08-27
+**Digital Signature:** SHA256 hash of this document to be generated upon completion  
+**Custodian:** Chawakorn Kamnuansil  
+**Date:** 2025-08-28 (latest verification)
 
 ---
 

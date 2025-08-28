@@ -1,4 +1,7 @@
 # Exhibits (commit-pinned)
+Updated: 2025-08-28 14:30 AEST
+
+Verification: `shasum -a 256 -c VERIFICATION/integrity_manifest.sha256` → Integrity OK (0 failures)
 
 **Repository:** https://github.com/ck999kk/DOCUMENTARY
 
