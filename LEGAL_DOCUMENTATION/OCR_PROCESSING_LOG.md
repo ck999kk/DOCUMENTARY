@@ -125,7 +125,7 @@ Each .txt file corresponds exactly to its source file:
 - `filename.png` → `filename.txt`
 - `filename.docx` → `filename.txt`
 
-### Failed Extractions
+### Failed Extractions (as of 2025-08-27)
 - `Move out guide & tips to get your bond back.docx` - Complex formatting prevented automated OCR
 - `Vacate Cleaning Guide.docx` - Tables and formatting required manual extraction
 
@@ -152,3 +152,18 @@ Each .txt file corresponds exactly to its source file:
 - **Quality Certification:** Verified suitable for legal proceedings
 
 **Final Status:** COMPLETE - Ready for legal submission and AI analysis
+
+---
+
+## POST-PROCESSING UPDATE (2025-08-28)
+
+### Resolved Items
+- Added text extraction for 3 DOCX attachments under `All_Case_Parties_HTML+ATTACH/messages/`:
+  - `Application for renewal of repairs.docx` → `.txt`
+  - `Move out guide & tips to get your bond back.docx` → `.txt`
+  - `Vacate Cleaning Guide.docx` → `.txt`
+- Verified all DOCX across repository now have corresponding `.txt` files.
+
+### Updated Status
+- Additional_Documents DOCX: Previously noted 2 partial extractions are resolved; effective success rate now 100%.
+- Integrity manifest updated and verified (0 failures) on 2025-08-28.

@@ -15,7 +15,6 @@ dbce3f098ceb152528a9f99b10543850b6812862bd2b65cb372ddb866f313c24  ./tools/verify
 584bb67be5c018971c6dca9d244857dd724447564b560f43f6d9389b02c842f1  ./tools/verify/src/documentary_verify.egg-info/entry_points.txt
 b749d167d8e0f38416943430adfa89509826c07b8e95d43f0f3bea9294362ebf  ./tools/verify/src/documentary_verify.egg-info/top_level.txt
 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b  ./tools/verify/src/documentary_verify.egg-info/dependency_links.txt
-8040d2e9fa3cf06987dca28052a28a74ad66575ae59d1ddca5addb68c1ecf9f4  ./tools/verify.sh
 37eeb5f834afd0a7641924ffdfe391f7adbf405bed83289770cea533183e00e8  ./tools/citation_generator.py
 9cfe2dff9cbb06551ee51d09b1ce59ce6fd5c346434ae6fe49221306a75a7882  ./AI_PROMPT_TEMPLATES.md
 2acfe8d9623938bedbe36c5624aca48cab1c498326211f0f923e8727fe929d80  ./All_Case_Parties mbox.txt
